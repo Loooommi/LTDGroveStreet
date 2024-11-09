@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTD Grove Street</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    </header>
+    <style>
+        /* Styles communs */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #f3f3f3;
+            background-image: url('https://i.goopics.net/ur86gu.png'); /* Image d'arrière-plan */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #000; /* Fond noir */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+        }
+        .active {
+            display: block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery-item {
+            width: calc(20% - 10px);
+            text-align: center;
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Nouveau style pour centrer le texte */
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Pour occuper 80% de la hauteur de la fenêtre */
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column; /* Ajout de cette ligne pour avoir le texte et la description empilés */
+        }
+
+        /* Style pour la description sous le texte */
+        .center-text p.description {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+    </style>
+    <script>
+        // Fonction pour afficher la section en fonction de l'onglet cliqué
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+        // Afficher par défaut la section Accueil au chargement de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection("home");
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="https://i.goopics.net/h0rha6.png" alt="Logo du site">
+            <h1>LTD Grove Street</h1>
+        </div>
+        <nav>
+            <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
+            <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
+            <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
+            <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
+            <a href="javascript:void(0)" onclick="showConnexion()">🔑 Connexion</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Section de Connexion -->
+        <section id="connexion-section" style="display: none;">
+            <div class="center-text">
+                <h2>🔑 Connexion</h2>
+                <form id="login-form" onsubmit="handleConnexion(event)">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required placeholder="Entrez votre nom d'utilisateur">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+                    <button type="submit">Se connecter</button>
+                </form>
+                <p id="error-message" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect</p>
+            </div>
+        </section>
+
+        <!-- Espace Employé -->
+        <section id="employe-section" style="display: none;">
+            <div class="center-text">
+                <h2>Bienvenue, <span id="employe-name"></span>!</h2>
+                <p>Ceci est un espace réservé aux employés.</p>
+
+                <!-- Navigation interne de l'espace employé -->
+                <div class="employe-nav">
+                    <button class="employe-nav-btn" onclick="showEmployeSection('formation')">📚 Formation</button>
+                    <button class="employe-nav-btn" onclick="showEmployeSection('comptabilite')">💰 Comptabilité</button>
+                </div>
+
+                <!-- Formation -->
+                <section id="formation" class="employe-section active">
+                    <h2>📚 Formation</h2>
+                    <p>Informations sur les formations disponibles pour les employés.</p>
+                </section>
+
+                <!-- Comptabilité -->
+                <section id="comptabilite" class="employe-section">
+                    <h2>💰 Comptabilité</h2>
+                    <form id="comptabilite-form">
+                        <label for="date">Date :</label>
+                        <input type="date" id="comptabilite-date" name="date" required>
+
+                        <label for="station">Stations :</label>
+                        <select id="comptabilite-station" name="station" required onchange="updateLieuComptabilite()">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <label for="lieu">Lieu :</label>
+                        <input type="text" id="comptabilite-lieu" name="lieu" required placeholder="Lieu" readonly>
+
+                        <label for="nb-bidons">Nombre de bidons versés :</label>
+                        <input type="number" id="comptabilite-nb-bidons" name="nb-bidons" required placeholder="Entrez le nombre de bidons" min="1">
+
+                        <button type="submit">Soumettre</button>
+                    </form>
+                </section>
+            </div>
+        </section>
+
+
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://i.goopics.net/ur86gu.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Design de l'espace employé */
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column;
+        }
+        .employe-nav {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .employe-nav-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .employe-nav-btn:hover {
+            background-color: #45a049;
+        }
+        .employe-section {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none; /* par défaut, toutes les sections sont cachées */
+        }
+        .active {
+            display: block;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <script>
+        // Fonction pour afficher la section de connexion
+        function showConnexion() {
+            document.getElementById("connexion-section").style.display = "block";
+            document.querySelectorAll("section").forEach(section => {
+                if (section.id !== "connexion-section" && section.id !== "employe-section") {
+                    section.style.display = "none";
+                }
+            });
+        }
+
+        // Fonction pour afficher les différentes sections
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Fonction pour afficher les sections de l'espace employé
+        function showEmployeSection(sectionId) {
+            // Masque toutes les sections employé avant d'afficher la sélectionnée
+            document.querySelectorAll(".employe-section").forEach(section => {
+                section.classList.remove("active");
+                section.classList.add("inactive");
+            });
+
+            // Affiche la section cliquée
+            document.getElementById(sectionId).classList.add("active");
+            document.getElementById(sectionId).classList.remove("inactive");
+        }
+
+        // Fonction pour gérer la connexion
+        function handleConnexion(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simuler la connexion
+            if (username === 'employe' && password === '1234') {
+                document.getElementById('employe-name').textContent = username;
+                document.getElementById('connexion-section').style.display = 'none';
+                document.getElementById('employe-section').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';  // Cacher le message d'erreur
+            } else {
+                document.getElementById('error-message').style.display = 'block'; // Afficher le message d'erreur
+            }
+        }
+    </script>
+
+    <style>
+        /* Styles communs */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #f3f3f3;
+            background-image: url('https://i.goopics.net/ur86gu.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: #4CAF50;
+        }
+        section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #000;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+        }
+        .active {
+            display: block;
+        }
+        .inactive {
+            display: none;
+        }
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column;
+        }
+        .center-text p.description {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <script>
+        // Fonction pour afficher la section en fonction de l'onglet cliqué
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+        // Fonction pour afficher la section de connexion
+        function showConnexion() {
+            document.getElementById("connexion-section").style.display = "block";
+            document.querySelectorAll("section").forEach(section => {
+                if (section.id !== "connexion-section") {
+                    section.classList.remove("active");
+                }
+            });
+        }
+
+        // Fonction pour gérer la connexion
+        document.getElementById("login-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "password") {
+                // Connexion réussie, afficher l'espace employé
+                document.getElementById("connexion-section").style.display = "none";
+                document.getElementById("employe-section").style.display = "block";
+                document.getElementById("employe-name").textContent = username;
+            } else {
+                alert("Identifiants incorrects.");
+            }
+        });
+
+        // Fonction pour afficher la section de comptabilité ou formation
+        function showEmployeSection(section) {
+            document.querySelectorAll("#employe-section > section").forEach(sec => {
+                sec.classList.remove("active");
+                sec.classList.add("inactive");
+            });
+            document.getElementById(section).classList.add("active");
+        }
+
+        // Fonction pour mettre à jour le champ "Lieu" en fonction de la station sélectionnée
+        function updateLieuComptabilite() {
+            var station = document.getElementById("comptabilite-station").value;
+            var lieu = '';
+
+            switch(station) {
+                case '1':
+                    lieu = 'Grove Street';
+                    break;
+                case '2':
+                    lieu = 'Innocence Blvd';
+                    break;
+                case '3':
+                    lieu = 'Strawberry Av';
+                    break;
+                case '4':
+                    lieu = 'Davis Av';
+                    break;
+                case '5':
+                    lieu = 'Vespucci Blvd';
+                    break;
+                case '6':
+                    lieu = 'ElRancho Blvd';
+                    break;
+                default:
+                    lieu = '';
+            }
+
+            document.getElementById("comptabilite-lieu").value = lieu;
+        }
+    </script>
+
+    <style>
+        /* Styles communs */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #f3f3f3;
+            background-image: url('https://i.goopics.net/ur86gu.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: #4CAF50;
+        }
+        section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #000;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+        }
+        .active {
+            display: block;
+        }
+        .inactive {
+            display: none;
+        }
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column;
+        }
+        .center-text p.description {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <script>
+        // Fonction pour afficher la section en fonction de l'onglet cliqué dans l'espace employé
+        function showEmployeSection(sectionId) {
+            document.querySelectorAll("#employe-section > section").forEach(section => {
+                section.classList.remove("active");
+                section.classList.add("inactive");
+            });
+            document.getElementById(sectionId).classList.remove("inactive");
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+        // Fonction pour afficher la section de connexion
+        function showConnexion() {
+            document.getElementById("connexion-section").style.display = "block";
+            document.querySelectorAll("section").forEach(section => {
+                if (section.id !== "connexion-section") {
+                    section.classList.remove("active");
+                }
+            });
+        }
+
+        // Fonction pour gérer la connexion
+        document.getElementById("login-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "employe" && password === "password123") {
+                document.getElementById("connexion-section").style.display = "none";
+                document.getElementById("employe-section").style.display = "block";
+                document.getElementById("employe-name").textContent = username;
+            } else {
+                alert("Identifiants incorrects.");
+            }
+        });
+
+        // Fonction pour mettre à jour le champ "Lieu" en fonction de la station sélectionnée
+        function updateLieuComptabilite() {
+            var station = document.getElementById("comptabilite-station").value;
+            var lieu = '';
+
+            switch(station) {
+                case '1':
+                    lieu = 'Grove Street';
+                    break;
+                case '2':
+                    lieu = 'Innocence Blvd';
+                    break;
+                case '3':
+                    lieu = 'Strawberry Av';
+                    break;
+                case '4':
+                    lieu = 'Davis Av';
+                    break;
+                case '5':
+                    lieu = 'Vespucci Blvd';
+                    break;
+                case '6':
+                    lieu = 'ElRancho Blvd';
+                    break;
+                default:
+                    lieu = '';
+            }
+
+            document.getElementById("comptabilite-lieu").value = lieu;
+        }
+    </script>
+
+
+    <main>
+        <!-- Section Accueil -->
+        <section id="home" class="active">
+            <div class="center-text">
+                <p>Bienvenue sur la carte LTD Grove Street !</p>
+                <p class="description">Bienvenue sur le site du LTD Grove Street, vous pouvez y retrouver notre carte citoyens ainsi que notre carte entreprise et même passer des commandes !</p>
+            </div>
+        </section>
+
+        <!-- Section Citoyens -->
+        <section id="citizens">
+            <h2>🧑‍🤝‍🧑 Citoyens</h2>
+            <div class="gallery">
+                <!-- 32 images dans la galerie Citoyens -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                    <p>Citoyen 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                    <p>Citoyen 2</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 3">
+                    <p>Citoyen 3</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 4">
+                    <p>Citoyen 4</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 5">
+                    <p>Citoyen 5</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 6">
+                    <p>Citoyen 6</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 7">
+                    <p>Citoyen 7</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 8">
+                    <p>Citoyen 8</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 9">
+                    <p>Citoyen 9</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 10">
+                    <p>Citoyen 10</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 11">
+                    <p>Citoyen 11</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 12">
+                    <p>Citoyen 12</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 13">
+                    <p>Citoyen 13</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 14">
+                    <p>Citoyen 14</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 15">
+                    <p>Citoyen 15</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 16">
+                    <p>Citoyen 16</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 17">
+                    <p>Citoyen 17</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 18">
+                    <p>Citoyen 18</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 19">
+                    <p>Citoyen 19</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 20">
+                    <p>Citoyen 20</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 21">
+                    <p>Citoyen 21</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 22">
+                    <p>Citoyen 22</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 23">
+                    <p>Citoyen 23</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 24">
+                    <p>Citoyen 24</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 25">
+                    <p>Citoyen 25</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 26">
+                    <p>Citoyen 26</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 27">
+                    <p>Citoyen 27</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 28">
+                    <p>Citoyen 28</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 29">
+                    <p>Citoyen 29</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 30">
+                    <p>Citoyen 30</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 31">
+                    <p>Citoyen 31</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image citoyen 32">
+                    <p>Citoyen 32</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Entreprises -->
+        <section id="entreprises">
+            <h2>🏢 Entreprises</h2>
+            <div class="gallery">
+                <!-- 32 images dans la galerie Entreprises -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 1">
+                    <p>Entreprise 1</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 2">
+                    <p>Entreprise 2</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 3">
+                    <p>Entreprise 3</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 4">
+                    <p>Entreprise 4</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 5">
+                    <p>Entreprise 5</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 6">
+                    <p>Entreprise 6</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 7">
+                    <p>Entreprise 7</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 8">
+                    <p>Entreprise 8</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 9">
+                    <p>Entreprise 9</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 10">
+                    <p>Entreprise 10</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 11">
+                    <p>Entreprise 11</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 12">
+                    <p>Entreprise 12</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 13">
+                    <p>Entreprise 13</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 14">
+                    <p>Entreprise 14</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 15">
+                    <p>Entreprise 15</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 16">
+                    <p>Entreprise 16</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 17">
+                    <p>Entreprise 17</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 18">
+                    <p>Entreprise 18</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 19">
+                    <p>Entreprise 19</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 20">
+                    <p>Entreprise 20</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 21">
+                    <p>Entreprise 21</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 22">
+                    <p>Entreprise 22</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 23">
+                    <p>Entreprise 23</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 24">
+                    <p>Entreprise 24</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 25">
+                    <p>Entreprise 25</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 26">
+                    <p>Entreprise 26</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 27">
+                    <p>Entreprise 27</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 28">
+                    <p>Entreprise 28</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 29">
+                    <p>Entreprise 29</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 30">
+                    <p>Entreprise 30</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 31">
+                    <p>Entreprise 31</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/200" alt="Image entreprise 32">
+                    <p>Entreprise 32</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="commande">
+            <h2>📝 Passer une commande</h2>
+            <div class="form-container">
+                <form id="commande-form" action="#" method="post">
+                    <label for="nom">Nom</label>
+                    <!-- Champ de texte pour le nom personnalisable -->
+                    <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
+        
+                    <label for="produit1">Produit</label>
+                    <select id="produit1" name="produit[]" required>
+                        <option value="produit1">Produit 1</option>
+                        <option value="produit2">Produit 2</option>
+                        <option value="produit3">Produit 3</option>
+                    </select>
+        
+                    <label for="quantite1">Quantité</label>
+                    <input type="number" id="quantite1" name="quantite[]" min="1" required>
+        
+                    <!-- Section pour ajouter un article supplémentaire -->
+                    <div id="articles-container">
+                        <!-- Les articles supplémentaires seront ajoutés ici -->
+                    </div>
+        
+                    <button type="button" id="ajouter-article">Ajouter un article</button>
+        
+                    <!-- Date de livraison -->
+                    <label for="date-livraison">Date de livraison</label>
+                    <input type="date" id="date-livraison" name="date-livraison" required>
+        
+                    <!-- Tranche horaire de livraison (uniquement personnalisée) -->
+                    <label for="tranche-livraison">Plage horaire de livraison</label>
+                    <select id="tranche-livraison" name="tranche-livraison" required>
+                        <option value="personnalisee">Plage horaire personnalisée</option>
+                    </select>
+        
+                    <!-- Champ pour saisir une tranche horaire personnalisée -->
+                    <div id="tranche-personnalisee-container">
+                        <label for="tranche-personnalisee">Votre tranche horaire :</label>
+                        <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
+                    </div>
+        
+                    <button type="submit">Passer la commande</button>
+                </form>
+            </div>
+        </section>
+        
+        <style>
+            /* Style pour le formulaire */
+            #commande {
+                padding: 20px;
+                color: #fff;
+            }
+        
+            #commande h2 {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+        
+            .form-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.8);
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+        
+            label {
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+            }
+        
+            input, select {
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background-color: #333;
+                color: #fff;
+            }
+        
+            input:focus, select:focus {
+                outline: none;
+                border-color: #f3f3f3;
+            }
+        
+            button {
+                padding: 12px;
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                font-size: 1.1rem;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+        
+            button:hover {
+                background-color: #45a049;
+            }
+        
+            #ajouter-article {
+                background-color: #007BFF;
+            }
+        
+            #ajouter-article:hover {
+                background-color: #0056b3;
+            }
+        
+            .article {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+        
+            #tranche-personnalisee-container {
+                display: block;
+            }
+        </style>
+        
+        <script>
+            // Le champ pour la plage horaire personnalisée est toujours visible et requis
+            document.getElementById('tranche-livraison').addEventListener('change', function() {
+                // Comme seule l'option personnalisée est proposée, aucun changement n'est nécessaire ici.
+            });
+        
+            // Fonction pour ajouter un nouvel article
+            document.getElementById('ajouter-article').addEventListener('click', function() {
+                var container = document.getElementById('articles-container');
+        
+                // Créer un conteneur pour le nouvel article
+                var newArticle = document.createElement('div');
+                newArticle.classList.add('article');
+        
+                // Champ de produit
+                var produitLabel = document.createElement('label');
+                produitLabel.textContent = 'Produit';
+                var produitSelect = document.createElement('select');
+                produitSelect.name = 'produit[]';
+                var option1 = document.createElement('option');
+                option1.value = 'produit1';
+                option1.textContent = 'Produit 1';
+                var option2 = document.createElement('option');
+                option2.value = 'produit2';
+                option2.textContent = 'Produit 2';
+                var option3 = document.createElement('option');
+                option3.value = 'produit3';
+                option3.textContent = 'Produit 3';
+                produitSelect.append(option1, option2, option3);
+                newArticle.appendChild(produitLabel);
+                newArticle.appendChild(produitSelect);
+        
+                // Champ de quantité
+                var quantiteLabel = document.createElement('label');
+                quantiteLabel.textContent = 'Quantité';
+                var quantiteInput = document.createElement('input');
+                quantiteInput.type = 'number';
+                quantiteInput.name = 'quantite[]';
+                quantiteInput.min = 1;
+                newArticle.appendChild(quantiteLabel);
+                newArticle.appendChild(quantiteInput);
+        
+                // Ajouter le nouvel article au conteneur
+                container.appendChild(newArticle);
+            });
+        
+            // Envoi du formulaire via Webhook Discord
+            document.getElementById('commande-form').addEventListener('submit', function(event) {
+                event.preventDefault();  // Empêche la soumission classique du formulaire
+        
+                // Collecte des données du formulaire
+                var formData = new FormData(event.target);
+                var commandeData = {
+                    nom: formData.get('nom'),
+                    produits: [],
+                    date_livraison: formData.get('date-livraison'),
+                    tranche_livraison: formData.get('tranche-personnalisee'),
+                };
+        
+                // Collecte des articles
+                var produits = formData.getAll('produit[]');
+                var quantites = formData.getAll('quantite[]');
+                for (var i = 0; i < produits.length; i++) {
+                    commandeData.produits.push({
+                        produit: produits[i],
+                        quantite: quantites[i]
+                    });
+                }
+        
+                // Préparer le message pour Discord
+                var message = `**Commande reçue**\n\n`;
+                message += `**Nom :** ${commandeData.nom}\n`;
+                message += `**Date de livraison :** ${commandeData.date_livraison}\n`;
+                message += `**Plage horaire de livraison :** ${commandeData.tranche_livraison}\n`;
+                message += `**Articles :**\n`;
+        
+                commandeData.produits.forEach(function(article) {
+                    message += `- ${article.produit} (Quantité: ${article.quantite})\n`;
+                });
+        
+                // URL du webhook Discord
+                var webhookURL = "https://discord.com/api/webhooks/1304798173146910720/Vjg6iRWo1rkzXR65bq8FLm_mPiAvYFVqsSTbLoa9AN4eoKfEipnQb5MTZjONhrvswwjn";  // Remplacez avec l'URL de votre webhook
+        
+                // Envoi au Webhook Discord
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content: message
+                    })
+                })
+                .then(response => {
+                    // Si tout va bien, afficher une alerte de succès
+                    alert('Votre commande a été envoyée avec succès!');
+                })
+                .catch(error => {
+                    // Aucun message d'erreur n'est maintenant affiché ici
+                    console.error('Erreur lors de l\'envoi à Discord', error);
+                });
+            });
+        </script>
+        

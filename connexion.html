@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - LTD Grove Street</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="https://i.goopics.net/h0rha6.png" alt="Logo du site">
+            <h1>LTD Grove Street</h1>
+        </div>
+        <nav>
+            <a href="index.html">Retour à l'accueil</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="connexion">
+            <div class="center-text">
+                <h2>🔑 Connexion</h2>
+                <form action="#" method="post">
+
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+
+                    <button type="submit">Se connecter</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 LTD Grove Street</p>
+    </footer>
+
+    <style>
+        /* Style spécifique pour la page de connexion */
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column;
+        }
+        .center-text form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .center-text input {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .center-text button {
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .center-text button:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+<!-- Juste avant la fermeture de </body> -->
+<script>
+    // Fonction de connexion
+    function handleLogin(event) {
+        event.preventDefault();
+
+        // On récupère les valeurs des champs de connexion
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Validation simple (par exemple, nom d'utilisateur et mot de passe ne sont pas vides)
+        if (username === "" || password === "") {
+            // Afficher un message d'erreur si les champs sont vides
+            document.getElementById("login-error").textContent = "Tous les champs doivent être remplis.";
+            document.getElementById("login-error").style.display = "block";
+        } else {
+            // Simuler la vérification de la connexion
+            if (username === "admin" && password === "password") {
+                // Connexion réussie
+                document.getElementById("login-error").style.display = "none"; // Masquer l'erreur
+                document.getElementById("connexion-section").style.display = "none"; // Masquer la section de connexion
+                document.getElementById("employee-section").style.display = "block"; // Afficher l'espace employé
+            } else {
+                // Connexion échouée, afficher l'erreur
+                document.getElementById("login-error").textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+                document.getElementById("login-error").style.display = "block";
+            }
+        }
+    }
+
+    // Lier la fonction de gestion de la connexion au formulaire
+    document.getElementById("login-form").addEventListener("submit", handleLogin);
+</script>
+
+</body>
+</html>
