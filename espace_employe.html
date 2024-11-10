@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Employé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="employe-section">
+        <h2>Bienvenue, <span id="employe-name"></span>!</h2>
+        <p>Ceci est un espace réservé aux employés.</p>
+
+        <!-- Navigation interne -->
+        <div class="employe-nav">
+            <button class="employe-nav-btn" onclick="showEmployeSection('formation')">📚 Formation</button>
+            <button class="employe-nav-btn" onclick="showEmployeSection('comptabilite')">💰 Comptabilité</button>
+        </div>
+
+        <!-- Autres sections -->
+        <section id="formation" class="employe-section" style="display: none;">
+            <h3>Formations disponibles</h3>
+            <p>Liste des formations à venir...</p>
+        </section>
+
+        <section id="comptabilite" class="employe-section" style="display: none;">
+            <h3>Comptabilité</h3>
+            <p>Gestion des heures de travail et des paiements...</p>
+        </section>
+
+        <script src="script.js"></script>
+    </section>
+</body>
+</html>
