@@ -207,4 +207,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialiser la première section à afficher
     showEmployeSection('accueil'); // Par défaut, afficher la section d'accueil
 });
-
