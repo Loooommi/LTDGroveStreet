@@ -11,15 +11,16 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #f3f3f3;
-            background-image: url('https://i.goopics.net/ur86gu.png'); /* Image d'arrière-plan */
+            background-color: #000000;
+            color: #ffffff;
+            background-image: url('https://i.goopics.net/cxr8y4.jpg'); /* Image d'arrière-plan */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
+        
         header, footer {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #0000008a;
             color: #fff;
             padding: 1rem;
             text-align: center;
@@ -48,9 +49,9 @@
             display: none;
             margin: 20px;
             padding: 20px;
-            background-color: #000; /* Fond noir */
+            background-color: #00000000; /* Fond noir */
             border-radius: 5px;
-            box-shadow: 0 4px 8px rgb(0, 0, 0);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
         }
         .active {
             display: block;
@@ -64,7 +65,7 @@
         .gallery-item {
             width: calc(20% - 10px);
             text-align: center;
-            background-color: #000000;
+            background-color: #ebbe6b5d;
             color: #ffffff;
             border-radius: 5px;
             box-shadow: 0 4px 8px rgb(0, 0, 0);
@@ -79,7 +80,7 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: #00000000; /* Fond noir */
             color: #fff;
             position: fixed;
             width: 100%;
@@ -105,107 +106,57 @@
             margin-top: 10px;
             max-width: 600px;
         }
-    </style>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #111;
-                color: #fff;
-                background-image: url('https://i.goopics.net/ur86gu.png');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-            }
-    
-            header {
-                background-color: rgba(0, 0, 0, 0.8);
-                color: #fff;
-                padding: 1rem;
-                text-align: center;
-            }
-    
-            .header-title {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-            }
-    
-            nav a {
-                margin: 0 15px;
-                color: #fff;
-                text-decoration: none;
-                cursor: pointer;
-            }
-    
-            nav a:hover {
-                color: #4CAF50;
-            }
-    
-            main {
-                padding: 20px;
-                margin-top: 20px;
-            }
-    
-            section {
-                display: none;
-                padding: 20px;
-                background-color: rgba(0, 0, 0, 0.7);
-                border-radius: 5px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-            }
-    
-            .active {
-                display: block;
-            }
-    
-            .page-title {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-    
-            .citizen-nav {
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-                margin-bottom: 20px;
-            }
-    
-            .citizen-nav button {
-                background-color: #333;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-    
-            .citizen-nav button:hover {
-                background-color: #4CAF50;
-            }
-    
-            .content-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-    
-            .content-container p {
-                font-size: 1.2rem;
-                text-align: center;
-            }
-    
-            .content-container img {
-                width: 300px;
-                height: 200px;
-                object-fit: cover;
-                border-radius: 5px;
-                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-                margin: 10px 0;
-            }
-        </style>
+
+/* Agrandir la taille du carré dynamique */
+.highlight-box {
+    text-align: center;
+    margin: 10px auto;  /* Augmenter la marge pour plus d'espace autour */
+    padding: 20px;  /* Augmenter l'espace interne du carré */
+    width: 100%;  /* Largeur augmentée à 80% de la fenêtre */
+    max-width: 1500px;  /* Largeur maximale de 700px */
+    font-size: 1.5rem;  /* Agrandir la taille du texte */
+    color: #faad55c2;
+    border: 3px solid #4CAF50; /* Bordure verte plus épaisse */
+    border-radius: 15px; /* Coins arrondis plus prononcés */
+    background-color: rgba(76, 175, 80, 0.1); /* Fond léger */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Ombre plus large */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dynamisme au survol */
+.highlight-box:hover {
+    transform: scale(1.1);  /* Augmenter l'agrandissement au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Style spécifique pour le titre "Nouveautés de la semaine" */
+.highlight-title {
+    font-size: 2rem;  /* Taille de police encore plus grande */
+    font-weight: bold;
+    color: #faad55c2;  /* Vert foncé */
+    margin-bottom: 20px;  /* Espacement plus grand sous le titre */
+}
+
+/* Style pour l'image dans le carré dynamique */
+.highlight-image {
+    max-width: 20%;  /* Image prend toute la largeur disponible */
+    height: auto;
+    border-radius: 10px; /* Coins arrondis pour l'image */
+    margin-bottom: 20px;  /* Espacement sous l'image */
+}
+/* Cacher les sections par défaut */
+section {
+    display: none;
+}
+
+/* Afficher la section active */
+section.active {
+    display: block;
+}
+
+
+
+</style>
 
         
     <script>
@@ -226,7 +177,7 @@
 <body>
     <header>
         <div class="header-title">
-            <img src="https://i.goopics.net/h0rha6.png" alt="Logo du site">
+            <img src="https://i.goopics.net/9osr8m.gif" alt="Logo du site">
             <h1>LTD Grove Street</h1>
         </div>
         <nav>
@@ -234,7 +185,7 @@
             <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
             <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
             <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
-            <a href="javascript:void(0)" onclick="showConnexion()">🔑 Connexion</a>
+            <a href="connexion.html">🔑 Connexion</a>
         </nav>
     </header>
    
@@ -243,100 +194,23 @@
             <div class="center-text">
                 <p>Bienvenue sur le site du LTD Grove Street !</p>
                 <p class="description">Vous pouvez y retrouver : notre carte citoyens ainsi que notre carte entreprise et même passer des commandes !</p>
-            </div>
+                  <!-- Nouveautés -->
+                  <div class="highlight-box">
+                    <p class="highlight-title"><strong>Nouveautés de la semaine ✨</strong></p>
+                    <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveauté image" class="highlight-image">
+                    <p>Nous proposons désormais des réductions pour les entreprises affiliées.</p>
+                    <p>Découvrez nos services VIP disponibles dès maintenant.</p>
+                </div>
+                               
         </section>
     
         <main>
-            <!-- Section Accueil -->
-            <section id="home" class="active">
-                <div class="center-text">
-                    <p>Bienvenue sur la carte LTD Grove Street !</p>
-                    <p class="description">Bienvenue sur le site du LTD Grove Street, vous pouvez y retrouver notre carte citoyens ainsi que notre carte entreprise et même passer des commandes !</p>
-                </div>
-            </section>
+          
+
     
             <!-- Section Citoyens -->
             <section id="citizens">
                 <h2>🧑‍🤝‍🧑 Citoyens</h2>
-        <!-- Navigation interne de la section Citoyens -->
-        <div class="citizen-nav">
-            <button onclick="showCitizenPage('page1')">📜 Infos Générales</button>
-            <button onclick="showCitizenPage('page2')">📸 Galerie d'images</button>
-            <button onclick="showCitizenPage('page3')">🗺️ Carte Interactive</button>
-        </div>
-
-        <!-- Page 1 : Informations Générales -->
-        <div id="page1" class="content-container">
-            <p>Voici des informations utiles concernant notre ville et les services pour les citoyens.</p>
-            <p>Des ressources, des événements locaux, des informations sur la sécurité et plus encore.</p>
-            <img src="https://via.placeholder.com/300x200?text=Image+Info+1" alt="Info Image 1">
-            <img src="https://via.placeholder.com/300x200?text=Image+Info+2" alt="Info Image 2">
-        </div>
-
-        <!-- Page 2 : Galerie d'images -->
-        <div id="page2" class="content-container">
-            <h3>📸 Galerie d'images</h3>
-            <p>Voici quelques images de notre ville et des événements qui se passent ici.</p>
-            <img src="https://via.placeholder.com/300x200?text=Image+1" alt="Image 1">
-            <img src="https://via.placeholder.com/300x200?text=Image+2" alt="Image 2">
-            <img src="https://via.placeholder.com/300x200?text=Image+3" alt="Image 3">
-            <img src="https://via.placeholder.com/300x200?text=Image+4" alt="Image 4">
-            <img src="https://via.placeholder.com/300x200?text=Image+5" alt="Image 5">
-            <img src="https://via.placeholder.com/300x200?text=Image+6" alt="Image 6">
-            <img src="https://via.placeholder.com/300x200?text=Image+7" alt="Image 7">
-            <img src="https://via.placeholder.com/300x200?text=Image+8" alt="Image 8">
-            <img src="https://via.placeholder.com/300x200?text=Image+9" alt="Image 9">
-            <img src="https://via.placeholder.com/300x200?text=Image+10" alt="Image 10">
-            <img src="https://via.placeholder.com/300x200?text=Image+11" alt="Image 11">
-            <img src="https://via.placeholder.com/300x200?text=Image+12" alt="Image 12">
-            <img src="https://via.placeholder.com/300x200?text=Image+13" alt="Image 13">
-            <img src="https://via.placeholder.com/300x200?text=Image+14" alt="Image 14">
-            <img src="https://via.placeholder.com/300x200?text=Image+15" alt="Image 15">
-        </div>
-
-        <!-- Page 3 : Carte Interactive -->
-        <div id="page3" class="content-container">
-            <h3>🗺️ Carte Interactive</h3>
-            <p>Explorez la carte interactive de la ville pour découvrir les différents lieux, événements et points d'intérêt.</p>
-            <!-- Intégration d'une carte ici (par exemple une Google Map) -->
-            <div style="width: 100%; height: 400px; background-color: #333; margin-top: 20px;">
-                <!-- Exemple de carte (remplacer par une vraie carte interactive) -->
-                <p style="color: white; text-align: center; padding-top: 150px;">Carte en chargement...</p>
-            </div>
-        </div>
-    </section>
-</main>
-
-<script>
-    // Gestion des galeries et pagination
-    let currentPage = 1;
-    const totalPages = 3;
-
-    function showGallery(galleryId) {
-        document.querySelectorAll(".gallery").forEach(gallery => {
-            gallery.classList.remove("active");
-        });
-        document.getElementById(galleryId).classList.add("active");
-    }
-
-    function changePage(direction) {
-        currentPage += direction;
-
-        if (currentPage < 1) currentPage = 1;
-        if (currentPage > totalPages) currentPage = totalPages;
-
-        document.getElementById("prevPage").classList.toggle("disabled", currentPage === 1);
-        document.getElementById("nextPage").classList.toggle("disabled", currentPage === totalPages);
-
-        showGallery('gallery' + currentPage);
-    }
-</script>
-
-</body>
-</html>
-            <!-- Section Entreprises -->
-            <section id="entreprises">
-                <h2>🏢 Entreprises</h2>
                 <div class="gallery">
                     <!-- 32 images dans la galerie Entreprises -->
                     <div class="gallery-item">
@@ -468,7 +342,197 @@
                         <p>Entreprise 32</p>
                     </div>
                 </div>
-            </section>
+    </section>
+</main>
+
+
+            <!-- Section Entreprises -->
+<section id="entreprises">
+    <h2>🏢 Entreprises</h2>
+    
+    <!-- Bouton de connexion -->
+    <button id="login-btn">🔒 Connexion à la section Entreprise</button>
+
+    <!-- Formulaire de connexion masqué par défaut -->
+    <div id="login-form-container" style="display: none;">
+        <h3>Connexion pour accéder à la section entreprise</h3>
+        <form id="login-form">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" required><br>
+
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" required><br>
+
+            <button type="submit">Se connecter</button>
+        </form>
+        <div id="login-error-message" style="display:none; color:red;">Nom d'utilisateur ou mot de passe incorrect.</div>
+    </div>
+
+    <!-- Section entreprises après la connexion -->
+    <div id="enterprise-content" style="display:none;">
+        <div class="gallery">
+            <!-- 32 images dans la galerie Entreprises -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 1">
+                <p>Entreprise 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 2">
+                <p>Entreprise 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 3">
+                <p>Entreprise 3</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 4">
+                <p>Entreprise 4</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 5">
+                <p>Entreprise 5</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 6">
+                <p>Entreprise 6</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 7">
+                <p>Entreprise 7</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 8">
+                <p>Entreprise 8</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 9">
+                <p>Entreprise 9</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 10">
+                <p>Entreprise 10</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 11">
+                <p>Entreprise 11</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 12">
+                <p>Entreprise 12</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 13">
+                <p>Entreprise 13</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 14">
+                <p>Entreprise 14</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 15">
+                <p>Entreprise 15</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 16">
+                <p>Entreprise 16</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 17">
+                <p>Entreprise 17</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 18">
+                <p>Entreprise 18</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 19">
+                <p>Entreprise 19</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 20">
+                <p>Entreprise 20</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 21">
+                <p>Entreprise 21</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 22">
+                <p>Entreprise 22</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 23">
+                <p>Entreprise 23</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 24">
+                <p>Entreprise 24</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 25">
+                <p>Entreprise 25</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 26">
+                <p>Entreprise 26</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 27">
+                <p>Entreprise 27</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 28">
+                <p>Entreprise 28</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 29">
+                <p>Entreprise 29</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 30">
+                <p>Entreprise 30</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 31">
+                <p>Entreprise 31</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image entreprise 32">
+                <p>Entreprise 32</p>
+            </div>
+        </div>
+    </section>
+
+<script>
+    // Afficher le formulaire de connexion lorsque l'utilisateur clique sur le bouton
+    document.getElementById('login-btn').addEventListener('click', function() {
+        document.getElementById('login-form-container').style.display = 'block';
+        document.getElementById('login-btn').style.display = 'none'; // Masquer le bouton de connexion après le clic
+    });
+
+    // Gestion de la soumission du formulaire de connexion
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la soumission par défaut
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Identifiants pour la connexion (exemple statique)
+        const validUsername = 'entreprise';  // Remplacez par les identifiants réels ou ajoutez une base de données
+        const validPassword = '1234';  // Remplacez par le mot de passe réel
+
+        // Vérification des identifiants
+        if (username === validUsername && password === validPassword) {
+            // Connexion réussie, afficher la section entreprise
+            document.getElementById('enterprise-content').style.display = 'block';
+            document.getElementById('login-form-container').style.display = 'none'; // Masquer le formulaire
+        } else {
+            // Afficher un message d'erreur si les identifiants sont incorrects
+            document.getElementById('login-error-message').style.display = 'block';
+        }
+    });
+</script>
+
             
             <section id="commande">
                 <h2>📝 Passer une commande</h2>
@@ -507,15 +571,7 @@
             
                         <!-- Tranche horaire de livraison (uniquement personnalisée) -->
                         <label for="tranche-livraison">Plage horaire de livraison</label>
-                        <select id="tranche-livraison" name="tranche-livraison" required>
-                            <option value="personnalisee">Plage horaire personnalisée</option>
-                        </select>
-            
-                        <!-- Champ pour saisir une tranche horaire personnalisée -->
-                        <div id="tranche-personnalisee-container">
-                            <label for="tranche-personnalisee">Votre tranche horaire :</label>
                             <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
-                        </div>
             
                         <button type="submit">Passer la commande</button>
                     </form>
@@ -606,6 +662,7 @@
                 #tranche-personnalisee-container {
                     display: block;
                 }
+                
             </style>
             
             <script>
@@ -696,10 +753,10 @@
                         message += `- ${article.produit} x ${article.quantite}\n`;
                     });
                     // URL du webhook Discord
-                    var webhookURL = "https://discord.com/api/webhooks/1302691211517104239/tH8Ixb5QouiSOv0s0igkEIGgbnETvoUkeKTmjDX6v_8x0eeg0W9l6QMGmLIuiMR2C04p";  // Remplacez avec l'URL de votre webhook
+                    var webhookURL = "https://discord.com/api/webhooks/1307768302193348609/lgsEyCXuF8AW81DfvwOVH6f19jd2TlXGfwFQZJfVeoo-RnVzvLcDIBvEQXJ8PjJJs0Qn";  // Remplacez avec l'URL de votre webhook
             
                     // Envoi au Webhook Discord
-                    fetch(webhookURL, {
+                    fetch(webhookURL, { 
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -722,60 +779,7 @@
     <main>
         
         <style>
-            /* Styles généraux */
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #000;
-                color: #f3f3f3;
-                background-image: url('https://i.goopics.net/ur86gu.png');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-            }
-            header, footer {
-                background-color: rgba(0, 0, 0, 0.8);
-                color: #fff;
-                padding: 1rem;
-                text-align: center;
-            }
-            .header-title {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-            }
-            nav a {
-                margin: 0 15px;
-                color: #f3f3f3;
-                text-decoration: none;
-                cursor: pointer;
-            }
-            nav a:hover {
-                color: #4CAF50;
-            }
-            section {
-                display: none;
-                margin: 20px;
-                padding: 20px;
-                background-color: #000;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px rgb(0, 0, 0);
-            }
-            .active {
-                display: block;
-            }
-            .center-text {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 80vh;
-                text-align: center;
-                font-size: 2rem;
-                font-weight: bold;
-                flex-direction: column;
-            }
+
 /* Style spécifique pour la section Formation */
 #formation {
     padding: 20px; /* Espacement interne pour ne pas toucher les bords */
@@ -858,135 +862,22 @@
         <section id="login-section">
             <h2>Connexion Employé</h2>
             <form id="login-form">
-                <label for="login-username">Nom d'utilisateur :</label>
-                <input type="text" id="login-username" required><br>
-    
-                <label for="login-password">Mot de passe :</label>
-                <input type="password" id="login-password" required><br>
-    
-                <button type="button" onclick="login()">Se connecter</button>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required placeholder="Entrez votre nom d'utilisateur">
+                
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+                
+                <button type="submit">Se connecter</button>
             </form>
-            <div id="login-message" style="display: none;">Connexion réussie !</div>
-            <div id="login-error" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect.</div>
+            <div id="error-message" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect</div>
+            
         </section>
     
         <script src="login.js"></script>
     </body>
     
-    
-        <!-- Section Employé -->
-        <section id="employe-section">
-            <div class="center-text">
-                <h2>Bienvenue, <span id="employe-name"></span>!</h2>
-                <div class="employe-nav">
-                    <button onclick="showEmployeSection('formation')">📚 Formation</button>
-                    <button onclick="showEmployeSection('comptabilite')">💰 Comptabilité</button>
-                    <button onclick="showEmployeSection('recapitulatif')">📄 Récapitulatif</button>
-                </div>
-                
-                <!DOCTYPE html>
-                <html lang="fr">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Gestion des employés</title>
-                    <script src="script.js"></script> <!-- Inclure le fichier JavaScript -->
-                </head>
-                <body>
-                <!-- Bouton pour afficher la section de gestion des employés -->
-                <button class="employe-nav-btn" onclick="showEmployeSection('gestion-employes')">👥 Gestion des employés</button>
 
-                
-                            <!-- Gestion des employés -->
-                <section id="gestion-employes" class="employe-section" style="display: none;">
-                    <h2>Gestion des employés</h2>
-                    <form id="employee-form">
-                        <label for="new-employee-name">Nom :</label>
-                        <input type="text" id="new-employee-name" required><br>
-
-                        <label for="new-employee-username">Nom d'utilisateur :</label>
-                        <input type="text" id="new-employee-username" required><br>
-
-                        <label for="new-employee-role">Rôle :</label>
-                        <select id="new-employee-role">
-                            <option value="Employé">Employé</option>
-                            <option value="Patron">Patron</option>
-                            <option value="Co-patron">Co-patron</option>
-                        </select><br>
-
-                        <label for="new-employee-password">Mot de passe :</label>
-                        <input type="password" id="new-employee-password" required><br>
-
-                        <button type="button" onclick="addEmployee()">Ajouter l'employé</button>
-                    </form>
-
-                    <div id="add-message" style="display:none;">L'employé a été ajouté avec succès !</div>
-
-                    <h3>Liste des employés :</h3>
-                    <div id="employee-list"></div>
-                </section>
-
-                <!-- Inclure le fichier JS -->
-                <script src="script.js"></script>
-
-                </body>
-                </html>
-                
-                    
-                <!-- Section Formation -->
-                <section id="formation" class="employe-section" style="display: none;">
-                    <h2>📚 Formation</h2>
-                    <p class="bienvenue">Bienvenue dans la section formation !</p>
-                    
-                    <!-- Conteneur pour l'iframe -->
-                    <div class="iframe-container">
-                        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRV9i5vS7qvhffGLLeDgogyFHPh2BLgPYvHpIj3qyLfSMb7IiDtil24PyXXiG4I60grDibNSFZh6Jbd/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-                    </div>
-                </section>
-
-    
-                <!-- Comptabilité Section -->
-                <section id="comptabilite" class="employe-section" style="display: none;">
-                    <h2>💰 Comptabilité</h2>
-                    <form onsubmit="saveComptabiliteForm(event)">
-                        <label for="date">Date :</label>
-                        <input type="date" id="comptabilite-date" name="date" required>
-                        <label for="station">Stations :</label>
-                        <select id="comptabilite-station" name="station" required onchange="updateLieuComptabilite()">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                        <label for="lieu">Lieu :</label>
-                        <input type="text" id="comptabilite-lieu" name="lieu" required readonly>
-                        <label for="nb-bidons">Nombre de bidons versés :</label>
-                        <input type="number" id="comptabilite-nb-bidons" name="nb-bidons" required min="1">
-                        <button type="submit">Soumettre</button>
-                    </form>
-                </section>
-    
-                <!-- Récapitulatif Section -->
-                <section id="recapitulatif" class="employe-section" style="display: none;">
-                    <h2>📄 Récapitulatif</h2>
-                    <table id="recap-table" border="1" style="width:100%; margin-top: 20px;">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Station</th>
-                                <th>Lieu</th>
-                                <th>Nombre de Bidons</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Historique des entrées de comptabilité -->
-                        </tbody>
-                    </table>
-                </section>
-            </div>
-        </section>
     </main>
     
     <script>

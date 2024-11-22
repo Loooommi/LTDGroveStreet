@@ -29,3 +29,36 @@ function login() {
         document.getElementById('login-message').style.display = 'none';
     }
 }
+document.getElementById('login-form').addEventListener('submit', handleLogin);
+
+function handleLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Exemple de comptes pré-enregistrés
+    const accounts = [
+        { username: 'patron1', password: 'admin123', role: 'Patron' },
+        { username: 'patron2', password: 'admin456', role: 'Patron' },
+        { username: 'employe1', password: 'password1', role: 'Employé' },
+        { username: 'employe2', password: 'password2', role: 'Employé' },
+    ];
+
+    // Trouver l'utilisateur correspondant
+    const user = accounts.find(
+        (account) => account.username === username && account.password === password
+    );
+
+    if (user) {
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        if (user.role === 'Patron') {
+            window.location.href = 'gestion_employes.html'; // Redirection pour les patrons
+        } else {
+            window.location.href = 'espace_employe.html'; // Redirection pour les employés
+        }
+    } else {
+        document.getElementById('error-message').style.display = 'block';
+    }
+}
+

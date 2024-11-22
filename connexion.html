@@ -4,80 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - LTD Grove Street</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="header-title">
-            <img src="https://i.goopics.net/h0rha6.png" alt="Logo du site">
-            <h1>LTD Grove Street</h1>
-        </div>
-        <nav>
-            <a href="index.html">Retour à l'accueil</a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="connexion">
-            <div class="center-text">
-                <h2>🔑 Connexion</h2>
-                <form action="#" method="post">
-
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
-
-                    <button type="submit">Se connecter</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2024 LTD Grove Street</p>
-    </footer>
-
     <style>
-        /* Style spécifique pour la page de connexion */
-        .center-text {
+        /* Corps de la page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            flex-direction: column;
+            height: 100vh;
+            background-color: #1c1c1c;
+            background-image: url('https://i.goopics.net/cxr8y4.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #f3f3f3;
         }
-        .center-text form {
+
+        /* Conteneur principal */
+        .connexion-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Titre */
+        .connexion-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        /* Formulaire */
+        .connexion-container form {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 300px;
-            width: 100%;
-            margin: 0 auto;
         }
-        .center-text input {
+
+        .connexion-container label {
+            font-size: 1rem;
+            color: #ddd;
+        }
+
+        .connexion-container input {
             padding: 10px;
             font-size: 1rem;
-            border: 1px solid #ddd;
             border-radius: 5px;
+            border: 1px solid #ccc;
             background-color: #333;
             color: #fff;
+            transition: border-color 0.3s ease;
         }
-        .center-text button {
+
+        .connexion-container input:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Bouton */
+        .connexion-container button {
             padding: 12px;
+            font-size: 1rem;
+            color: #fff;
             background-color: #4CAF50;
             border: none;
-            color: white;
-            font-size: 1.1rem;
-            cursor: pointer;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .center-text button:hover {
+
+        .connexion-container button:hover {
             background-color: #45a049;
         }
+
+        /* Message d'erreur */
+        .connexion-container .error-message {
+            display: none;
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: -10px;
+        }
+
+        /* Lien de retour */
+        .connexion-container a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .connexion-container a:hover {
+            text-decoration: underline;
+        }
     </style>
+</head>
+<body>
+    <div class="connexion-container">
+        <h2>🔑 Connexion</h2>
+        <form id="login-form">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+            
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
+            
+            <button type="submit">Se connecter</button>
+            <p id="error-message" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect</p>
+        </form>
+        
+        <a href="index.html">Retour à l'accueil</a>
+    </div>
+
+    <script>
+        // Simulation de la fonction de connexion (à adapter selon votre logique)
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Exemple de vérification basique
+            if (username === "patron" && password === "1234") {
+                alert("Connexion réussie en tant que Patron");
+                window.location.href = "espace_employe.html";
+            } else if (username === "employe" && password === "5678") {
+                alert("Connexion réussie en tant qu'Employé");
+                window.location.href = "espace_employe.html";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        });
+        const webhookUrl = "https://discord.com/api/webhooks/1307719688993902643/9Hh1JmEYk2vJhMQAbSHeLnNHXPR8UHcPRvnqiKDC-GxpnceTuE2yPkv6J8AR_ubVuR8E"; // Remplacez par votre URL webhook
+
+function sendLoginNotification(user) {
+    const message = {
+        content: `🔐 **Connexion réussie**`,
+        embeds: [
+            {
+                title: "Détails de la connexion",
+                color: 15844367, // Couleur orange
+                fields: [
+                    { name: "Nom d'utilisateur", value: user.username, inline: true },
+                    { name: "Rôle", value: user.role, inline: true },
+                ],
+                footer: {
+                    text: "Connexion enregistrée via LTD Grove Street",
+                },
+            },
+        ],
+    };
+
+    fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(message),
+    })
+        .then((response) => {
+            if (response.ok) {
+                console.log("Notification de connexion envoyée à Discord.");
+            } else {
+                console.error("Erreur lors de l'envoi de la notification :", response.statusText);
+            }
+        })
+        .catch((error) => console.error("Erreur :", error));
+}
+
+// Appelez cette fonction après une connexion réussie :
+if (user) {
+    sendLoginNotification(user); // Envoie la notification
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    window.location.href = "espace_employe.html"; // Redirection
+}
+
+    </script>
+</body>
+</html>
+
 
 <!-- Juste avant la fermeture de </body> -->
 <script>
@@ -112,6 +223,9 @@
     // Lier la fonction de gestion de la connexion au formulaire
     document.getElementById("login-form").addEventListener("submit", handleLogin);
 </script>
+
+<script src="webhook.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

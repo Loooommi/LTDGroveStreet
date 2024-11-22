@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Employés</title>
+</head>
+<body>
+    <h2>Gestion des Employés</h2>
+    <form id="employee-form">
+        <label for="employee-name">Nom :</label>
+        <input type="text" id="employee-name" required>
+        
+        <label for="employee-username">Nom d'utilisateur :</label>
+        <input type="text" id="employee-username" required>
+        
+        <label for="employee-password">Mot de passe :</label>
+        <input type="password" id="employee-password" required>
+        
+        <label for="employee-role">Rôle :</label>
+        <select id="employee-role" required>
+            <option value="Employé">Employé</option>
+            <option value="Patron">Patron</option>
+            <option value="Co-patron">Co-patron</option>
+        </select>
+        
+        <button type="button" onclick="addEmployee()">Ajouter</button>
+    </form>
+    
+    <h3>Liste des employés :</h3>
+    <div id="employee-list"></div>
+
+    <script>
+        const employees = JSON.parse(localStorage.getItem("employees")) || [];
+        const listContainer = document.getElementById("employee-list");
+
+        // Afficher la liste des employés
+        employees.forEach(emp => {
+            const div = document.createElement("div");
+            div.textContent = `${emp.name} - ${emp.role}`;
+            listContainer.appendChild(div);
+        });
+    </script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
