@@ -229,6 +229,66 @@ section.active {
                 <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
                 <p>Citoyen 2</p>
             </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
         </div>
     </div>
 
@@ -271,7 +331,7 @@ section.active {
     }
 
     .category-nav button {
-        background-color: #000000;
+        background-color: #0000008a;
         color: #fff;
         border: 1px solid #ebbe6b5d;
         padding: 10px 20px;
@@ -529,50 +589,214 @@ section.active {
 </script>
 
             
-            <section id="commande">
-                <h2>📝 Passer une commande</h2>
-                <div class="form-container">
-                    <form id="commande-form" action="#" method="post">
-                        <label for="nom">Nom</label>
-                        <!-- Champ de texte pour le nom personnalisable -->
-                        <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
-            
-                        <label for="produit1">Produit</label>
-                        <select id="produit1" name="produit[]" required>
-                            <option value="produit1">Produit 1</option>
-                            <option value="produit2">Produit 2</option>
-                            <option value="produit3">Produit 3</option>
-                        </select>
-            
-                        <label for="quantite1">Quantité</label>
-                        <input type="number" id="quantite1" name="quantite[]" min="1" required>
-            
-                        <!-- Section pour ajouter un article supplémentaire -->
-                        <div id="articles-container">
-                            <!-- Les articles supplémentaires seront ajoutés ici -->
-                        </div>
-            
-                        <button type="button" id="ajouter-article">Ajouter un article</button>
+<section id="commande">
+    <h2>📝 Passer une commande</h2>
+    <div class="form-container">
+        <form id="commande-form" action="#" method="post">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
 
-                        <label for="mode_retrait">Mode de retrait :</label>
-                        <select id="mode_retrait" name="mode_retrait" required>
-                            <option value="Livraison">Livraison</option>
-                            <option value="Click&Collect">Click&Collect</option>
-                        </select>                        
-            
-                        <!-- Date de livraison -->
-                        <label for="date-livraison">Date de livraison</label>
-                        <input type="date" id="date-livraison" name="date-livraison" required>
-            
-                        <!-- Tranche horaire de livraison (uniquement personnalisée) -->
-                        <label for="tranche-livraison">Plage horaire de livraison</label>
-                            <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
-            
-                        <button type="submit">Passer la commande</button>
-                    </form>
-                </div>
-            </section>
-            
+            <label for="contact">Contact</label>
+            <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro de téléphone">
+
+            <label for="produit1">Produit</label>
+            <select id="produit1" name="produit[]" class="produit" required>
+                <option value="" disabled selected>Sélectionnez un article</option>
+                <option value="Appât grande qualité" data-price="10">Appât grande qualité - 10$</option>
+                <option value="Balle de basket" data-price="45">Balle de basket - 45$</option>
+                <option value="Balle de football" data-price="45">Balle de football - 45$</option>
+                <option value="Batterie" data-price="9">Batterie - 9$</option>
+                <option value="Batterie de voiture" data-price="18">Batterie de voiture - 18$</option>
+                <option value="Bobine de cuivre" data-price="3">Bobine de cuivre - 3$</option>
+                <option value="Bouteille d'eau" data-price="8">Bouteille d'eau - 8$</option>
+            </select>
+
+            <label for="quantite1">Quantité</label>
+            <input type="number" id="quantite1" name="quantite[]" min="1" required>
+
+            <!-- Section pour ajouter un article supplémentaire -->
+            <div id="articles-container"></div>
+
+            <button type="button" id="ajouter-article">Ajouter un article</button>
+
+            <label for="mode_retrait">Mode de retrait :</label>
+            <select id="mode_retrait" name="mode_retrait" required>
+                <option value="En magasin">En magasin</option>
+                <option value="Livraison - Indisponible">Livraison - Indisponible</option>
+            </select>
+
+            <label for="date-livraison">Date de retrait</label>
+            <input type="date" id="date-livraison" name="date-livraison" required>
+
+            <label for="tranche-livraison">Plage horaire de retrait</label>
+            <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
+
+            <!-- Total -->
+            <label for="total">Total</label>
+            <input type="text" id="total" name="total" readonly value="0$">
+
+            <button type="submit">Passer la commande</button>
+        </form>
+    </div>
+</section>
+
+<script>
+// Calcul du total dynamique
+function calculateTotal() {
+    let total = 0;
+
+    const produits = document.querySelectorAll('.produit');
+    const quantites = document.querySelectorAll('.quantite');
+
+    produits.forEach((produit, index) => {
+        const price = parseFloat(produit.options[produit.selectedIndex].dataset.price || 0);
+        const quantity = parseInt(quantites[index].value || 0);
+        total += price * quantity;
+    });
+
+    document.getElementById('total').value = `${total}$`;
+}
+
+// Ajouter des événements pour recalculer le total
+document.getElementById('commande-form').addEventListener('change', calculateTotal);
+document.getElementById('commande-form').addEventListener('input', calculateTotal);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const ajouterArticleBtn = document.getElementById("ajouter-article");
+    const articlesContainer = document.getElementById("articles-container");
+    let articleCount = 1; // Compteur pour les articles ajoutés
+
+    // Ajouter un article à la liste
+    ajouterArticleBtn.addEventListener("click", () => {
+        articleCount++; // Incrémenter le compteur d'articles
+
+        // Créer un conteneur pour le nouvel article
+        const articleDiv = document.createElement("div");
+        articleDiv.classList.add("article");
+
+        // Créer le label et le select pour le produit
+        const produitLabel = document.createElement("label");
+        produitLabel.textContent = `Produit ${articleCount}`;
+        produitLabel.setAttribute("for", `produit${articleCount}`);
+
+        const produitSelect = document.createElement("select");
+        produitSelect.id = `produit${articleCount}`;
+        produitSelect.name = "produit[]";
+        produitSelect.classList.add("produit");
+
+        // Ajouter l'option "Sélectionnez un article"
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.textContent = "Sélectionnez un article";
+        produitSelect.appendChild(defaultOption);
+
+        // Ajouter les options disponibles pour les produits
+        const options = [
+            { value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
+            { value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
+            { value: "Balle de football", price: 45, text: "Balle de football - 45$" },
+            { value: "Batterie", price: 9, text: "Batterie - 9$" },
+            { value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
+            { value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
+            { value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
+        ];
+
+        options.forEach(option => {
+            const optionElement = document.createElement("option");
+            optionElement.value = option.value;
+            optionElement.dataset.price = option.price;
+            optionElement.textContent = option.text;
+            produitSelect.appendChild(optionElement);
+        });
+
+        // Créer le label et l'input pour la quantité
+        const quantiteLabel = document.createElement("label");
+        quantiteLabel.textContent = "Quantité";
+        quantiteLabel.setAttribute("for", `quantite${articleCount}`);
+
+        const quantiteInput = document.createElement("input");
+        quantiteInput.type = "number";
+        quantiteInput.id = `quantite${articleCount}`;
+        quantiteInput.name = "quantite[]";
+        quantiteInput.min = 1;
+        quantiteInput.required = true;
+
+        // Ajouter un bouton de suppression pour cet article
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.classList.add("remove-article");
+        removeBtn.textContent = "❌";
+        removeBtn.title = "Supprimer cet article";
+
+        removeBtn.addEventListener("click", () => {
+            articleDiv.remove();
+            renumeroterArticles(); // Réorganiser les numéros des produits après suppression
+            updateTotal(); // Mettre à jour le total après suppression
+        });
+
+        // Ajouter les éléments au conteneur de l'article
+        articleDiv.appendChild(produitLabel);
+        articleDiv.appendChild(produitSelect);
+        articleDiv.appendChild(quantiteLabel);
+        articleDiv.appendChild(quantiteInput);
+        articleDiv.appendChild(removeBtn);
+
+        // Ajouter l'article au conteneur
+        articlesContainer.appendChild(articleDiv);
+
+        // Mettre à jour le total après ajout de l'article
+        updateTotal();
+
+        // Ajouter des écouteurs pour recalculer le total après modification du produit ou de la quantité
+        produitSelect.addEventListener('change', updateTotal);
+        quantiteInput.addEventListener('input', updateTotal); // Mise à jour immédiate du total lorsque la quantité change
+    });
+
+    // Réorganiser les numéros des produits après suppression
+    function renumeroterArticles() {
+        const articles = articlesContainer.querySelectorAll(".article");
+        articleCount = 1; // Réinitialiser le compteur
+        articles.forEach((article, index) => {
+            articleCount = index + 2; // Re-numérote à partir de "Produit 2"
+            const produitLabel = article.querySelector("label[for^='produit']");
+            const produitSelect = article.querySelector("select");
+            const quantiteInput = article.querySelector("input");
+
+            produitLabel.textContent = `Produit ${articleCount}`;
+            produitSelect.id = `produit${articleCount}`;
+            quantiteInput.id = `quantite${articleCount}`;
+        });
+    }
+
+    // Mettre à jour le total
+    function updateTotal() {
+        let total = 0;
+
+        // Calcul du total en fonction des produits et des quantités
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+
+        produits.forEach((produit, index) => {
+            const price = parseFloat(produit.selectedOptions[0].dataset.price || 0);
+            const quantity = parseInt(quantites[index].value || 0);
+            total += price * quantity;
+        });
+
+        // Affichage du total dans le champ de texte
+        document.getElementById("total").value = `${total}$`;
+    }
+
+    // Ajouter un écouteur d'événements sur les produits et quantités existants pour mettre à jour le total directement
+    const initialProducts = document.querySelectorAll('.produit');
+    const initialQuantities = document.querySelectorAll('.quantite');
+
+    initialProducts.forEach(product => product.addEventListener('change', updateTotal));
+    initialQuantities.forEach(quantity => quantity.addEventListener('input', updateTotal));
+});
+</script>
+
             <style>
                 /* Style pour le formulaire */
                 #commande {
@@ -674,23 +898,7 @@ section.active {
                     var newArticle = document.createElement('div');
                     newArticle.classList.add('article');
             
-                    // Champ de produit
-                    var produitLabel = document.createElement('label');
-                    produitLabel.textContent = 'Produit';
-                    var produitSelect = document.createElement('select');
-                    produitSelect.name = 'produit[]';
-                    var option1 = document.createElement('option');
-                    option1.value = 'produit1';
-                    option1.textContent = 'Produit 1';
-                    var option2 = document.createElement('option');
-                    option2.value = 'produit2';
-                    option2.textContent = 'Produit 2';
-                    var option3 = document.createElement('option');
-                    option3.value = 'produit3';
-                    option3.textContent = 'Produit 3';
-                    produitSelect.append(option1, option2, option3);
-                    newArticle.appendChild(produitLabel);
-                    newArticle.appendChild(produitSelect);
+
             
                     // Champ de quantité
                     var quantiteLabel = document.createElement('label');
@@ -769,10 +977,143 @@ section.active {
                         console.error('Erreur lors de l\'envoi à Discord', error);
                     });
                 });
-            </script>
+                document.getElementById('ajouter-article').addEventListener('click', function() {
+    const container = document.getElementById('articles-container');
+    const index = container.children.length + 1;
 
-    <main>
-        
+    const newArticle = document.createElement('div');
+    newArticle.classList.add('article');
+    newArticle.innerHTML = `
+
+        <label for="quantite${index}">Quantité</label>
+        <input type="number" id="quantite${index}" name="quantite[]" min="1" class="quantite" required>
+    `;
+    container.appendChild(newArticle);
+});
+
+</script>
+
+
+
+<style>
+    /* Style pour le formulaire */
+    #commande {
+        padding: 20px;
+        color: #fff;
+    }
+
+    #commande h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+
+    input, select {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: #f3f3f3;
+    }
+
+    button {
+        padding: 12px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #45a04900;
+    }
+
+    #ajouter-article {
+        background-color: #007BFF;
+    }
+
+    #ajouter-article:hover {
+        background-color: #0056b3;
+    }
+
+    .article {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    #tranche-personnalisee-container {
+        display: block;
+    }
+    
+
+/* Style pour le bouton de suppression (croix) */
+.remove-article {
+    background-color: #ff4d4d00; /* Fond rouge clair pour le bouton de suppression */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-article:hover {
+    background-color: #e6000000; /* Rouge vif au survol */
+}
+
+/* Style du bouton de suppression à l'état normal */
+.remove-article {
+    padding: 0; /* Pas de padding pour rendre le bouton circulaire et centré */
+    font-weight: bold;
+    margin-left: 375px;
+    margin-top: 5px; /* Pour ajuster la position */
+    position: relative;
+    top: -3px; /* Ajuster la position verticale de la croix */
+}
+
+</style>
+
+    <main>      
         <style>
 
 /* Style spécifique pour la section Formation */
