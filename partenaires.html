@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <style>
+        /* Styles communs */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            background-image: url('https://i.goopics.net/cxr8y4.jpg'); /* Image d'arrière-plan */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        header, footer {
+            background-color: #0000008a;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #00000000; /* Fond noir */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+        }
+        .active {
+            display: block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery-item {
+            width: calc(20% - 10px);
+            text-align: center;
+            background-color: #ebbe6b5d;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00000000; /* Fond noir */
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Nouveau style pour centrer le texte */
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Pour occuper 80% de la hauteur de la fenêtre */
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column; /* Ajout de cette ligne pour avoir le texte et la description empilés */
+        }
+
+        /* Style pour la description sous le texte */
+        .center-text p.description {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+
+/* Agrandir la taille du carré dynamique */
+.highlight-box {
+    text-align: center;
+    margin: 10px auto;  /* Augmenter la marge pour plus d'espace autour */
+    padding: 20px;  /* Augmenter l'espace interne du carré */
+    width: 100%;  /* Largeur augmentée à 80% de la fenêtre */
+    max-width: 1000px;  /* Largeur maximale de 700px */
+    font-size: 1.5rem;  /* Agrandir la taille du texte */
+    color: #ebba60d3;
+    border: 3px solid #5c167c1a; /* Bordure verte plus épaisse */
+    border-radius: 15px; /* Coins arrondis plus prononcés */
+    background-color: #5c167c3d; /* Fond léger */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Ombre plus large */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dynamisme au survol */
+.highlight-box:hover {
+    transform: scale(1.1);  /* Augmenter l'agrandissement au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Style spécifique pour le titre "Nouveautés de la semaine" */
+.highlight-title {
+    font-size: 2rem;  /* Taille de police encore plus grande */
+    font-weight: bold;
+    color: #b31515c4;  /* Vert foncé */
+    margin-bottom: 20px;  /* Espacement plus grand sous le titre */
+}
+
+/* Style pour l'image dans le carré dynamique */
+.highlight-image {
+    max-width: 20%;  /* Image prend toute la largeur disponible */
+    height: auto;
+    border-radius: 10px; /* Coins arrondis pour l'image */
+    margin-bottom: 20px;  /* Espacement sous l'image */
+}
+/* Cacher les sections par défaut */
+section {
+    display: none;
+}
+
+/* Afficher la section active */
+section.active {
+    display: block;
+}
+
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partenaires</title>
+    <link rel="stylesheet" href="style.css"> <!-- Reprend le même style -->
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="https://i.goopics.net/9osr8m.gif" alt="Logo du site">
+            <h1>LTD Grove Street</h1>
+        </div>
+        <nav>
+            <a href="index.html">🏠 Accueil</a>
+            <a href="javascript:void(0)" onclick="window.location.href='index.html#citizens'">🧑‍🤝‍🧑 Citoyens</a>
+            <a href="javascript:void(0)" onclick="window.location.href='index.html#entreprises'">🏢 Entreprises</a>
+            <a href="javascript:void(0)" onclick="window.location.href='index.html#commande'">📝 Commandes</a>
+            <a href="connexion.html">🔑 Connexion</a>
+        </nav>
+    </header>
+
+    <!-- Iframe pour afficher les partenaires -->
+    <div style="margin: 20px auto; text-align: center;">
+        <iframe src="https://noninox.github.io/TAB_V2_LTD_GROOVESTREET/" frameborder="0" style="width: 100%; height: 900px; border-radius: 10px;"></iframe>
+    </div>
+</body>
+</html>
