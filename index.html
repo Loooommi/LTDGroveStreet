@@ -113,7 +113,7 @@
     margin: 10px auto;  /* Augmenter la marge pour plus d'espace autour */
     padding: 20px;  /* Augmenter l'espace interne du carré */
     width: 100%;  /* Largeur augmentée à 80% de la fenêtre */
-    max-width: 1500px;  /* Largeur maximale de 700px */
+    max-width: 1000px;  /* Largeur maximale de 700px */
     font-size: 1.5rem;  /* Agrandir la taille du texte */
     color: #faad55c2;
     border: 3px solid #4CAF50; /* Bordure verte plus épaisse */
@@ -206,143 +206,138 @@ section.active {
     
         <main>
           
+<!-- Section Citoyens -->
+<section id="citizens">
+    <h2>🧑‍🤝‍🧑 Citoyens</h2>
+
+    <!-- Boutons de navigation entre catégories -->
+    <div class="category-nav">
+        <button onclick="showCategory('divers')">📁 Divers</button>
+        <button onclick="showCategory('category-b')">Catégorie B</button>
+        <button onclick="showCategory('category-c')">Catégorie C</button>
+    </div>
+
+    <!-- Catégorie 1 -->
+    <div class="category" id="divers">
+        <h3>📁 Divers</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <p>Citoyen 1</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 2">
+                <p>Citoyen 2</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catégorie 2 -->
+    <div class="category" id="category-b" style="display: none;">
+        <h3>Catégorie B</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 3">
+                <p>Citoyen 3</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 4">
+                <p>Citoyen 4</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Catégorie 3 -->
+    <div class="category" id="category-c" style="display: none;">
+        <h3>Catégorie C</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 5">
+                <p>Citoyen 5</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/200" alt="Image citoyen 6">
+                <p>Citoyen 6</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Style des boutons */
+    .category-nav {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .category-nav button {
+        background-color: #000000;
+        color: #fff;
+        border: 1px solid #ebbe6b5d;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .category-nav button:hover {
+        background-color: #000000;
+        transform: scale(1.05);
+    }
+
+    .category {
+        margin-bottom: 30px;
+    }
+
+    .category h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .gallery-item {
+        width: calc(20% - 10px);
+        text-align: center;
+        background-color: #ebbe6b5d;
+        color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+</style>
+
+<script>
+    function showCategory(categoryId) {
+        // Masquer toutes les catégories
+        document.querySelectorAll('.category').forEach(function (category) {
+            category.style.display = 'none';
+        });
+
+        // Afficher uniquement la catégorie sélectionnée
+        document.getElementById(categoryId).style.display = 'block';
+    }
+</script>
 
     
-            <!-- Section Citoyens -->
-            <section id="citizens">
-                <h2>🧑‍🤝‍🧑 Citoyens</h2>
-                <div class="gallery">
-                    <!-- 32 images dans la galerie Entreprises -->
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 1">
-                        <p>Entreprise 1</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 2">
-                        <p>Entreprise 2</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 3">
-                        <p>Entreprise 3</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 4">
-                        <p>Entreprise 4</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 5">
-                        <p>Entreprise 5</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 6">
-                        <p>Entreprise 6</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 7">
-                        <p>Entreprise 7</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 8">
-                        <p>Entreprise 8</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 9">
-                        <p>Entreprise 9</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 10">
-                        <p>Entreprise 10</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 11">
-                        <p>Entreprise 11</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 12">
-                        <p>Entreprise 12</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 13">
-                        <p>Entreprise 13</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 14">
-                        <p>Entreprise 14</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 15">
-                        <p>Entreprise 15</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 16">
-                        <p>Entreprise 16</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 17">
-                        <p>Entreprise 17</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 18">
-                        <p>Entreprise 18</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 19">
-                        <p>Entreprise 19</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 20">
-                        <p>Entreprise 20</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 21">
-                        <p>Entreprise 21</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 22">
-                        <p>Entreprise 22</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 23">
-                        <p>Entreprise 23</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 24">
-                        <p>Entreprise 24</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 25">
-                        <p>Entreprise 25</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 26">
-                        <p>Entreprise 26</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 27">
-                        <p>Entreprise 27</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 28">
-                        <p>Entreprise 28</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 29">
-                        <p>Entreprise 29</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 30">
-                        <p>Entreprise 30</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 31">
-                        <p>Entreprise 31</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="https://via.placeholder.com/200" alt="Image entreprise 32">
-                        <p>Entreprise 32</p>
-                    </div>
-                </div>
-    </section>
+</section>
+
 </main>
 
 
