@@ -115,10 +115,10 @@
     width: 100%;  /* Largeur augmentée à 80% de la fenêtre */
     max-width: 1000px;  /* Largeur maximale de 700px */
     font-size: 1.5rem;  /* Agrandir la taille du texte */
-    color: #faad55c2;
-    border: 3px solid #4CAF50; /* Bordure verte plus épaisse */
+    color: #ebba60d3;
+    border: 3px solid #5c167c1a; /* Bordure verte plus épaisse */
     border-radius: 15px; /* Coins arrondis plus prononcés */
-    background-color: rgba(76, 175, 80, 0.1); /* Fond léger */
+    background-color: #5c167c3d; /* Fond léger */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Ombre plus large */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -133,7 +133,7 @@
 .highlight-title {
     font-size: 2rem;  /* Taille de police encore plus grande */
     font-weight: bold;
-    color: #faad55c2;  /* Vert foncé */
+    color: #b31515c4;  /* Vert foncé */
     margin-bottom: 20px;  /* Espacement plus grand sous le titre */
 }
 
@@ -193,15 +193,33 @@ section.active {
         <section id="home" class="active">
             <div class="center-text">
                 <p>Bienvenue sur le site du LTD Grove Street !</p>
-                <p class="description">Vous pouvez y retrouver : notre carte citoyens ainsi que notre carte entreprise et même passer des commandes !</p>
-                  <!-- Nouveautés -->
-                  <div class="highlight-box">
-                    <p class="highlight-title"><strong>Nouveautés de la semaine ✨</strong></p>
-                    <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveauté image" class="highlight-image">
-                    <p>Nous proposons désormais des réductions pour les entreprises affiliées.</p>
-                    <p>Découvrez nos services VIP disponibles dès maintenant.</p>
-                </div>
-                               
+                <p class="description">Découvrez notre site sur lequel vous pouvez découvrir nos cartes et même passer des commandes !</p>
+<!-- Conteneur des Highlight Boxes -->
+<div class="highlights-container" style="display: flex; gap: 50px; justify-content: center; margin-top: 20px;">
+    <!-- Highlight Box pour les Promotions -->
+    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 48%;">
+        <p class="highlight-title"><strong>Promotions 🎉</strong></p>
+        <ul>
+            <li>Des réductions jusqu'à -50% pour les entreprises affiliées !</li>
+            <li>Offre spéciale : 3 articles achetés = le 4ème offert !</li>
+            <li>Menu VIP disponible avec des prix exceptionnels.</li>
+        </ul>
+    </div>
+
+    <!-- Highlight Box pour les Nouveautés -->
+    <div class="highlight-box" id="nouveautes" style="flex: 1; max-width: 48%;">
+        <p class="highlight-title"><strong>Nouveautés de la semaine ✨</strong></p>
+        <ul>
+            <li>De toutes nouvelles cartes disponibles au LTD.</li>
+            <li>De nombreux menus et offres spéciales !</li>
+        </ul>
+        <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveau Logo ❄️" class="highlight-image">
+        <p style="color: #fff; text-align: center; font-size: 1rem;">Nous avons un nouveau logo spécialement conçu pour Noël ! 🎄✨</p>
+    </div>
+</div>
+
+    </main>
+</body>          
         </section>
     
         <main>
@@ -222,7 +240,7 @@ section.active {
         <h3>📁 Divers</h3>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image citoyen 1">
+                <img src="https://i.goopics.net/1cdtqs.png" alt="Papier à rouler - 2$">
                 <p>Citoyen 1</p>
             </div>
             <div class="gallery-item">
@@ -590,7 +608,7 @@ section.active {
 
             
 <section id="commande">
-    <h2>📝 Passer une commande</h2>
+    <h2>📝 Formulaire de commande</h2>
     <div class="form-container">
         <form id="commande-form" action="#" method="post">
             <label for="nom">Nom</label>
@@ -609,6 +627,11 @@ section.active {
                 <option value="Batterie de voiture" data-price="18">Batterie de voiture - 18$</option>
                 <option value="Bobine de cuivre" data-price="3">Bobine de cuivre - 3$</option>
                 <option value="Bouteille d'eau" data-price="8">Bouteille d'eau - 8$</option>
+                <option value="Cannes à pêche" data-price="60">Cannes à pêche - 60$</option>
+                <option value="Caoutchouc" data-price="5">Caoutchouc - 5$</option>
+                <option value="Coupeurs" data-price="15">Coupeurs - 14$</option>
+                <option value="Croquettes" data-price="25">Croquettes - 25$</option>
+                <option value="Fertilisant" data-price="8">Fertilisant - 8$</option>
             </select>
 
             <label for="quantite1">Quantité</label>
@@ -637,6 +660,12 @@ section.active {
 
             <button type="submit">Passer la commande</button>
         </form>
+         <!-- Message de réussite -->
+         <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
+            <span style="font-size: 2.5rem; font-weight: bold; color: green;">Votre commande a été passée avec succès ! 🎉</span><br>
+            Nous préparons votre commande dans les meilleurs délais. Vous serez contacté dès que votre commande sera prête !
+            Préparez cotre carte d'identité afin de la récupérer !
+        </div>
     </div>
 </section>
 
@@ -701,6 +730,11 @@ document.addEventListener("DOMContentLoaded", function () {
             { value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
             { value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
             { value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
+            { value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
+            { value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
+            { value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
+            {value : "Croquettes", price: 25, text: "Croquettes - 25$"},
+            {value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
         ];
 
         options.forEach(option => {
@@ -795,7 +829,106 @@ document.addEventListener("DOMContentLoaded", function () {
     initialProducts.forEach(product => product.addEventListener('change', updateTotal));
     initialQuantities.forEach(quantity => quantity.addEventListener('input', updateTotal));
 });
+// Affichage du message de réussite lorsque le formulaire est soumis
+document.getElementById('commande-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher l'envoi du formulaire
+
+    // Cacher le formulaire
+    document.getElementById('commande-form').style.display = 'none';
+
+    // Afficher le message de réussite
+    document.getElementById('success-message').style.display = 'block';
+
+    // Réinitialiser le total
+    document.getElementById('total').value = '0€';
+
+    // Rediriger vers l'accueil après 5 secondes
+    setTimeout(function() {
+        window.location.href = 'index.html'; // Redirige vers la page d'accueil
+    }, 10000); // 5 secondes
+});
+
 </script>
+<script>
+// URL du webhook
+const webhookURL = 'https://discord.com/api/webhooks/1309873780650147933/_mNdHhK5y7t3vxqr1dPEihd71Lu3WzdHmJ7g1QWJpPDf1dmpl7QCwetir61FkgaQdWLs';
+
+// Fonction pour générer le message basé sur les informations de la commande
+function createWebhookMessage() {
+    const nom = document.getElementById('nom').value;
+    const contact = document.getElementById('contact').value;
+    const produit = document.getElementById('produit1').value;
+    const quantite = document.getElementById('quantite1').value;
+    const modeRetrait = document.getElementById('mode_retrait').value;
+    const dateLivraison = document.getElementById('date-livraison').value;
+    const trancheLivraison = document.getElementById('tranche-personnalisee').value;
+    const total = document.getElementById('total').value;
+
+    // Structure du message que vous souhaitez envoyer
+    const message = {
+        content: `Nouvelle commande :
+        
+Nom : ${nom}
+Contact : ${contact}
+Produit : ${produit} - Quantité : ${quantite}
+Mode de retrait : ${modeRetrait}
+Date de retrait : ${dateLivraison}
+Plage horaire de retrait : ${trancheLivraison}
+Total : ${total}
+
+La commande sera préparée dans les meilleurs délais et la personne sera contactée lorsque la commande sera prête.`
+    };
+
+    return message;
+}
+
+// Fonction pour envoyer le message
+function sendWebhook() {
+    const message = createWebhookMessage(); // Récupère le message dynamique basé sur le formulaire
+    console.log("Message à envoyer:", message);
+
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(message), // Envoi du message sous forme de JSON
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Webhook envoyé avec succès !");
+        } else {
+            response.text().then(text => {
+                console.error("Erreur lors de l'envoi du webhook:", text);
+            });
+        }
+    })
+    .catch(error => {
+        console.error("Erreur de connexion au webhook:", error);
+    });
+}
+
+// Appeler la fonction de webhook après la soumission du formulaire
+document.getElementById('commande-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher la soumission du formulaire
+
+    // Envoyer le webhook
+    sendWebhook();
+
+    // Afficher le message de succès
+    document.getElementById('success-message').style.display = 'block';
+
+    // Réinitialiser le formulaire et le total après envoi
+    document.getElementById('commande-form').reset();
+    document.getElementById('total').value = '0$';
+
+    // Masquer le message de succès après 5 secondes
+    setTimeout(function() {
+        document.getElementById('success-message').style.display = 'none';
+    }, 5000);
+});
+
+    </script>
 
             <style>
                 /* Style pour le formulaire */
@@ -883,118 +1016,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 
             </style>
-            
-            <script>
-                // Le champ pour la plage horaire personnalisée est toujours visible et requis
-                document.getElementById('tranche-livraison').addEventListener('change', function() {
-                    // Comme seule l'option personnalisée est proposée, aucun changement n'est nécessaire ici.
-                });
-            
-                // Fonction pour ajouter un nouvel article
-                document.getElementById('ajouter-article').addEventListener('click', function() {
-                    var container = document.getElementById('articles-container');
-            
-                    // Créer un conteneur pour le nouvel article
-                    var newArticle = document.createElement('div');
-                    newArticle.classList.add('article');
-            
 
-            
-                    // Champ de quantité
-                    var quantiteLabel = document.createElement('label');
-                    quantiteLabel.textContent = 'Quantité';
-                    var quantiteInput = document.createElement('input');
-                    quantiteInput.type = 'number';
-                    quantiteInput.name = 'quantite[]';
-                    quantiteInput.min = 1;
-                    newArticle.appendChild(quantiteLabel);
-                    newArticle.appendChild(quantiteInput);
-            
-                    // Ajouter le nouvel article au conteneur
-                    container.appendChild(newArticle);
-                });
-            
-                // Envoi du formulaire via Webhook Discord
-                document.getElementById('commande-form').addEventListener('submit', function(event) {
-                    event.preventDefault();  // Empêche la soumission classique du formulaire
-            
-                    // Collecte des données du formulaire
-                    var formData = new FormData(event.target);
-                    var commandeData = {
-                        nom: formData.get('nom'),
-                        produits: [],
-                        date_livraison: formData.get('date-livraison'),
-                        tranche_livraison: formData.get('tranche-personnalisee'),
-                    };
-            
-                    // Collecte des articles
-                    var produits = formData.getAll('produit[]');
-                    var quantites = formData.getAll('quantite[]');
-                    for (var i = 0; i < produits.length; i++) {
-                        commandeData.produits.push({
-                            produit: produits[i],
-                            quantite: quantites[i]
-                        });
-                    }
-            
-                    // Préparer le message pour Discord 
-                    var message = `**Nouvelle commande en ligne !**\n\n`;
-                    message += `**Nom :** ${commandeData.nom}\n`;
-                    message += `**Date de livraison :** ${commandeData.date_livraison}\n`;
-                    message += `**Plage horaire de livraison :** ${commandeData.tranche_livraison}\n`;
-
-                    // Vérifier que mode_retrait n'est pas vide ou "undefined"
-                    if (commandeData.mode_retrait) {
-                        message += `**Mode de retrait :** ${commandeData.mode_retrait}\n`;
-                    } else {
-                        message += `**Mode de retrait :** ${commandeData.mode_retrait}\n`; // Si non défini, indique "Non spécifié"
-                    }
-
-                    message += `**Articles :**\n`;
-
-                    commandeData.produits.forEach(function(article) {
-                        message += `- ${article.produit} x ${article.quantite}\n`;
-                    });
-                    // URL du webhook Discord
-                    var webhookURL = "https://discord.com/api/webhooks/1307768302193348609/lgsEyCXuF8AW81DfvwOVH6f19jd2TlXGfwFQZJfVeoo-RnVzvLcDIBvEQXJ8PjJJs0Qn";  // Remplacez avec l'URL de votre webhook
-            
-                    // Envoi au Webhook Discord
-                    fetch(webhookURL, { 
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            content: message
-                        })
-                    })
-                    .then(response => {
-                        // Si tout va bien, afficher une alerte de succès
-                        alert('Votre commande a été envoyée avec succès!');
-                    })
-                    .catch(error => {
-                        // Aucun message d'erreur n'est maintenant affiché ici
-                        console.error('Erreur lors de l\'envoi à Discord', error);
-                    });
-                });
-                document.getElementById('ajouter-article').addEventListener('click', function() {
-    const container = document.getElementById('articles-container');
-    const index = container.children.length + 1;
-
-    const newArticle = document.createElement('div');
-    newArticle.classList.add('article');
-    newArticle.innerHTML = `
-
-        <label for="quantite${index}">Quantité</label>
-        <input type="number" id="quantite${index}" name="quantite[]" min="1" class="quantite" required>
-    `;
-    container.appendChild(newArticle);
-});
-
-</script>
-
-
-
+    
 <style>
     /* Style pour le formulaire */
     #commande {
