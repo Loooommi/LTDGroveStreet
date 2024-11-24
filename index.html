@@ -230,13 +230,87 @@ section.active {
 
     <!-- Boutons de navigation entre catégories -->
     <div class="category-nav">
-        <button onclick="showCategory('divers')">📁 Divers</button>
         <button onclick="showCategory('category-b')">🧰 Bricolage</button>
-        <button onclick="showCategory('category-c')">Catégorie C</button>
+        <button onclick="showCategory('divers')">📁 Divers</button>
+        <button onclick="showCategory('Jardinage')">🪴 Jardinage</button>
+        <button onclick="showCategory('Papeterie')">📜 Papeterie</button>
     </div>
 
+        <!-- Catégorie 2 -->
+        <div class="category" id="category-b">
+            <h3>🧰 Bricolage </h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/bm3c76.png" alt="Image citoyen 3">
+                    <p>Batterie</p>
+                    <p>9$</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/3ayj2s.png" alt="Image citoyen 3">
+                    <p>Batterie de voiture</p>
+                    <p>18$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/mmqe5p.png" alt="Image citoyen 3">
+                    <p>Bobine de cuivre</p>
+                    <p>3$</p>
+                </div>           
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/kxoj4e.png" alt="Image citoyen 3">
+                    <p>Coupeurs</p>
+                    <p>14$</p>
+                </div>                      
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/d9nhae.png" alt="Image citoyen 3">
+                    <p>Foret de perceuse</p>
+                    <p>900$</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/5bdawf.png" alt="Image citoyen 3">
+                    <p>Grosse perceuse</p>
+                    <p>12$</p>
+                </div>             
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/gd84sx.png" alt="Image citoyen 3">
+                    <p>Huile</p>
+                    <p>6$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/es4tgs.png" alt="Image citoyen 3">
+                    <p>Huile de Shell</p>
+                    <p>10$</p>
+                </div>               
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/esqqw6.png" alt="Image citoyen 3">
+                    <p>Huile noire</p>
+                    <p>14$</p>
+                </div>                    
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/mczpd3.png" alt="Image citoyen 3">
+                    <p>Pile verte</p>
+                    <p>3$</p>
+                </div>                       
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/a5tg3x.png" alt="Image citoyen 3">
+                    <p>Pince pour plaque</p>
+                    <p20>$</p>
+                </div>             
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/6ty7eb.png" alt="Image citoyen 3">
+                    <p>Outil</p>
+                    <p>5$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/98tv2h.png" alt="Image citoyen 3">
+                    <p>Perceuse</p>
+                    <p>8$</p>
+                </div>            
+            </div>
+        </div>
+    
+
     <!-- Catégorie 1 -->
-    <div class="category" id="divers">
+    <div class="category" id="divers"style="display: none;">
         <h3>📁 Divers</h3>
         <div class="gallery">
             <div class="gallery-item">
@@ -270,16 +344,6 @@ section.active {
                 <p>2$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://i.goopics.net/3yir66.png" alt="Image citoyen 2">
-                <p>Porte document</p>
-                <p>8$</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/uk2jjh.png" alt="Image citoyen 1">
-                <p>Porte feuille</p>
-                <p>8$</p>
-            </div>
-            <div class="gallery-item">
                 <img src="https://i.goopics.net/ku1s2c.png" alt="Image citoyen 2">
                 <p>Skateboard</p>
                 <p>90$</p>
@@ -301,86 +365,40 @@ section.active {
             </div>
         </div>
     </div>
-
-    <!-- Catégorie 2 -->
-    <div class="category" id="category-b" style="display: none;">
-        <h3>🧰 Bricolage </h3>
+    <!-- Catégorie 3 -->
+    <div class="category" id="Papeterie" style="display: none;">
+        <h3>📜 Papeterie</h3>
         <div class="gallery">
             <div class="gallery-item">
-                <img src="https://i.goopics.net/bm3c76.png" alt="Image citoyen 3">
-                <p>Batterie</p>
-                <p>9$</p>
+                <img src="https://i.goopics.net/3yir66.png" alt="Image citoyen 2">
+                <p>Porte document</p>
+                <p>8$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://i.goopics.net/3ayj2s.png" alt="Image citoyen 3">
-                <p>Batterie de voiture</p>
-                <p>18$</p>
-            </div>            
+                <img src="https://i.goopics.net/uk2jjh.png" alt="Image citoyen 1">
+                <p>Porte feuille</p>
+                <p>8$</p>
+            </div>
+        </div>
+    </div>
+    <div class="category" id="Jardinage" style="display: none;">
+        <h3>🪴 Jardinage</h3>
+        <div class="gallery">
             <div class="gallery-item">
-                <img src="https://i.goopics.net/mmqe5p.png" alt="Image citoyen 3">
-                <p>Bobine de cuivre</p>
-                <p>3$</p>
-            </div>           
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/kxoj4e.png" alt="Image citoyen 3">
-                <p>Coupeurs</p>
-                <p>14$</p>
-            </div>   
+                <img src="https://i.goopics.net/rojg9g.png" alt="Image entreprise 6">
+                <p>Bouteille d'eau</p>
+                <p>8$</p>
+            </div>
             <div class="gallery-item">
                 <img src="https://i.goopics.net/lch2vh.png" alt="Image citoyen 3">
                 <p>Fertilisant</p>
                 <p>8$</p>
-            </div>                    
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/d9nhae.png" alt="Image citoyen 3">
-                <p>Foret de perceuse</p>
-                <p>900$</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/5bdawf.png" alt="Image citoyen 3">
-                <p>Grosse perceuse</p>
-                <p>12$</p>
-            </div>             
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/gd84sx.png" alt="Image citoyen 3">
-                <p>Huile</p>
-                <p>6$</p>
-            </div>            
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/q6dkh1.png" alt="Image citoyen 3">
-                <p>Huile de Shell</p>
-                <p>10$</p>
-            </div>               
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/btaq6a.png" alt="Image citoyen 3">
-                <p>Huile noire</p>
-                <p>14$</p>
-            </div>                    
+            </div>  
             <div class="gallery-item">
                 <img src="https://i.goopics.net/f6cbty.png" alt="Image citoyen 3">
                 <p>Lumière violette</p>
                 <p>18$</p>
             </div> 
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/mczpd3.png" alt="Image citoyen 3">
-                <p>Pile verte</p>
-                <p>3$</p>
-            </div>                       
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/a5tg3x.png" alt="Image citoyen 3">
-                <p>Pince pour plaque</p>
-                <p20>$</p>
-            </div>             
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/6ty7eb.png" alt="Image citoyen 3">
-                <p>Outil</p>
-                <p>5$</p>
-            </div>            
-            <div class="gallery-item">
-                <img src="https://i.goopics.net/98tv2h.png" alt="Image citoyen 3">
-                <p>Perceuse</p>
-                <p>8$</p>
-            </div>            
             <div class="gallery-item">
                 <img src="https://i.goopics.net/2hb2bo.png" alt="Image citoyen 3">
                 <p>Pot de fleur</p>
@@ -395,21 +413,6 @@ section.active {
                 <img src="https://i.goopics.net/vtbpp5.png" alt="Image citoyen 3">
                 <p>Tas de terre</p>
                 <p>12$</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Catégorie 3 -->
-    <div class="category" id="category-c" style="display: none;">
-        <h3>Catégorie C</h3>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image citoyen 5">
-                <p>Citoyen 5</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image citoyen 6">
-                <p>Citoyen 6</p>
             </div>
         </div>
     </div>
@@ -450,15 +453,17 @@ section.active {
         color: #ffffff;
     }
 
+    /* Conteneur des galeries avec espacement ajusté */
     .gallery {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px; /* Ajuste l'espacement entre les items */
         justify-content: center;
     }
 
+    /* Ajustement pour avoir 5 éléments par ligne */
     .gallery-item {
-        width: calc(20% - 10px);
+        width: calc(20% - 15px); /* 20% de largeur moins l'espacement */
         text-align: center;
         background-color: #ebbe6b5d;
         color: #ffffff;
@@ -466,12 +471,55 @@ section.active {
         box-shadow: 0 4px 8px rgb(0, 0, 0);
         padding: 10px;
         box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .gallery-item img {
         width: 100%;
         height: auto;
         border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Effet au survol */
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+</style>
+
+<style>
+    .gallery-item {
+        width: calc(20% - 15px);
+        text-align: center;
+        background-color: #ebbe6b5d;
+        color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
+        padding: 10px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de la transition */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.3s ease; /* Transition pour l'image */
+    }
+
+    /* Effet au survol */
+    .gallery-item:hover {
+        transform: scale(1.02); /* Légère augmentation de taille */
+        box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); /* Ombre plus marquée */
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1); /* Agrandissement supplémentaire pour l'image */
     }
 </style>
 
@@ -498,21 +546,60 @@ section.active {
                 <h2>🏢 Entreprises</h2> 
                 <!-- Bouton menant à un autre site -->
                 <div style="text-align: center; margin-bottom: 20px;">
-                    <button onclick="window.location.href='partenaires.html'" style="padding: 10px 20px; background-color: #4CAF50; border: none; color: white; font-size: 1rem; cursor: pointer; border-radius: 5px; transition: background-color 0.3s;">
-                        Découvrir nos partenaires 🌐
+                    <button 
+                        onclick="window.location.href='partenaires.html'" 
+                        style="padding: 10px 20px; background-color: #000000; border: none; color: white; font-size: 1rem; cursor: pointer; border-radius: 5px; transition: background-color 0.3s, transform 0.2s;" 
+                        onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#000000'; this.style.transform='scale(1)';">
+                        Commande entreprise 🌐
                     </button>
                 </div>
       <!-- Section entreprises après la connexion -->
         <div class="gallery">
             <!-- 32 images dans la galerie Entreprises -->
             <div class="gallery-item">
+                <img src="https://i.goopics.net/6wd79a.png" alt="Image entreprise 1">
+                <p>Bagel</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/bnmz8i.png" alt="Image entreprise 1">
+                <p>Bar de chocolat</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
                 <img src="https://i.goopics.net/8com4u.png" alt="Image citoyen 1">
                 <p>Caoutchouc</p>
                 <p>5$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://i.goopics.net/tuohnj.png" alt="Image citoyen 2">
+                <img src="https://i.goopics.net/syf2dr.png" alt="Image entreprise 2">
+                <p>Caramel</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/hi21om.png" alt="Image citoyen 2">
                 <p>Colle</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/w6gie8.png" alt="Image entreprise 3">
+                <p>Coquille à tacos</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/c6fp94.png" alt="Image entreprise 4">
+                <p>Crème fraîche</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/e7viuq.png" alt="Image entreprise 5">
+                <p>Crème glacée (pot et cornet) </p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/rojg9g.png" alt="Image entreprise 6">
+                <p>Eau purifiée</p>
                 <p>3$</p>
             </div>
             <div class="gallery-item">
@@ -521,134 +608,34 @@ section.active {
                 <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 1">
-                <p>Entreprise 1</p>
+                <img src="https://i.goopics.net/xv20rs.png" alt="Image entreprise 7">
+                <p>Moutarde</p>
+                <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 2">
-                <p>Entreprise 2</p>
+                <img src="https://i.goopics.net/kju7xr.png" alt="Image entreprise 9">
+                <p>Nouille</p>
+                <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 3">
-                <p>Entreprise 3</p>
+                <img src="https://i.goopics.net/hcqiza.png" alt="Image entreprise 10">
+                <p>Pain à burger</p>
+                <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 4">
-                <p>Entreprise 4</p>
+                <img src="https://i.goopics.net/c91xam.png" alt="Image entreprise 10">
+                <p>Pain grillé</p>
+                <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 5">
-                <p>Entreprise 5</p>
+                <img src="https://i.goopics.net/qz921s.png" alt="Image entreprise 12">
+                <p>Pâtes</p>
+                <p>3$</p>
             </div>
             <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 6">
-                <p>Entreprise 6</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 7">
-                <p>Entreprise 7</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 8">
-                <p>Entreprise 8</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 9">
-                <p>Entreprise 9</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 10">
-                <p>Entreprise 10</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 11">
-                <p>Entreprise 11</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 12">
-                <p>Entreprise 12</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 13">
-                <p>Entreprise 13</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 14">
-                <p>Entreprise 14</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 15">
-                <p>Entreprise 15</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 16">
-                <p>Entreprise 16</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 17">
-                <p>Entreprise 17</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 18">
-                <p>Entreprise 18</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 19">
-                <p>Entreprise 19</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 20">
-                <p>Entreprise 20</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 21">
-                <p>Entreprise 21</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 22">
-                <p>Entreprise 22</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 23">
-                <p>Entreprise 23</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 24">
-                <p>Entreprise 24</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 25">
-                <p>Entreprise 25</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 26">
-                <p>Entreprise 26</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 27">
-                <p>Entreprise 27</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 28">
-                <p>Entreprise 28</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 29">
-                <p>Entreprise 29</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 30">
-                <p>Entreprise 30</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 31">
-                <p>Entreprise 31</p>
-            </div>
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/200" alt="Image entreprise 32">
-                <p>Entreprise 32</p>
-            </div>
-        </div>
+                <img src="https://i.goopics.net/rpk8rq.png" alt="Image entreprise 13">
+                <p>Tortilla</p>
+                <p>3$</p>    
         <script>
             document.getElementById('go-to-partners').addEventListener('click', function() {
                 // Redirige vers la page "partenaires.html"
@@ -685,69 +672,69 @@ section.active {
         }
     });
 </script>
-
+            </section>
             
-<section id="commande">
-    <h2>📝 Formulaire de commande</h2>
-    <div class="form-container">
-        <form id="commande-form" action="#" method="post">
-            <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
+    <section id="commande">
+        <h2>📝 Formulaire de commande</h2>
+        <div class="form-container">
+            <form id="commande-form" action="#" method="post">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
 
-            <label for="contact">Contact</label>
-            <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro de téléphone">
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro de téléphone">
 
-            <label for="produit1">Produit</label>
-            <select id="produit1" name="produit[]" class="produit" required>
-                <option value="" disabled selected>Sélectionnez un article</option>
-                <option value="Appât grande qualité" data-price="10">Appât grande qualité - 10$</option>
-                <option value="Balle de basket" data-price="45">Balle de basket - 45$</option>
-                <option value="Balle de football" data-price="45">Balle de football - 45$</option>
-                <option value="Batterie" data-price="9">Batterie - 9$</option>
-                <option value="Batterie de voiture" data-price="18">Batterie de voiture - 18$</option>
-                <option value="Bobine de cuivre" data-price="3">Bobine de cuivre - 3$</option>
-                <option value="Bouteille d'eau" data-price="8">Bouteille d'eau - 8$</option>
-                <option value="Cannes à pêche" data-price="60">Cannes à pêche - 60$</option>
-                <option value="Caoutchouc" data-price="5">Caoutchouc - 5$</option>
-                <option value="Coupeurs" data-price="15">Coupeurs - 14$</option>
-                <option value="Croquettes" data-price="25">Croquettes - 25$</option>
-                <option value="Fertilisant" data-price="8">Fertilisant - 8$</option>
-            </select>
+                <label for="produit1">Produit</label>
+                <select id="produit1" name="produit[]" class="produit" required>
+                    <option value="" disabled selected>Sélectionnez un article</option>
+                    <option value="Appât grande qualité" data-price="10">Appât grande qualité - 10$</option>
+                    <option value="Balle de basket" data-price="45">Balle de basket - 45$</option>
+                    <option value="Balle de football" data-price="45">Balle de football - 45$</option>
+                    <option value="Batterie" data-price="9">Batterie - 9$</option>
+                    <option value="Batterie de voiture" data-price="18">Batterie de voiture - 18$</option>
+                    <option value="Bobine de cuivre" data-price="3">Bobine de cuivre - 3$</option>
+                    <option value="Bouteille d'eau" data-price="8">Bouteille d'eau - 8$</option>
+                    <option value="Cannes à pêche" data-price="60">Cannes à pêche - 60$</option>
+                    <option value="Caoutchouc" data-price="5">Caoutchouc - 5$</option>
+                    <option value="Coupeurs" data-price="15">Coupeurs - 14$</option>
+                    <option value="Croquettes" data-price="25">Croquettes - 25$</option>
+                    <option value="Fertilisant" data-price="8">Fertilisant - 8$</option>
+                </select>
 
-            <label for="quantite1">Quantité</label>
-            <input type="number" id="quantite1" name="quantite[]" min="1" required>
+                <label for="quantite1">Quantité</label>
+                <input type="number" id="quantite1" name="quantite[]" min="1" required>
 
-            <!-- Section pour ajouter un article supplémentaire -->
-            <div id="articles-container"></div>
+                <!-- Section pour ajouter un article supplémentaire -->
+                <div id="articles-container"></div>
 
-            <button type="button" id="ajouter-article">Ajouter un article</button>
+                <button type="button" id="ajouter-article">Ajouter un article</button>
 
-            <label for="mode_retrait">Mode de retrait :</label>
-            <select id="mode_retrait" name="mode_retrait" required>
-                <option value="En magasin">En magasin</option>
-                <option value="Livraison - Indisponible">Livraison - Indisponible</option>
-            </select>
+                <label for="mode_retrait">Mode de retrait :</label>
+                <select id="mode_retrait" name="mode_retrait" required>
+                    <option value="En magasin">En magasin</option>
+                    <option value="Livraison - Indisponible">Livraison - Indisponible</option>
+                </select>
 
-            <label for="date-livraison">Date de retrait</label>
-            <input type="date" id="date-livraison" name="date-livraison" required>
+                <label for="date-livraison">Date de retrait</label>
+                <input type="date" id="date-livraison" name="date-livraison" required>
 
-            <label for="tranche-livraison">Plage horaire de retrait</label>
-            <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
+                <label for="tranche-livraison">Plage horaire de retrait</label>
+                <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
 
-            <!-- Total -->
-            <label for="total">Total</label>
-            <input type="text" id="total" name="total" readonly value="0$">
+                <!-- Total -->
+                <label for="total">Total</label>
+                <input type="text" id="total" name="total" readonly value="0$">
 
-            <button type="submit">Passer la commande</button>
-        </form>
-         <!-- Message de réussite -->
-         <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
-            <span style="font-size: 2.5rem; font-weight: bold; color: green;">Votre commande a été passée avec succès ! 🎉</span><br>
-            Nous préparons votre commande dans les meilleurs délais. Vous serez contacté dès que votre commande sera prête !
-            Préparez cotre carte d'identité afin de la récupérer !
+                <button type="submit">Passer la commande</button>
+            </form>
+            <!-- Message de réussite -->
+            <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
+                <span style="font-size: 2.5rem; font-weight: bold; color: green;">Votre commande a été passée avec succès ! 🎉</span><br>
+                Nous préparons votre commande dans les meilleurs délais. Vous serez contacté dès que votre commande sera prête !
+                Préparez cotre carte d'identité afin de la récupérer !
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <script>
 // Calcul du total dynamique
