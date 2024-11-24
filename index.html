@@ -182,11 +182,10 @@ section.active {
         </div>
         <nav>
             <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
-            <a href="javascript:void(0)" onclick="showSection('presentation-employes')">📝 Présentation</a>
             <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
             <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
             <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
-
+            <a href="javascript:void(0)" onclick="showSection('presentation-employes')">⏳ Introduction</a> 
             <a href="connexion.html">🔑 Connexion</a>
         </nav>
     </header>
@@ -250,17 +249,32 @@ section.active {
             Nous avons un nouveau logo spécialement conçu pour Noël ! 🎄✨
         </p>
     </div>
+    
 </section>
     
     <!-- Présentation des employés -->
-    <section id="presentation-employes" style="background-color: #2e2e2e00; padding: 10px 0; color: #fff; margin-top: 20px; border-radius: 10px;">
-        <div class="center-text" style="margin-bottom: 10px;">
-            <h2 style="font-size: 3rem; color: #ff0000; margin-top: 5px;"> ⚠️ En cours de maintenance </h2>
-    </section>
+    <section id="presentation-employes" style="background-color: #2e2e2e00; padding: 05px 0; color: #fff; margin-top: 0; border-radius: 10px;">
+        <div class="center-text">
+            <p>⏳ Introduction</p>  
     
+        <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 0;"> <!-- Moins d'écart entre les items -->
+            <!-- Employé 1 -->
+            <div class="gallery-item" style="width: 25%; text-align: center; background-color: #ebbe6b5d; padding: 25px; transition: transform 0.3s;">
+                <img src="https://i.goopics.net/re2dfs.png" alt="Employé 1" style="width: 100%; border-radius: 50%; transition: transform 0.3s ease;">
+                <p style="margin-top: 10px;">Eden Cruz</p>
+                <p style="font-size: 0.9rem; color: #ccc;">Patronne</p>
+                <p style="font-size: 0.9rem; color: #ccc;">Une leader exceptionnelle et passionnée, le LTD est une entreprise qui redéfinit les standards des services modernes. Sous sa direction, l’entreprise est devenue synonyme d’innovation, de fiabilité et d’excellence.</p>
+            </div>
     
-
-          
+            <!-- Employé 2 -->
+            <div class="gallery-item" style="width: 25%; text-align: center; background-color: #ebbe6b5d; padding: 25px; transition: transform 0.3s;">
+                <img src="https://i.goopics.net/2iub49.png" alt="Employé 2" style="width: 100%; border-radius: 50%; transition: transform 0.3s ease;">
+                <p style="margin-top: 10px;">Casey Diaz</p>
+                <p style="font-size: 0.9rem; color: #ccc;">Co-Patron</p>
+                <p style="font-size: 0.9rem; color: #ccc;">Casey Diaz est un ingénieur. Connu pour sa pensée et son don d'inspiration talentueux, reconnu également pour sa réfléchis remarquable, il est un exemple parfait pour le LTD.</p>
+            </div>
+        </div>
+    </section>  
 <!-- Section Citoyens -->
 <section id="citizens">
     <h2>🧑‍🤝‍🧑 Citoyens</h2>
@@ -844,35 +858,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Ajouter les options disponibles pour les produits
         const options = [
-{ value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
-{ value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
-{ value: "Balle de football", price: 45, text: "Balle de football - 45$" },
-{ value: "Batterie", price: 9, text: "Batterie - 9$" },
-{ value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
-{ value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
-{ value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
-{ value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
-{ value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
-{ value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
-{value : "Croquettes", price: 25, text: "Croquettes - 25$"},
-{value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
-{value : "Foret de perceuse", price: 900, text: "Foret de perceuse - 900$"},
-{value : "Grosse perceuse", price: 12, text: "Grosse perceuse - 12$"},
-{value : "Huile", price: 6, text :"Huile  - 6$"},
-{value : "Huile de shell", price:10, text: "Huile de shell - 10$"},
-{value : "Huile noire", price:14, text: "Huile noire - 14$"},
-{value : "Lumière violette", price:18, text: "Lumière violette - 18$"},
-{value : "Outil", price:5, text: "Outi - 5$"},
-{value : "Perceuse", price: 8, text: "Perceuse - 8$"},
-{value : "Pile verte", price: 3, text: "Pile verte - 3$"},
-{value : "Pince pour plaque", price: 20, text: "Pince pour plaque - 20$"},
-{value : "Porte document", price: 8, text: "Porte document - 8$"},
-{value : "Porte feuille", price: 8, text: "Porte feuille - 8$"},
-{value : "Pot de fleur", price: 8, text: "Pot de fleur - 8$"},
-{value : "Spray pour tag", price: 2000, text: "Spray pour tag - 2000$"},
-{value : "Table de travail", price: 8, text: "Table de travail - 8$"},
-{value : "Ticket à gratter", price: 8, text: "Ticket à gratter - 25$"},
-{value : "Trousseau de clé", price: 90, text: "Trousseau de clé - 90$"},
+            { value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
+            { value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
+            { value: "Balle de football", price: 45, text: "Balle de football - 45$" },
+            { value: "Batterie", price: 9, text: "Batterie - 9$" },
+            { value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
+            { value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
+            { value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
+            { value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
+            { value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
+            { value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
+            {value : "Croquettes", price: 25, text: "Croquettes - 25$"},
+            {value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
+            {value : "Foret de perceuse", price: 900, text: "Foret de perceuse - 900$"},
+            {value : "Grosse perceuse", price: 12, text: "Grosse perceuse - 12$"},
+            {value : "Huile", price: 6, text :"Huile  - 6$"},
+            {value : "Huile de shell", price:10, text: "Huile de shell - 10$"},
+            {value : "Huile noire", price:14, text: "Huile noire - 14$"},
+            {value : "Lumière violette", price:18, text: "Lumière violette - 18$"},
+            {value : "Outil", price:5, text: "Outi - 5$"},
+            {value : "Perceuse", price: 8, text: "Perceuse - 8$"},
+            {value : "Pile verte", price: 3, text: "Pile verte - 3$"},
+            {value : "Pince pour plaque", price: 20, text: "Pince pour plaque - 20$"},
+            {value : "Porte document", price: 8, text: "Porte document - 8$"},
+            {value : "Porte feuille", price: 8, text: "Porte feuille - 8$"},
+            {value : "Pot de fleur", price: 8, text: "Pot de fleur - 8$"},
+            {value : "Spray pour tag", price: 2000, text: "Spray pour tag - 2000$"},
+            {value : "Table de travail", price: 8, text: "Table de travail - 8$"},
+            {value : "Ticket à gratter", price: 8, text: "Ticket à gratter - 25$"},
+            {value : "Trousseau de clé", price: 90, text: "Trousseau de clé - 90$"},
         ];
 
         options.forEach(option => {
@@ -956,7 +970,6 @@ document.addEventListener("DOMContentLoaded", function () {
             total += price * quantity;
         });
 
-        // Affichage du total dans le champ de texte
         document.getElementById("total").value = `${total}$`;
     }
 
@@ -966,24 +979,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     initialProducts.forEach(product => product.addEventListener('change', updateTotal));
     initialQuantities.forEach(quantity => quantity.addEventListener('input', updateTotal));
-});
-// Affichage du message de réussite lorsque le formulaire est soumis
-document.getElementById('commande-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêcher l'envoi du formulaire
-
-    // Cacher le formulaire
-    document.getElementById('commande-form').style.display = 'none';
-
-    // Afficher le message de réussite
-    document.getElementById('success-message').style.display = 'block';
-
-    // Réinitialiser le total
-    document.getElementById('total').value = '0$';
-
-    // Rediriger vers l'accueil après 5 secondes
-    setTimeout(function() {
-        window.location.href = 'index.html'; // Redirige vers la page d'accueil
-    }, 10000); // 5 secondes
 });
 
 </script>
