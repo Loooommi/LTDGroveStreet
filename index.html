@@ -182,9 +182,11 @@ section.active {
         </div>
         <nav>
             <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
+            <a href="javascript:void(0)" onclick="showSection('presentation-employes')">📝 Présentation</a>
             <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
             <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
             <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
+
             <a href="connexion.html">🔑 Connexion</a>
         </nav>
     </header>
@@ -193,36 +195,71 @@ section.active {
         <section id="home" class="active">
             <div class="center-text">
                 <p>Bienvenue sur le site du LTD Grove Street !</p>
-                <p class="description">Découvrez notre site sur lequel vous pouvez découvrir nos cartes et même passer des commandes !</p>
 <!-- Conteneur des Highlight Boxes -->
 <div class="highlights-container" style="display: flex; gap: 50px; justify-content: center; margin-top: 20px;">
     <!-- Highlight Box pour les Promotions -->
-    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 48%;">
-        <p class="highlight-title"><strong>Promotions 🎉</strong></p>
-        <ul>
-            <li>Des réductions jusqu'à -50% pour les entreprises affiliées !</li>
-            <li>Offre spéciale : 3 articles achetés = le 4ème offert !</li>
-            <li>Menu VIP disponible avec des prix exceptionnels.</li>
+    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 40%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+        <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #faad55c2; margin-bottom: 10px;">
+            Tombola 🎉
+        </p>
+        <ul style="list-style-type: none; padding: 0; font-size: 1rem; line-height: 1.6; color: #fff;">
+            <li style="margin-bottom: 10px;">
+                <strong>Pour vous remercier de votre confiance et de vos engagements, nous sommes ravis de lancer notre grande tombola, qui débute dès aujourd'hui !</strong>
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Conditions de participation :</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>1 ticket = 100 $</li>
+                    <li>Bonus fidélité : Pour tout achat supérieur à 1 000 $, recevez 1 ticket offert pour chaque tranche de 1 000 $ !</li>
+                    <li style="font-size: 0.9rem; color: #ebba60;">(Exemple : Pour 4 000 $, vous obtenez 4 tickets offerts)</li>
+                </ul>
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Lots à gagner :</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Un véhicule exceptionnel d'une valeur d'environ 70 000$ ! 🚗</li>
+                    <li>1 000$ à dépenser dans tout le LTD !</li>
+                    <li>Une Carte Privilège offrant 15 % de réduction sur tous vos achats pour une durée de 7 jours ! 🎁</li>
+                </ul>
+            </li>
+            <li style="margin-bottom: 10px;">
+                Tentez votre chance dès aujourd’hui et repartez peut-être avec l’un de ces lots !  
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #faad55c2;">
+                📅 Participation ouverte jusqu’au 13/12.<br>
+                Tirage au sort : 14/12
+            </li>
+            <li style="text-align: center; font-weight: bold; font-size: 1.1rem; color: #faad55;">
+                Bonne chance à toutes et à tous ! 🍀
+            </li>
         </ul>
     </div>
-
-    <!-- Highlight Box pour les Nouveautés -->
-    <div class="highlight-box" id="nouveautes" style="flex: 1; max-width: 48%;">
-        <p class="highlight-title"><strong>Nouveautés de la semaine ✨</strong></p>
-        <ul>
-            <li>De toutes nouvelles cartes disponibles au LTD.</li>
-            <li>De nombreux menus et offres spéciales !</li>
-        </ul>
-        <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveau Logo ❄️" class="highlight-image">
-        <p style="color: #fff; text-align: center; font-size: 1rem;">Nous avons un nouveau logo spécialement conçu pour Noël ! 🎄✨</p>
-    </div>
-</div>
-
-    </main>
-</body>          
-        </section>
     
-        <main>
+    
+
+    <div class="highlight-box" id="nouveautes" style="flex: 1; max-width: 40%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+        <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #faad55c2; margin-bottom: 10px;">
+            Nouveautés de la semaine ✨
+        </p>
+        <ul style="list-style-type: none; padding: 0; font-size: 1rem; line-height: 1.6; color: #fff;">
+            <li style="margin-bottom: 10px;">Un tout nouveau site disponible sur une borne au LTD, sur lequel vous pouvez :</li>
+            <li style="margin-bottom: 10px;">- Retrouvez nos différentes cartes et même passer des commandes !</li>
+        </ul>
+        <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveau Logo ❄️" class="highlight-image" style="max-width: 30%; border-radius: 5px; margin: 10px auto;">
+        <p style="color: #fff; text-align: center; font-size: 0.9rem; margin-top: 10px;">
+            Nous avons un nouveau logo spécialement conçu pour Noël ! 🎄✨
+        </p>
+    </div>
+</section>
+    
+    <!-- Présentation des employés -->
+    <section id="presentation-employes" style="background-color: #2e2e2e00; padding: 10px 0; color: #fff; margin-top: 20px; border-radius: 10px;">
+        <div class="center-text" style="margin-bottom: 10px;">
+            <h2 style="font-size: 3rem; color: #ff0000; margin-top: 5px;"> ⚠️ En cours de maintenance </h2>
+    </section>
+    
+    
+
           
 <!-- Section Citoyens -->
 <section id="citizens">
@@ -293,7 +330,7 @@ section.active {
                 <div class="gallery-item">
                     <img src="https://i.goopics.net/a5tg3x.png" alt="Image citoyen 3">
                     <p>Pince pour plaque</p>
-                    <p20>$</p>
+                    <p>20$</p>
                 </div>             
                 <div class="gallery-item">
                     <img src="https://i.goopics.net/6ty7eb.png" alt="Image citoyen 3">
@@ -699,6 +736,23 @@ section.active {
                     <option value="Coupeurs" data-price="15">Coupeurs - 14$</option>
                     <option value="Croquettes" data-price="25">Croquettes - 25$</option>
                     <option value="Fertilisant" data-price="8">Fertilisant - 8$</option>
+                    <option value="Foret de perceuse" data-price="900">Foret de perceuse - 900$</option>
+                    <option value="Grosse perceuse " data-price="12">Grosse perceuse  - 12$</option>
+                    <option value="Huile " data-price="6">Huile  - 6$</option>
+                    <option value="Huile de shell" data-price="10">Huile de shell - 10$</option>
+                    <option value="Huile noire" data-price="14">Huile noire - 14$</option>
+                    <option value="Lumière violette" data-price="18">Lumière violette - 18$</option>
+                    <option value="Outil" data-price="5">Outi - 5$</option>
+                    <option value="Perceuse" data-price="8">Perceuse - 8$</option>
+                    <option value="Pile verte" data-price="3">Pile verte - 3$</option>
+                    <option value="Pince pour plaque" data-price="20">Pince pour plaque - 20$</option>
+                    <option value="Porte document" data-price="8">Porte document - 8$</option>
+                    <option value="Porte feuille" data-price="8">Porte feuille - 8$</option>
+                    <option value="Pot de fleur" data-price="8">Pot de fleur - 8$</option>
+                    <option value="Spray pour tag" data-price="2000">Spray pour tag - 2000$</option>
+                    <option value="Table de travail" data-price="8">Table de travail - 8$</option>
+                    <option value="Ticket à gratter" data-price="8">Ticket à gratter - 25$</option>
+                    <option value="Trousseau de clé" data-price="90">Trousseau de clé - 90$</option>                                                         
                 </select>
 
                 <label for="quantite1">Quantité</label>
@@ -790,18 +844,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Ajouter les options disponibles pour les produits
         const options = [
-            { value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
-            { value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
-            { value: "Balle de football", price: 45, text: "Balle de football - 45$" },
-            { value: "Batterie", price: 9, text: "Batterie - 9$" },
-            { value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
-            { value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
-            { value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
-            { value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
-            { value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
-            { value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
-            {value : "Croquettes", price: 25, text: "Croquettes - 25$"},
-            {value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
+{ value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
+{ value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
+{ value: "Balle de football", price: 45, text: "Balle de football - 45$" },
+{ value: "Batterie", price: 9, text: "Batterie - 9$" },
+{ value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
+{ value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
+{ value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
+{ value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
+{ value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
+{ value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
+{value : "Croquettes", price: 25, text: "Croquettes - 25$"},
+{value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
+{value : "Foret de perceuse", price: 900, text: "Foret de perceuse - 900$"},
+{value : "Grosse perceuse", price: 12, text: "Grosse perceuse - 12$"},
+{value : "Huile", price: 6, text :"Huile  - 6$"},
+{value : "Huile de shell", price:10, text: "Huile de shell - 10$"},
+{value : "Huile noire", price:14, text: "Huile noire - 14$"},
+{value : "Lumière violette", price:18, text: "Lumière violette - 18$"},
+{value : "Outil", price:5, text: "Outi - 5$"},
+{value : "Perceuse", price: 8, text: "Perceuse - 8$"},
+{value : "Pile verte", price: 3, text: "Pile verte - 3$"},
+{value : "Pince pour plaque", price: 20, text: "Pince pour plaque - 20$"},
+{value : "Porte document", price: 8, text: "Porte document - 8$"},
+{value : "Porte feuille", price: 8, text: "Porte feuille - 8$"},
+{value : "Pot de fleur", price: 8, text: "Pot de fleur - 8$"},
+{value : "Spray pour tag", price: 2000, text: "Spray pour tag - 2000$"},
+{value : "Table de travail", price: 8, text: "Table de travail - 8$"},
+{value : "Ticket à gratter", price: 8, text: "Ticket à gratter - 25$"},
+{value : "Trousseau de clé", price: 90, text: "Trousseau de clé - 90$"},
         ];
 
         options.forEach(option => {
@@ -907,7 +978,7 @@ document.getElementById('commande-form').addEventListener('submit', function(eve
     document.getElementById('success-message').style.display = 'block';
 
     // Réinitialiser le total
-    document.getElementById('total').value = '0€';
+    document.getElementById('total').value = '0$';
 
     // Rediriger vers l'accueil après 5 secondes
     setTimeout(function() {
@@ -917,85 +988,120 @@ document.getElementById('commande-form').addEventListener('submit', function(eve
 
 </script>
 <script>
-// URL du webhook
-const webhookURL = 'https://discord.com/api/webhooks/1309873780650147933/_mNdHhK5y7t3vxqr1dPEihd71Lu3WzdHmJ7g1QWJpPDf1dmpl7QCwetir61FkgaQdWLs';
-
-// Fonction pour générer le message basé sur les informations de la commande
-function createWebhookMessage() {
-    const nom = document.getElementById('nom').value;
-    const contact = document.getElementById('contact').value;
-    const produit = document.getElementById('produit1').value;
-    const quantite = document.getElementById('quantite1').value;
-    const modeRetrait = document.getElementById('mode_retrait').value;
-    const dateLivraison = document.getElementById('date-livraison').value;
-    const trancheLivraison = document.getElementById('tranche-personnalisee').value;
-    const total = document.getElementById('total').value;
-
-    // Structure du message que vous souhaitez envoyer
-    const message = {
-        content: `Nouvelle commande :
-        
-Nom : ${nom}
-Contact : ${contact}
-Produit : ${produit} - Quantité : ${quantite}
-Mode de retrait : ${modeRetrait}
-Date de retrait : ${dateLivraison}
-Plage horaire de retrait : ${trancheLivraison}
-Total : ${total}
-
-La commande sera préparée dans les meilleurs délais et la personne sera contactée lorsque la commande sera prête.`
-    };
-
-    return message;
-}
-
-// Fonction pour envoyer le message
-function sendWebhook() {
-    const message = createWebhookMessage(); // Récupère le message dynamique basé sur le formulaire
-    console.log("Message à envoyer:", message);
-
-    fetch(webhookURL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(message), // Envoi du message sous forme de JSON
-    })
-    .then(response => {
-        if (response.ok) {
-            console.log("Webhook envoyé avec succès !");
-        } else {
-            response.text().then(text => {
-                console.error("Erreur lors de l'envoi du webhook:", text);
-            });
-        }
-    })
-    .catch(error => {
-        console.error("Erreur de connexion au webhook:", error);
+    // URL du webhook
+    const webhookURL = 'https://discord.com/api/webhooks/1309873780650147933/_mNdHhK5y7t3vxqr1dPEihd71Lu3WzdHmJ7g1QWJpPDf1dmpl7QCwetir61FkgaQdWLs';
+    
+    // Fonction pour générer le message basé sur les informations de la commande
+    function createWebhookMessage() {
+        const nom = document.getElementById('nom').value;
+        const contact = document.getElementById('contact').value;
+        const modeRetrait = document.getElementById('mode_retrait').value;
+        const dateLivraison = document.getElementById('date-livraison').value;
+        const trancheLivraison = document.getElementById('tranche-personnalisee').value;
+    
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+    
+        // Récupérer les articles, quantités et total
+        let articlesDetails = "";
+        let total = 0;
+    
+        produits.forEach((produit, index) => {
+            const productName = produit.options[produit.selectedIndex]?.text || "Produit inconnu";
+            const quantity = parseInt(quantites[index]?.value || 0);
+            const price = parseFloat(produit.options[produit.selectedIndex]?.dataset?.price || 0);
+    
+            if (quantity > 0) {
+                articlesDetails += `- ${productName} : ${quantity}\n`;
+                total += price * quantity;
+            }
+        });
+    
+        // Structure du message embed
+        const message = {
+            content: `**Nouvelle commande :**\nNom : ${nom}\nContact : ${contact}\nMode de retrait : ${modeRetrait}\nDate de retrait : ${dateLivraison}\nPlage horaire de retrait : ${trancheLivraison}`,
+            embeds: [
+                {
+                    title: "Détail de la commande 🛒",
+                    color: 3447003, // Couleur bleue
+                    description: `**Articles commandés :**\n${articlesDetails}\n**Total : ${total}$**`
+                }
+            ]
+        };
+    
+        return message;
+    }
+    
+    // Fonction pour envoyer le message via le webhook
+    function sendWebhook() {
+        const message = createWebhookMessage(); // Récupère le message dynamique basé sur le formulaire
+        console.log("Message à envoyer:", message);
+    
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(message), // Envoi du message sous forme de JSON
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Webhook envoyé avec succès !");
+            } else {
+                response.text().then(text => {
+                    console.error("Erreur lors de l'envoi du webhook:", text);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Erreur de connexion au webhook:", error);
+        });
+    }
+    
+    // Calcul du total dynamique
+    function calculateTotal() {
+        let total = 0;
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+    
+        produits.forEach((produit, index) => {
+            const price = parseFloat(produit.options[produit.selectedIndex]?.dataset?.price || 0);
+            const quantity = parseInt(quantites[index]?.value || 0);
+            total += price * quantity;
+        });
+    
+        document.getElementById('total').value = `${total}$`;
+    }
+    
+    // Ajouter des écouteurs d'événements pour recalculer le total
+    document.querySelectorAll("select[name='produit[]'], input[name='quantite[]']").forEach(element => {
+        element.addEventListener('change', calculateTotal);
+        element.addEventListener('input', calculateTotal);
     });
-}
-
-// Appeler la fonction de webhook après la soumission du formulaire
-document.getElementById('commande-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Empêcher la soumission du formulaire
-
-    // Envoyer le webhook
-    sendWebhook();
-
-    // Afficher le message de succès
-    document.getElementById('success-message').style.display = 'block';
-
-    // Réinitialiser le formulaire et le total après envoi
-    document.getElementById('commande-form').reset();
-    document.getElementById('total').value = '0$';
-
-    // Masquer le message de succès après 5 secondes
-    setTimeout(function() {
-        document.getElementById('success-message').style.display = 'none';
-    }, 5000);
-});
-
-    </script>
+    
+    // Appeler la fonction de webhook après la soumission du formulaire
+    document.getElementById('commande-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêcher la soumission du formulaire
+    
+        calculateTotal(); // Assurez-vous que le total est mis à jour
+    
+        // Envoyer le webhook
+        sendWebhook();
+    
+        // Afficher le message de succès
+        document.getElementById('success-message').style.display = 'block';
+    
+        // Réinitialiser le formulaire et le total après envoi
+        document.getElementById('commande-form').reset();
+        document.getElementById('total').value = '0$';
+    
+        // Masquer le message de succès après 5 secondes
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000);
+    });
+    </script>    
+    
 
             <style>
                 /* Style pour le formulaire */
