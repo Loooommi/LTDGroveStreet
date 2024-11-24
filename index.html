@@ -793,7 +793,7 @@ section.active {
                 <label for="total">Total</label>
                 <input type="text" id="total" name="total" readonly value="0$">
 
-                <button type="submit">Passer la commande</button>
+                <button type="submit">Valider la commande</button>
             </form>
             <!-- Message de réussite -->
             <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
@@ -803,7 +803,27 @@ section.active {
             </div>
         </div>
     </section>
+<script>
+    // Affichage du message de réussite lorsque le formulaire est soumis
+document.getElementById('commande-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher l'envoi du formulaire
 
+    // Cacher le formulaire
+    document.getElementById('commande-form').style.display = 'none';
+
+    // Afficher le message de réussite
+    document.getElementById('success-message').style.display = 'block';
+
+    // Réinitialiser le total
+    document.getElementById('total').value = '0$';
+
+    // Rediriger vers l'accueil après 5 secondes (optionnel)
+    setTimeout(function() {
+        window.location.href = 'index.html'; // Redirige vers la page d'accueil
+    }, 10000); // 10 secondes
+});
+
+</script>
 <script>
 // Calcul du total dynamique
 function calculateTotal() {
