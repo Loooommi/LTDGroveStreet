@@ -186,6 +186,7 @@ section.active {
             <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
             <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
             <a href="javascript:void(0)" onclick="showSection('presentation-employes')">⏳ Introduction</a> 
+            <a href="connexion.html">🔑 Connexion</a>
         </nav>
     </header>
    
@@ -194,9 +195,9 @@ section.active {
             <div class="center-text">
                 <p>Bienvenue sur le site du LTD Grove Street !</p>
 <!-- Conteneur des Highlight Boxes -->
-<div class="highlights-container" style="display: flex; gap: 50px; justify-content: center; margin-top: 20px;">
+<div class="highlights-container" style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; margin-top: 20px;">
     <!-- Highlight Box pour les Promotions -->
-    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 40%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 50%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
         <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #faad55c2; margin-bottom: 10px;">
             Tombola 🎉
         </p>
@@ -232,24 +233,25 @@ section.active {
             </li>
         </ul>
     </div>
-    
-    
 
-    <div class="highlight-box" id="nouveautes" style="flex: 1; max-width: 40%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
-        <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #faad55c2; margin-bottom: 10px;">
-            Nouveautés de la semaine ✨
+    <!-- Highlight Box pour les Nouveautés -->
+    <div class="highlight-box" id="nouveautes" style="flex: 1; max-width: 50%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+        <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #ff0000; margin-bottom: 10px;">
+            Promotions ✨
         </p>
         <ul style="list-style-type: none; padding: 0; font-size: 1rem; line-height: 1.6; color: #fff;">
-            <li style="margin-bottom: 10px;">Un tout nouveau site disponible sur une borne au LTD, sur lequel vous pouvez :</li>
-            <li style="margin-bottom: 10px;"> - Retrouvez nos différentes cartes !</li>
-            <li style="margin-bottom: 10px;"> - Passer des commandes !</li>
+            <li style="margin-bottom: 10px;">
+                Exceptionnellement profitez des Fôret à un prix exceptionnelle de 
+                <span style="color: #66ff00;">750$ au lieu de 900$</span>. Offre valable jusqu'au 
+                <span style="color: #66ff00;">30/11/2024</span>.
+            </li>
+            <li style="margin-bottom: 10px;">Des restock vont être fait régulièrement pour que vous bénéficiez de ceci !</li>
+            <li style="margin-bottom: 10px;">Dépêchez vous avant qu’il ne soit trop tard!</li>
+            <li style="margin-bottom: 10px;">✨ Pourquoi ailleurs ? Rendez-vous dès maintenant dans votre supérette toujours chill&relax pour profiter de ceci</li>
         </ul>
-        <img src="https://i.goopics.net/9osr8m.gif" alt="Nouveau Logo ❄️" class="highlight-image" style="max-width: 30%; border-radius: 5px; margin: 10px auto;">
-        <p style="color: #fff; text-align: center; font-size: 0.9rem; margin-top: 10px;">
-            Nous avons un nouveau logo spécialement conçu pour Noël ! 🎄✨
-        </p>
     </div>
     
+
 </section>
     
     <!-- Présentation des employés -->
