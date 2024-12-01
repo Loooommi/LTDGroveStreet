@@ -779,8 +779,6 @@ section.active {
     </div>
 </section>
 
-
-
 <script>
     document.getElementById("candidature-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Empêche la soumission classique du formulaire
@@ -794,8 +792,8 @@ section.active {
         const webhookURL = webhookURLs[poste];
 
         if (!webhookURL) {
-            alert("Erreur : Webhook non configuré pour le poste sélectionné.");
-            return;
+            console.error("Erreur : Webhook non configuré pour le poste sélectionné.");
+            return; // Arrête le processus si le webhook est absent
         }
 
         const roleIDs = {
@@ -837,12 +835,11 @@ section.active {
                 if (response.ok) {
                     document.getElementById("candidature-form").reset(); // Réinitialise le formulaire
                 } else {
-                    alert("Erreur lors de l'envoi de la candidature.");
+                    console.error("Erreur lors de l'envoi de la candidature.");
                 }
             })
             .catch((error) => {
                 console.error("Erreur lors de l'envoi:", error);
-                alert("Erreur lors de l'envoi de la candidature.");
             });
     });
 </script>
