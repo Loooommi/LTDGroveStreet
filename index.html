@@ -184,7 +184,8 @@ section.active {
             <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
             <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
             <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
-            <a href="javascript:void(0)" onclick="showSection('commande')">📝 Commandes</a>
+            <a href="javascript:void(0)" onclick="showSection('commande')">🛒 Commandes</a>
+            <a href="javascript:void(0)" onclick="showSection('formulaire-candidature')">📝 Candidature</a> 
             <a href="javascript:void(0)" onclick="showSection('presentation-employes')">⏳ Introduction</a> 
         </nav>
     </header>
@@ -735,10 +736,124 @@ section.active {
         }
     });
 </script>
-            </section>
-            
+</section>
+<section id="formulaire-candidature" style="margin-top: 20px; padding: 20px; background-color: #2e2e2e00; border-radius: 10px;">
+    <h2 style="text-align: center; font-size: 2rem; color: #ffffff;">Formulaire de Candidature</h2>
+    <div class="form-container" style="max-width: 600px; margin: 0 auto; background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+        <form id="candidature-form" style="display: flex; flex-direction: column; gap: 15px; color: #fff;">
+            <label for="nom-prenom">Nom Prénom</label>
+            <input type="text" id="nom-prenom" name="nom-prenom" required placeholder="Entrez votre nom et prénom" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="age">Âge</label>
+            <input type="number" id="age" name="age" min="18" required placeholder="Entrez votre âge" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="numero">Numéro</label>
+            <input type="tel" id="numero" name="numero" required placeholder="Ex : 555-5555" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="carte-identite">Carte d'identité (URL Goopics)</label>
+            <input type="url" id="carte-identite" name="carte-identite" required placeholder="https://goopics.net/..." style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="poste">Poste souhaité</label>
+            <select id="poste" name="poste" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+                <option value="" disabled selected>Sélectionnez un poste</option>
+                <option value="pompiste">Pompiste</option>
+                <option value="vendeur">Vendeur</option>
+            </select>
+
+            <label for="disponibilite">Disponibilité</label>
+            <textarea id="disponibilite" name="disponibilite" required placeholder="Ex : Disponible en semaine de 14h à 20h" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="experience">Expérience professionnelle</label>
+            <textarea id="experience" name="experience" required placeholder="Ex : 2 ans en tant que vendeur chez XYZ" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="qualite-defaut">Qualité/Défaut</label>
+            <textarea id="qualite-defaut" name="qualite-defaut" required placeholder="Ex : Rigoureux mais parfois impatient" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="pourquoi">Pourquoi vous et pas un autre ?</label>
+            <textarea id="pourquoi" name="pourquoi" required placeholder="Ex : Parce que je suis motivé et passionné par ce métier..." style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <button type="submit" style="padding: 12px; background-color: #4CAF50; border: none; color: #fff; font-size: 1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Soumettre la candidature
+            </button>
+        </form>
+    </div>
+</section>
+
+
+
+<script>
+    document.getElementById("candidature-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche la soumission classique du formulaire
+
+        // Webhooks pour chaque poste
+        const webhookURLs = {
+            pompiste: "https://discord.com/api/webhooks/1312869272460070993/jHlPrITTcmT1OwY75zlBrKecnSYqyYr5tbP4XeBJCruQivX_L6xEMnCRXLwItRnzxb8T", // Webhook pour le poste Pompiste
+            vendeur: "https://discord.com/api/webhooks/1312869022974476418/zuU1kmi4tX_H7IhsPc4xncSfUvr9ZhY8nF2UjSox1A5yWzJT54NVO_qspNEEcIcGBHe5",   // Webhook pour le poste Vendeur
+        };
+
+        // Récupère le poste sélectionné
+        const poste = document.getElementById("poste").value;
+        const webhookURL = webhookURLs[poste];
+
+        if (!webhookURL) {
+            alert("Erreur : Webhook non configuré pour le poste sélectionné.");
+            return;
+        }
+
+        // Récupère le rôle à pinger en fonction du poste
+        const roleIDs = {
+            pompiste: "1310025173122154506", // ID du rôle Pompiste
+            vendeur: "1310025174023802950",   // ID du rôle Vendeur
+        };
+
+        const roleID = roleIDs[poste]; // Récupère le rôle spécifique au poste sélectionné
+        const generalRoleID = "1297688664821727253"; // ID du rôle générique à pinger dans tous les cas
+
+        const formData = {
+            username: "Candidature Bot",
+            content: `<@&${generalRoleID}> <@&${roleID}>`, // Ping du rôle générique et spécifique en fonction du poste
+            embeds: [
+                {
+                    title: `Nouvelle Candidature Reçue - ${poste}`, // Inclut le poste dans le titre
+                    color: 65280, // Couleur verte
+                    fields: [
+                        { name: "Nom Prénom", value: document.getElementById("nom-prenom").value },
+                        { name: "Âge", value: document.getElementById("age").value },
+                        { name: "Numéro", value: document.getElementById("numero").value },
+                        { name: "Carte d'identité", value: `[Voir la carte](${document.getElementById("carte-identite").value})` },
+                        { name: "Poste souhaité", value: poste },
+                        { name: "Disponibilité", value: document.getElementById("disponibilite").value },
+                        { name: "Expérience professionnelle", value: document.getElementById("experience").value },
+                        { name: "Qualité/Défaut", value: document.getElementById("qualite-defaut").value },
+                        { name: "Pourquoi vous ?", value: document.getElementById("pourquoi").value },
+                    ],
+                },
+            ],
+        };
+
+        // Envoi des données via le webhook
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert("Candidature envoyée avec succès !");
+                    document.getElementById("candidature-form").reset(); // Réinitialise le formulaire
+                } else {
+                    alert("Erreur lors de l'envoi de la candidature.");
+                }
+            })
+            .catch((error) => {
+                console.error("Erreur lors de l'envoi:", error);
+                alert("Erreur lors de l'envoi de la candidature.");
+            });
+    });
+</script>
+
     <section id="commande">
-        <h2>📝 Formulaire de commande</h2>
+        <h2>🛒 Formulaire de commande</h2>
         <div class="form-container">
             <form id="commande-form" action="#" method="post">
                 <label for="nom">Nom</label>
