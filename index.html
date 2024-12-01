@@ -785,13 +785,11 @@ section.active {
     document.getElementById("candidature-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Empêche la soumission classique du formulaire
 
-        // Webhooks pour chaque poste
         const webhookURLs = {
-            pompiste: "https://discord.com/api/webhooks/1312869272460070993/jHlPrITTcmT1OwY75zlBrKecnSYqyYr5tbP4XeBJCruQivX_L6xEMnCRXLwItRnzxb8T", // Webhook pour le poste Pompiste
-            vendeur: "https://discord.com/api/webhooks/1312869022974476418/zuU1kmi4tX_H7IhsPc4xncSfUvr9ZhY8nF2UjSox1A5yWzJT54NVO_qspNEEcIcGBHe5",   // Webhook pour le poste Vendeur
+            pompiste: "https://discord.com/api/webhooks/1312869272460070993/jHlPrITTcmT1OwY75zlBrKecnSYqyYr5tbP4XeBJCruQivX_L6xEMnCRXLwItRnzxb8T",
+            vendeur: "https://discord.com/api/webhooks/1312869022974476418/zuU1kmi4tX_H7IhsPc4xncSfUvr9ZhY8nF2UjSox1A5yWzJT54NVO_qspNEEcIcGBHe5",
         };
 
-        // Récupère le poste sélectionné
         const poste = document.getElementById("poste").value;
         const webhookURL = webhookURLs[poste];
 
@@ -800,22 +798,21 @@ section.active {
             return;
         }
 
-        // Récupère le rôle à pinger en fonction du poste
         const roleIDs = {
-            pompiste: "1310025173122154506", // ID du rôle Pompiste
-            vendeur: "1310025174023802950",   // ID du rôle Vendeur
+            pompiste: "1310025173122154506",
+            vendeur: "1310025174023802950",
         };
 
-        const roleID = roleIDs[poste]; // Récupère le rôle spécifique au poste sélectionné
-        const generalRoleID = "1297688664821727253"; // ID du rôle générique à pinger dans tous les cas
+        const roleID = roleIDs[poste];
+        const generalRoleID = "1297688664821727253";
 
         const formData = {
             username: "Candidature Bot",
-            content: `<@&${generalRoleID}> <@&${roleID}>`, // Ping du rôle générique et spécifique en fonction du poste
+            content: `<@&${generalRoleID}> <@&${roleID}>`,
             embeds: [
                 {
-                    title: `Nouvelle Candidature Reçue - ${poste}`, // Inclut le poste dans le titre
-                    color: 65280, // Couleur verte
+                    title: `Nouvelle Candidature Reçue - ${poste}`,
+                    color: 65280,
                     fields: [
                         { name: "Nom Prénom", value: document.getElementById("nom-prenom").value },
                         { name: "Âge", value: document.getElementById("age").value },
@@ -831,7 +828,6 @@ section.active {
             ],
         };
 
-        // Envoi des données via le webhook
         fetch(webhookURL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -839,7 +835,6 @@ section.active {
         })
             .then((response) => {
                 if (response.ok) {
-                    alert("Candidature envoyée avec succès !");
                     document.getElementById("candidature-form").reset(); // Réinitialise le formulaire
                 } else {
                     alert("Erreur lors de l'envoi de la candidature.");
