@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTD Grove Street</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles communs */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            background-image: url('https://i.goopics.net/jnbkw7.jpg'); /* Image d'arrière-plan */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        header, footer {
+            background-color: #0000008a;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header-title img {
+            width: 50px;
+            height: auto;
+            border-radius: 5px;
+        }
+        nav {
+            margin-top: 10px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #f3f3f3;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        section {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            background-color: #00000000; /* Fond noir */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0);
+        }
+        .active {
+            display: block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .gallery-item {
+            width: calc(20% - 10px);
+            text-align: center;
+            background-color: #ebbe6b5d;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgb(0, 0, 0);
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #00000000; /* Fond noir */
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Nouveau style pour centrer le texte */
+        .center-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* Pour occuper 80% de la hauteur de la fenêtre */
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            flex-direction: column; /* Ajout de cette ligne pour avoir le texte et la description empilés */
+        }
+
+        /* Style pour la description sous le texte */
+        .center-text p.description {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 10px;
+            max-width: 600px;
+        }
+
+/* Agrandir la taille du carré dynamique */
+.highlight-box {
+    text-align: center;
+    margin: 10px auto;  /* Augmenter la marge pour plus d'espace autour */
+    padding: 20px;  /* Augmenter l'espace interne du carré */
+    width: 100%;  /* Largeur augmentée à 80% de la fenêtre */
+    max-width: 1000px;  /* Largeur maximale de 700px */
+    font-size: 1.5rem;  /* Agrandir la taille du texte */
+    color: #ebba60d3;
+    border: 3px solid #5c167c1a; /* Bordure verte plus épaisse */
+    border-radius: 15px; /* Coins arrondis plus prononcés */
+    background-color: #5c167c3d; /* Fond léger */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); /* Ombre plus large */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dynamisme au survol */
+.highlight-box:hover {
+    transform: scale(1.1);  /* Augmenter l'agrandissement au survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* Style spécifique pour le titre "Nouveautés de la semaine" */
+.highlight-title {
+    font-size: 2rem;  /* Taille de police encore plus grande */
+    font-weight: bold;
+    color: #b31515c4;  /* Vert foncé */
+    margin-bottom: 20px;  /* Espacement plus grand sous le titre */
+}
+
+/* Style pour l'image dans le carré dynamique */
+.highlight-image {
+    max-width: 20%;  /* Image prend toute la largeur disponible */
+    height: auto;
+    border-radius: 10px; /* Coins arrondis pour l'image */
+    margin-bottom: 20px;  /* Espacement sous l'image */
+}
+/* Cacher les sections par défaut */
+section {
+    display: none;
+}
+
+/* Afficher la section active */
+section.active {
+    display: block;
+}
+
+
+
+</style>
+
+        
+    <script>
+        // Fonction pour afficher la section en fonction de l'onglet cliqué
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.classList.remove("active");
+            });
+            document.getElementById(sectionId).classList.add("active");
+        }
+        // Afficher par défaut la section Accueil au chargement de la page
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection("home");
+        });
+        
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <img src="https://i.goopics.net/9osr8m.gif" alt="Logo du site">
+            <h1>LTD Grove Street</h1>
+        </div>
+        <nav>
+            <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
+            <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
+            <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
+            <a href="javascript:void(0)" onclick="showSection('commande')">🛒 Commandes</a>
+            <a href="javascript:void(0)" onclick="showSection('formulaire-candidature')">📝 Candidature</a>
+            <a href="javascript:void(0)" onclick="showSection('presentation-employes')">⏳ Introduction</a> 
+        </nav>
+    </header>
+   
+    <main>
+        <section id="home" class="active">
+            <div class="center-text">
+                <p>Bienvenue sur le site du LTD Grove Street !</p>
+<!-- Conteneur des Highlight Boxes -->
+<div class="highlights-container" style="display: flex; flex-wrap: wrap; gap: 50px; justify-content: center; margin-top: 20px;">
+    <!-- Highlight Box pour les Promotions -->
+    <div class="highlight-box" id="promotions" style="flex: 1; max-width: 50%; padding: 15px; background-color: #5c167c3d; color: #ebba60d3; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+        <p class="highlight-title" style="font-size: 1.5rem; font-weight: bold; text-align: center; color: #faad55c2; margin-bottom: 10px;">
+            Tombola 🎉
+        </p>
+        <ul style="list-style-type: none; padding: 0; font-size: 1rem; line-height: 1.6; color: #fff;">
+            <li style="margin-bottom: 10px;">
+                <strong>Pour vous remercier de votre confiance et de vos engagements, nous sommes ravis de lancer notre grande tombola, qui débute dès aujourd'hui !</strong>
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Conditions de participation :</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>1 ticket = 100 $</li>
+                    <li>Bonus fidélité : Pour tout achat supérieur à 1 000 $, recevez 1 ticket offert pour chaque tranche de 1 000 $ !</li>
+                    <li style="font-size: 0.9rem; color: #ebba60;">(Exemple : Pour 4 000 $, vous obtenez 4 tickets offerts)</li>
+                </ul>
+            </li>
+            <li style="margin-bottom: 10px;">
+                <strong>Lots à gagner :</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Un véhicule exceptionnel d'une valeur d'environ 70 000$ ! 🚗</li>
+                    <li>1 000$ à dépenser dans tout le LTD !</li>
+                    <li>Une Carte Privilège offrant 15 % de réduction sur tous vos achats pour une durée de 7 jours ! 🎁</li>
+                </ul>
+            </li>
+            <li style="margin-bottom: 10px;">
+                Tentez votre chance dès aujourd’hui et repartez peut-être avec l’un de ces lots !  
+            </li>
+            <li style="margin-bottom: 10px; font-size: 0.9rem; color: #faad55c2;">
+                📅 Participation ouverte jusqu’au 13/12.<br>
+                Tirage au sort : 14/12
+            </li>
+            <li style="text-align: center; font-weight: bold; font-size: 1.1rem; color: #faad55;">
+                Bonne chance à toutes et à tous ! 🍀
+            </li>
+        </ul>
+    </div>
+</section>
+    
+    <!-- Présentation des employés -->
+    <section id="presentation-employes" style="background-color: #2e2e2e00; padding: 05px 0; color: #fff; margin-top: 0; border-radius: 10px;">
+        <div class="center-text">
+            <p>⏳ Introduction</p>  
+    
+        <div class="gallery" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 0;"> <!-- Moins d'écart entre les items -->
+            <!-- Employé 1 -->
+            <div class="gallery-item" style="width: 25%; text-align: center; background-color: #ebbe6b5d; padding: 25px; transition: transform 0.3s;">
+                <img src="https://i.goopics.net/re2dfs.png" alt="Employé 1" style="width: 100%; border-radius: 50%; transition: transform 0.3s ease;">
+                <p style="margin-top: 10px;">Eden Cruz</p>
+                <p style="font-size: 0.9rem; color: #000000;">Patronne</p>
+                <p style="font-size: 0.9rem; color: #fff;">Une leader exceptionnelle et passionnée, le LTD est une entreprise qui redéfinit les standards des services modernes. Sous sa direction, l’entreprise est devenue synonyme d’innovation, de fiabilité et d’excellence.</p>
+            </div>
+    
+            <!-- Employé 2 -->
+            <div class="gallery-item" style="width: 25%; text-align: center; background-color: #ebbe6b5d; padding: 25px; transition: transform 0.3s;">
+                <img src="https://i.goopics.net/2iub49.png" alt="Employé 2" style="width: 100%; border-radius: 50%; transition: transform 0.3s ease;">
+                <p style="margin-top: 10px;">Casey Diaz</p>
+                <p style="font-size: 0.9rem; color: #000000;">Co-Patron</p>
+                <p style="font-size: 0.9rem; color: #fff;">Casey Diaz est un ingénieur. Connu pour sa pensée et son don d'inspiration talentueux, reconnu également pour sa réflèxion remarquable, il est un exemple parfait pour le LTD.</p>
+            </div>
+        </div>
+    </section>  
+<!-- Section Citoyens -->
+<section id="citizens">
+    <h2>🧑‍🤝‍🧑 Citoyens</h2>
+
+    <!-- Boutons de navigation entre catégories -->
+    <div class="category-nav">
+        <button onclick="showCategory('category-b')">🧰 Bricolage</button>
+        <button onclick="showCategory('divers')">📁 Divers</button>
+        <button onclick="showCategory('Jardinage')">🪴 Jardinage</button>
+        <button onclick="showCategory('Papeterie')">📜 Papeterie</button>
+    </div>
+
+        <!-- Catégorie 2 -->
+        <div class="category" id="category-b">
+            <h3>🧰 Bricolage </h3>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/bm3c76.png" alt="Image citoyen 3">
+                    <p>Batterie</p>
+                    <p>9$</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/3ayj2s.png" alt="Image citoyen 3">
+                    <p>Batterie de voiture</p>
+                    <p>18$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/mmqe5p.png" alt="Image citoyen 3">
+                    <p>Bobine de cuivre</p>
+                    <p>3$</p>
+                </div>           
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/kxoj4e.png" alt="Image citoyen 3">
+                    <p>Coupeurs</p>
+                    <p>14$</p>
+                </div>                      
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/d9nhae.png" alt="Image citoyen 3">
+                    <p>Foret de perceuse</p>
+                    <p>900$</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/5bdawf.png" alt="Image citoyen 3">
+                    <p>Grosse perceuse</p>
+                    <p>12$</p>
+                </div>             
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/gd84sx.png" alt="Image citoyen 3">
+                    <p>Huile</p>
+                    <p>6$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/es4tgs.png" alt="Image citoyen 3">
+                    <p>Huile de Shell</p>
+                    <p>10$</p>
+                </div>               
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/esqqw6.png" alt="Image citoyen 3">
+                    <p>Huile noire</p>
+                    <p>14$</p>
+                </div>                    
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/mczpd3.png" alt="Image citoyen 3">
+                    <p>Pile verte</p>
+                    <p>3$</p>
+                </div>                       
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/a5tg3x.png" alt="Image citoyen 3">
+                    <p>Pince pour plaque</p>
+                    <p>20$</p>
+                </div>             
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/6ty7eb.png" alt="Image citoyen 3">
+                    <p>Outil</p>
+                    <p>5$</p>
+                </div>            
+                <div class="gallery-item">
+                    <img src="https://i.goopics.net/98tv2h.png" alt="Image citoyen 3">
+                    <p>Perceuse</p>
+                    <p>8$</p>
+                </div>            
+            </div>
+        </div>
+    
+
+    <!-- Catégorie 1 -->
+    <div class="category" id="divers"style="display: none;">
+        <h3>📁 Divers</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/q9sy7f.png" alt="Appât de grande qualité">
+                <p>Appât de grande qualité</p>
+                <p>10$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/471vd5.png" alt="Balle de basket">
+                <p>Balle de basket</p>
+                <p>45$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/5txgxj.png" alt="Balle de basket">
+                <p>Balle de football</p>
+                <p>45$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/ydos8i.png" alt="Image citoyen 2">
+                <p>Canne à pêche</p>
+                <p>60$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/v6cb22.png" alt="Image citoyen 1">
+                <p>Croquettes</p>
+                <p>25$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/1cdtqs.png" alt="Papier à rouler - 2$">
+                <p>Papier à rouler</p>
+                <p>2$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/ku1s2c.png" alt="Image citoyen 2">
+                <p>Skateboard</p>
+                <p>90$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/h4idf1.png" alt="Image citoyen 1">
+                <p>Spray pour Tag</p>
+                <p>2000$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/oawba0.png" alt="Image citoyen 2">
+                <p>Ticket à gratter</p>
+                <p>25$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/lwo6zl.png" alt="Image citoyen 1">
+                <p>Trousseau de clé</p>
+                <p>90$</p>
+            </div>
+        </div>
+    </div>
+    <!-- Catégorie 3 -->
+    <div class="category" id="Papeterie" style="display: none;">
+        <h3>📜 Papeterie</h3>
+        <div class="gallery">
+         <div class="gallery-item">
+                <img src="https://i.goopics.net/hi21om.png" alt="Image citoyen 2">
+                <p>Colle</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/3yir66.png" alt="Image citoyen 2">
+                <p>Porte document</p>
+                <p>8$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/uk2jjh.png" alt="Image citoyen 1">
+                <p>Porte feuille</p>
+                <p>8$</p>
+            </div>
+        </div>
+    </div>
+    <div class="category" id="Jardinage" style="display: none;">
+        <h3>🪴 Jardinage</h3>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/rojg9g.png" alt="Image entreprise 6">
+                <p>Bouteille d'eau</p>
+                <p>8$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/lch2vh.png" alt="Image citoyen 3">
+                <p>Fertilisant</p>
+                <p>8$</p>
+            </div>  
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/f6cbty.png" alt="Image citoyen 3">
+                <p>Lumière violette</p>
+                <p>18$</p>
+            </div> 
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/2hb2bo.png" alt="Image citoyen 3">
+                <p>Pot de fleur</p>
+                <p>8$</p>
+            </div>           
+             <div class="gallery-item">
+                <img src="https://i.goopics.net/ng5kk2.png" alt="Image citoyen 3">
+                <p>Table de travail</p>
+                <p>8$</p>
+            </div>           
+             <div class="gallery-item">
+                <img src="https://i.goopics.net/vtbpp5.png" alt="Image citoyen 3">
+                <p>Tas de terre</p>
+                <p>12$</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Style des boutons */
+    .category-nav {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .category-nav button {
+        background-color: #0000008a;
+        color: #fff;
+        border: 1px solid #ebbe6b5d;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .category-nav button:hover {
+        background-color: #000000;
+        transform: scale(1.05);
+    }
+
+    .category {
+        margin-bottom: 30px;
+    }
+
+    .category h3 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+    }
+
+    /* Conteneur des galeries avec espacement ajusté */
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* Ajuste l'espacement entre les items */
+        justify-content: center;
+    }
+
+    /* Ajustement pour avoir 5 éléments par ligne */
+    .gallery-item {
+        width: calc(20% - 15px); /* 20% de largeur moins l'espacement */
+        text-align: center;
+        background-color: #ebbe6b5d;
+        color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
+        padding: 10px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Effet au survol */
+    .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+</style>
+
+<style>
+    .gallery-item {
+        width: calc(20% - 15px);
+        text-align: center;
+        background-color: #ebbe6b5d;
+        color: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgb(0, 0, 0);
+        padding: 10px;
+        box-sizing: border-box;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de la transition */
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        transition: transform 0.3s ease; /* Transition pour l'image */
+    }
+
+    /* Effet au survol */
+    .gallery-item:hover {
+        transform: scale(1.02); /* Légère augmentation de taille */
+        box-shadow: 0 7px 12px rgba(0, 0, 0, 0.5); /* Ombre plus marquée */
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1); /* Agrandissement supplémentaire pour l'image */
+    }
+</style>
+
+<script>
+    function showCategory(categoryId) {
+        // Masquer toutes les catégories
+        document.querySelectorAll('.category').forEach(function (category) {
+            category.style.display = 'none';
+        });
+
+        // Afficher uniquement la catégorie sélectionnée
+        document.getElementById(categoryId).style.display = 'block';
+    }
+</script>
+
+    
+</section>
+
+</main>
+
+
+            <!-- Section Entreprises -->
+            <section id="entreprises">
+                <h2>🏢 Entreprises</h2> 
+                <!-- Bouton menant à un autre site -->
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <button 
+                        onclick="window.location.href='partenaires.html'" 
+                        style="padding: 10px 20px; background-color: #000000; border: none; color: white; font-size: 1rem; cursor: pointer; border-radius: 5px; transition: background-color 0.3s, transform 0.2s;" 
+                        onmouseover="this.style.backgroundColor='#000000'; this.style.transform='scale(1.1)';" 
+                        onmouseout="this.style.backgroundColor='#000000'; this.style.transform='scale(1)';">
+                        Commande entreprise 🌐
+                    </button>
+                </div>
+      <!-- Section entreprises après la connexion -->
+        <div class="gallery">
+            <!-- 32 images dans la galerie Entreprises -->
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/6wd79a.png" alt="Image entreprise 1">
+                <p>Bagel</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/bnmz8i.png" alt="Image entreprise 1">
+                <p>Bar de chocolat</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/8com4u.png" alt="Image citoyen 1">
+                <p>Caoutchouc</p>
+                <p>5$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/syf2dr.png" alt="Image entreprise 2">
+                <p>Caramel</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/w6gie8.png" alt="Image entreprise 3">
+                <p>Coquille à tacos</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/c6fp94.png" alt="Image entreprise 4">
+                <p>Crème fraîche</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/e7viuq.png" alt="Image entreprise 5">
+                <p>Crème glacée (pot et cornet) </p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/rojg9g.png" alt="Image entreprise 6">
+                <p>Eau purifiée</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/eksp2b.png" alt="Image citoyen 1">
+                <p>Encre</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/4v2bb3.png" alt="Image citoyen 1">
+                <p>Éponge</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/xv20rs.png" alt="Image entreprise 7">
+                <p>Moutarde</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/kju7xr.png" alt="Image entreprise 9">
+                <p>Nouille</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/hcqiza.png" alt="Image entreprise 10">
+                <p>Pain à burger</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/c91xam.png" alt="Image entreprise 10">
+                <p>Pain grillé</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/qz921s.png" alt="Image entreprise 12">
+                <p>Pâtes</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/rpk8rq.png" alt="Image entreprise 13">
+                <p>Tortilla</p>
+                <p>3$</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.goopics.net/fw6b8b.png" alt="Image entreprise 13">
+                <p>Solvant</p>
+                <p>3$</p>
+            </div>      
+        <script>
+            document.getElementById('go-to-partners').addEventListener('click', function() {
+                // Redirige vers la page "partenaires.html"
+                window.location.href = 'commande.html';
+            });
+        </script>
+
+<script>
+    // Afficher le formulaire de connexion lorsque l'utilisateur clique sur le bouton
+    document.getElementById('login-btn').addEventListener('click', function() {
+        document.getElementById('login-form-container').style.display = 'block';
+        document.getElementById('login-btn').style.display = 'none'; // Masquer le bouton de connexion après le clic
+    });
+
+    // Gestion de la soumission du formulaire de connexion
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la soumission par défaut
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Identifiants pour la connexion (exemple statique)
+        const validUsername = 'entreprise';  // Remplacez par les identifiants réels ou ajoutez une base de données
+        const validPassword = '1234';  // Remplacez par le mot de passe réel
+
+        // Vérification des identifiants
+        if (username === validUsername && password === validPassword) {
+            // Connexion réussie, afficher la section entreprise
+            document.getElementById('enterprise-content').style.display = 'block';
+            document.getElementById('login-form-container').style.display = 'none'; // Masquer le formulaire
+        } else {
+            // Afficher un message d'erreur si les identifiants sont incorrects
+            document.getElementById('login-error-message').style.display = 'block';
+        }
+    });
+</script>
+</section>
+<section id="formulaire-candidature" style="margin-top: 20px; padding: 20px; background-color: #2e2e2e00; border-radius: 10px;">
+    <h2 style="text-align: center; font-size: 2rem; color: #ffffff;">Formulaire de Candidature</h2>
+    <div class="form-container" style="max-width: 600px; margin: 0 auto; background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+        <form id="candidature-form" style="display: flex; flex-direction: column; gap: 15px; color: #fff;">
+            <label for="nom-prenom">Nom Prénom</label>
+            <input type="text" id="nom-prenom" name="nom-prenom" required placeholder="Entrez votre nom et prénom" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="age">Âge</label>
+            <input type="number" id="age" name="age" min="18" required placeholder="Entrez votre âge" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="numero">Numéro</label>
+            <input type="tel" id="numero" name="numero" required placeholder="Ex : 555-5555" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="carte-identite">Carte d'identité (URL Goopics)</label>
+            <input type="url" id="carte-identite" name="carte-identite" required placeholder="https://goopics.net/..." style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+
+            <label for="poste">Poste souhaité</label>
+            <select id="poste" name="poste" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;">
+                <option value="" disabled selected>Sélectionnez un poste</option>
+                <option value="pompiste">Pompiste</option>
+                <option value="vendeur">Vendeur</option>
+            </select>
+
+            <label for="disponibilite">Disponibilité</label>
+            <textarea id="disponibilite" name="disponibilite" required placeholder="Ex : Disponible en semaine de 14h à 20h" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="experience">Expérience professionnelle</label>
+            <textarea id="experience" name="experience" required placeholder="Ex : 2 ans en tant que vendeur chez XYZ" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="qualite-defaut">Qualité/Défaut</label>
+            <textarea id="qualite-defaut" name="qualite-defaut" required placeholder="Ex : Rigoureux mais parfois impatient" style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <label for="pourquoi">Pourquoi vous et pas un autre ?</label>
+            <textarea id="pourquoi" name="pourquoi" required placeholder="Ex : Parce que je suis motivé et passionné par ce métier..." style="padding: 10px; border-radius: 5px; border: 1px solid #ddd; background-color: #333; color: #fff;"></textarea>
+
+            <button type="submit" style="padding: 12px; background-color: #4CAF50; border: none; color: #fff; font-size: 1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
+                Soumettre la candidature
+            </button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById("candidature-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche la soumission classique du formulaire
+
+        const webhookURLs = {
+            pompiste: "https://discord.com/api/webhooks/1312869272460070993/jHlPrITTcmT1OwY75zlBrKecnSYqyYr5tbP4XeBJCruQivX_L6xEMnCRXLwItRnzxb8T",
+            vendeur: "https://discord.com/api/webhooks/1312869022974476418/zuU1kmi4tX_H7IhsPc4xncSfUvr9ZhY8nF2UjSox1A5yWzJT54NVO_qspNEEcIcGBHe5",
+        };
+
+        const poste = document.getElementById("poste").value;
+        const webhookURL = webhookURLs[poste];
+
+        if (!webhookURL) {
+            console.error("Erreur : Webhook non configuré pour le poste sélectionné.");
+            return; // Arrête le processus si le webhook est absent
+        }
+
+        const roleIDs = {
+            pompiste: "1310025173122154506",
+            vendeur: "1310025174023802950",
+        };
+
+        const roleID = roleIDs[poste];
+        const generalRoleID = "1297688664821727253";
+
+        const formData = {
+            username: "Candidature Bot",
+            content: `<@&${generalRoleID}> <@&${roleID}>`,
+            embeds: [
+                {
+                    title: `Nouvelle Candidature Reçue - ${poste}`,
+                    color: 65280,
+                    fields: [
+                        { name: "Nom Prénom", value: document.getElementById("nom-prenom").value },
+                        { name: "Âge", value: document.getElementById("age").value },
+                        { name: "Numéro", value: document.getElementById("numero").value },
+                        { name: "Carte d'identité", value: `[Voir la carte](${document.getElementById("carte-identite").value})` },
+                        { name: "Poste souhaité", value: poste },
+                        { name: "Disponibilité", value: document.getElementById("disponibilite").value },
+                        { name: "Expérience professionnelle", value: document.getElementById("experience").value },
+                        { name: "Qualité/Défaut", value: document.getElementById("qualite-defaut").value },
+                        { name: "Pourquoi vous ?", value: document.getElementById("pourquoi").value },
+                    ],
+                },
+            ],
+        };
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    document.getElementById("candidature-form").reset(); // Réinitialise le formulaire
+                } else {
+                    console.error("Erreur lors de l'envoi de la candidature.");
+                }
+            })
+            .catch((error) => {
+                console.error("Erreur lors de l'envoi:", error);
+            });
+    });
+</script>
+
+    <section id="commande">
+        <h2>🛒 Formulaire de commande</h2>
+        <div class="form-container">
+            <form id="commande-form" action="#" method="post">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
+
+                <label for="contact">Contact</label>
+                <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro de téléphone">
+
+                <label for="produit1">Produit</label>
+                <select id="produit1" name="produit[]" class="produit" required>
+                    <option value="" disabled selected>Sélectionnez un article</option>
+                    <option value="Appât grande qualité" data-price="10">Appât grande qualité - 10$</option>
+                    <option value="Balle de basket" data-price="45">Balle de basket - 45$</option>
+                    <option value="Balle de football" data-price="45">Balle de football - 45$</option>
+                    <option value="Batterie" data-price="9">Batterie - 9$</option>
+                    <option value="Batterie de voiture" data-price="18">Batterie de voiture - 18$</option>
+                    <option value="Bobine de cuivre" data-price="3">Bobine de cuivre - 3$</option>
+                    <option value="Bouteille d'eau" data-price="8">Bouteille d'eau - 8$</option>
+                    <option value="Cannes à pêche" data-price="60">Cannes à pêche - 60$</option>
+                    <option value="Caoutchouc" data-price="5">Caoutchouc - 5$</option>
+                    <option value="Caoutchouc" data-price="3">Colle - 3$</option>
+                    <option value="Coupeurs" data-price="15">Coupeurs - 14$</option>
+                    <option value="Croquettes" data-price="25">Croquettes - 25$</option>
+                    <option value="Fertilisant" data-price="8">Fertilisant - 8$</option>
+                    <option value="Foret de perceuse" data-price="900">Foret de perceuse - 900$</option>
+                    <option value="Grosse perceuse " data-price="12">Grosse perceuse  - 12$</option>
+                    <option value="Huile " data-price="6">Huile  - 6$</option>
+                    <option value="Huile de shell" data-price="10">Huile de shell - 10$</option>
+                    <option value="Huile noire" data-price="14">Huile noire - 14$</option>
+                    <option value="Lumière violette" data-price="18">Lumière violette - 18$</option>
+                    <option value="Outil" data-price="5">Outi - 5$</option>
+                    <option value="Perceuse" data-price="8">Perceuse - 8$</option>
+                    <option value="Pile verte" data-price="3">Pile verte - 3$</option>
+                    <option value="Pince pour plaque" data-price="20">Pince pour plaque - 20$</option>
+                    <option value="Porte document" data-price="8">Porte document - 8$</option>
+                    <option value="Porte feuille" data-price="8">Porte feuille - 8$</option>
+                    <option value="Pot de fleur" data-price="8">Pot de fleur - 8$</option>
+                    <option value="Spray pour tag" data-price="2000">Spray pour tag - 2000$</option>
+                    <option value="Table de travail" data-price="8">Table de travail - 8$</option>
+                    <option value="Ticket à gratter" data-price="8">Ticket à gratter - 25$</option>
+                    <option value="Trousseau de clé" data-price="90">Trousseau de clé - 90$</option>                                                         
+                </select>
+
+                <label for="quantite1">Quantité</label>
+                <input type="number" id="quantite1" name="quantite[]" min="1" required>
+
+                <!-- Section pour ajouter un article supplémentaire -->
+                <div id="articles-container"></div>
+
+                <button type="button" id="ajouter-article">Ajouter un article</button>
+
+                <label for="mode_retrait">Mode de retrait :</label>
+                <select id="mode_retrait" name="mode_retrait" required>
+                    <option value="En magasin">En magasin</option>
+                    <option value="Livraison">Livraison</option>
+                </select>
+
+                <label for="date-livraison">Date de retrait</label>
+                <input type="date" id="date-livraison" name="date-livraison" required>
+
+                <label for="tranche-livraison">Plage horaire de retrait</label>
+                <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
+
+                <!-- Total -->
+                <label for="total">Total</label>
+                <input type="text" id="total" name="total" readonly value="0$">
+
+                <button type="submit">Valider la commande</button>
+            </form>
+            <!-- Message de réussite -->
+            <div id="success-message" style="display: none; text-align: center; margin-top: 20px;">
+                <span style="font-size: 2.5rem; font-weight: bold; color: green;">Votre commande a été passée avec succès ! 🎉</span><br>
+                Nous préparons votre commande dans les meilleurs délais. Vous serez contacté dès que votre commande sera prête !
+                Préparez votre carte d'identité afin de la récupérer !
+            </div>
+        </div>
+    </section>
+<script>
+    // Affichage du message de réussite lorsque le formulaire est soumis
+document.getElementById('commande-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher l'envoi du formulaire
+
+    // Cacher le formulaire
+    document.getElementById('commande-form').style.display = 'none';
+
+    // Afficher le message de réussite
+    document.getElementById('success-message').style.display = 'block';
+
+    // Réinitialiser le total
+    document.getElementById('total').value = '0$';
+
+    // Rediriger vers l'accueil après 5 secondes (optionnel)
+    setTimeout(function() {
+        window.location.href = 'index.html'; // Redirige vers la page d'accueil
+    }, 10000); // 10 secondes
+});
+
+</script>
+<script>
+// Calcul du total dynamique
+function calculateTotal() {
+    let total = 0;
+
+    const produits = document.querySelectorAll('.produit');
+    const quantites = document.querySelectorAll('.quantite');
+
+    produits.forEach((produit, index) => {
+        const price = parseFloat(produit.options[produit.selectedIndex].dataset.price || 0);
+        const quantity = parseInt(quantites[index].value || 0);
+        total += price * quantity;
+    });
+
+    document.getElementById('total').value = `${total}$`;
+}
+
+// Ajouter des événements pour recalculer le total
+document.getElementById('commande-form').addEventListener('change', calculateTotal);
+document.getElementById('commande-form').addEventListener('input', calculateTotal);
+
+document.addEventListener("DOMContentLoaded", function () {
+    const ajouterArticleBtn = document.getElementById("ajouter-article");
+    const articlesContainer = document.getElementById("articles-container");
+    let articleCount = 1; // Compteur pour les articles ajoutés
+
+    // Ajouter un article à la liste
+    ajouterArticleBtn.addEventListener("click", () => {
+        articleCount++; // Incrémenter le compteur d'articles
+
+        // Créer un conteneur pour le nouvel article
+        const articleDiv = document.createElement("div");
+        articleDiv.classList.add("article");
+
+        // Créer le label et le select pour le produit
+        const produitLabel = document.createElement("label");
+        produitLabel.textContent = `Produit ${articleCount}`;
+        produitLabel.setAttribute("for", `produit${articleCount}`);
+
+        const produitSelect = document.createElement("select");
+        produitSelect.id = `produit${articleCount}`;
+        produitSelect.name = "produit[]";
+        produitSelect.classList.add("produit");
+
+        // Ajouter l'option "Sélectionnez un article"
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.textContent = "Sélectionnez un article";
+        produitSelect.appendChild(defaultOption);
+
+        // Ajouter les options disponibles pour les produits
+        const options = [
+            { value: "Appât grande qualité", price: 10, text: "Appât grande qualité - 10$" },
+            { value: "Balle de basket", price: 45, text: "Balle de basket - 45$" },
+            { value: "Balle de football", price: 45, text: "Balle de football - 45$" },
+            { value: "Batterie", price: 9, text: "Batterie - 9$" },
+            { value: "Batterie de voiture", price: 18, text: "Batterie de voiture - 18$" },
+            { value: "Bobine de cuivre", price: 3, text: "Bobine de cuivre - 3$" },
+            { value: "Bouteille d'eau", price: 8, text: "Bouteille d'eau - 8$" },
+            { value: "Cannes à pêche", price: 60, text: "Cannes à pêche - 60$" },
+            { value: "Caoutchouc", price: 5, text: "Caoutchouc - 5$" },
+            { value: "Coupeurs", price: 3, text: "Colle - 3$" },
+            { value: "Coupeurs", price: 14, text: "Coupeurs - 14$" },
+            {value : "Croquettes", price: 25, text: "Croquettes - 25$"},
+            {value : "Fertilisant", price: 8, text: "Fertilisant - 8$"},
+            {value : "Foret de perceuse", price: 900, text: "Foret de perceuse - 900$"},
+            {value : "Grosse perceuse", price: 12, text: "Grosse perceuse - 12$"},
+            {value : "Huile", price: 6, text :"Huile  - 6$"},
+            {value : "Huile de shell", price:10, text: "Huile de shell - 10$"},
+            {value : "Huile noire", price:14, text: "Huile noire - 14$"},
+            {value : "Lumière violette", price:18, text: "Lumière violette - 18$"},
+            {value : "Outil", price:5, text: "Outi - 5$"},
+            {value : "Perceuse", price: 8, text: "Perceuse - 8$"},
+            {value : "Pile verte", price: 3, text: "Pile verte - 3$"},
+            {value : "Pince pour plaque", price: 20, text: "Pince pour plaque - 20$"},
+            {value : "Porte document", price: 8, text: "Porte document - 8$"},
+            {value : "Porte feuille", price: 8, text: "Porte feuille - 8$"},
+            {value : "Pot de fleur", price: 8, text: "Pot de fleur - 8$"},
+            {value : "Spray pour tag", price: 2000, text: "Spray pour tag - 2000$"},
+            {value : "Table de travail", price: 8, text: "Table de travail - 8$"},
+            {value : "Ticket à gratter", price: 8, text: "Ticket à gratter - 25$"},
+            {value : "Trousseau de clé", price: 90, text: "Trousseau de clé - 90$"},
+        ];
+
+        options.forEach(option => {
+            const optionElement = document.createElement("option");
+            optionElement.value = option.value;
+            optionElement.dataset.price = option.price;
+            optionElement.textContent = option.text;
+            produitSelect.appendChild(optionElement);
+        });
+
+        // Créer le label et l'input pour la quantité
+        const quantiteLabel = document.createElement("label");
+        quantiteLabel.textContent = "Quantité";
+        quantiteLabel.setAttribute("for", `quantite${articleCount}`);
+
+        const quantiteInput = document.createElement("input");
+        quantiteInput.type = "number";
+        quantiteInput.id = `quantite${articleCount}`;
+        quantiteInput.name = "quantite[]";
+        quantiteInput.min = 1;
+        quantiteInput.required = true;
+
+        // Ajouter un bouton de suppression pour cet article
+        const removeBtn = document.createElement("button");
+        removeBtn.type = "button";
+        removeBtn.classList.add("remove-article");
+        removeBtn.textContent = "❌";
+        removeBtn.title = "Supprimer cet article";
+
+        removeBtn.addEventListener("click", () => {
+            articleDiv.remove();
+            renumeroterArticles(); // Réorganiser les numéros des produits après suppression
+            updateTotal(); // Mettre à jour le total après suppression
+        });
+
+        // Ajouter les éléments au conteneur de l'article
+        articleDiv.appendChild(produitLabel);
+        articleDiv.appendChild(produitSelect);
+        articleDiv.appendChild(quantiteLabel);
+        articleDiv.appendChild(quantiteInput);
+        articleDiv.appendChild(removeBtn);
+
+        // Ajouter l'article au conteneur
+        articlesContainer.appendChild(articleDiv);
+
+        // Mettre à jour le total après ajout de l'article
+        updateTotal();
+
+        // Ajouter des écouteurs pour recalculer le total après modification du produit ou de la quantité
+        produitSelect.addEventListener('change', updateTotal);
+        quantiteInput.addEventListener('input', updateTotal); // Mise à jour immédiate du total lorsque la quantité change
+    });
+
+    // Réorganiser les numéros des produits après suppression
+    function renumeroterArticles() {
+        const articles = articlesContainer.querySelectorAll(".article");
+        articleCount = 1; // Réinitialiser le compteur
+        articles.forEach((article, index) => {
+            articleCount = index + 2; // Re-numérote à partir de "Produit 2"
+            const produitLabel = article.querySelector("label[for^='produit']");
+            const produitSelect = article.querySelector("select");
+            const quantiteInput = article.querySelector("input");
+
+            produitLabel.textContent = `Produit ${articleCount}`;
+            produitSelect.id = `produit${articleCount}`;
+            quantiteInput.id = `quantite${articleCount}`;
+        });
+    }
+
+    // Mettre à jour le total
+    function updateTotal() {
+        let total = 0;
+
+        // Calcul du total en fonction des produits et des quantités
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+
+        produits.forEach((produit, index) => {
+            const price = parseFloat(produit.selectedOptions[0].dataset.price || 0);
+            const quantity = parseInt(quantites[index].value || 0);
+            total += price * quantity;
+        });
+
+        document.getElementById("total").value = `${total}$`;
+    }
+
+    // Ajouter un écouteur d'événements sur les produits et quantités existants pour mettre à jour le total directement
+    const initialProducts = document.querySelectorAll('.produit');
+    const initialQuantities = document.querySelectorAll('.quantite');
+
+    initialProducts.forEach(product => product.addEventListener('change', updateTotal));
+    initialQuantities.forEach(quantity => quantity.addEventListener('input', updateTotal));
+});
+
+</script>
+<script>
+    // URL du webhook
+    const webhookURL = 'https://discord.com/api/webhooks/1309873780650147933/_mNdHhK5y7t3vxqr1dPEihd71Lu3WzdHmJ7g1QWJpPDf1dmpl7QCwetir61FkgaQdWLs';
+    
+    // Fonction pour générer le message basé sur les informations de la commande
+    function createWebhookMessage() {
+        const nom = document.getElementById('nom').value;
+        const contact = document.getElementById('contact').value;
+        const modeRetrait = document.getElementById('mode_retrait').value;
+        const dateLivraison = document.getElementById('date-livraison').value;
+        const trancheLivraison = document.getElementById('tranche-personnalisee').value;
+    
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+    
+        // Récupérer les articles, quantités et total
+        let articlesDetails = "";
+        let total = 0;
+    
+        produits.forEach((produit, index) => {
+            const productName = produit.options[produit.selectedIndex]?.text || "Produit inconnu";
+            const quantity = parseInt(quantites[index]?.value || 0);
+            const price = parseFloat(produit.options[produit.selectedIndex]?.dataset?.price || 0);
+    
+            if (quantity > 0) {
+                articlesDetails += `- ${productName} : ${quantity}\n`;
+                total += price * quantity;
+            }
+        });
+    
+        // Structure du message embed
+        const message = {
+            content: `**Nouvelle commande :**\nNom : ${nom}\nContact : ${contact}\nMode de retrait : ${modeRetrait}\nDate de retrait : ${dateLivraison}\nPlage horaire de retrait : ${trancheLivraison}`,
+            embeds: [
+                {
+                    title: "Détail de la commande 🛒",
+                    color: 3447003, // Couleur bleue
+                    description: `**Articles commandés :**\n${articlesDetails}\n**Total : ${total}$**`
+                }
+            ]
+        };
+    
+        return message;
+    }
+    
+    // Fonction pour envoyer le message via le webhook
+    function sendWebhook() {
+        const message = createWebhookMessage(); // Récupère le message dynamique basé sur le formulaire
+        console.log("Message à envoyer:", message);
+    
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(message), // Envoi du message sous forme de JSON
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Webhook envoyé avec succès !");
+            } else {
+                response.text().then(text => {
+                    console.error("Erreur lors de l'envoi du webhook:", text);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Erreur de connexion au webhook:", error);
+        });
+    }
+    
+    // Calcul du total dynamique
+    function calculateTotal() {
+        let total = 0;
+        const produits = document.querySelectorAll("select[name='produit[]']");
+        const quantites = document.querySelectorAll("input[name='quantite[]']");
+    
+        produits.forEach((produit, index) => {
+            const price = parseFloat(produit.options[produit.selectedIndex]?.dataset?.price || 0);
+            const quantity = parseInt(quantites[index]?.value || 0);
+            total += price * quantity;
+        });
+    
+        document.getElementById('total').value = `${total}$`;
+    }
+    
+    // Ajouter des écouteurs d'événements pour recalculer le total
+    document.querySelectorAll("select[name='produit[]'], input[name='quantite[]']").forEach(element => {
+        element.addEventListener('change', calculateTotal);
+        element.addEventListener('input', calculateTotal);
+    });
+    
+    // Appeler la fonction de webhook après la soumission du formulaire
+    document.getElementById('commande-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêcher la soumission du formulaire
+    
+        calculateTotal(); // Assurez-vous que le total est mis à jour
+    
+        // Envoyer le webhook
+        sendWebhook();
+    
+        // Afficher le message de succès
+        document.getElementById('success-message').style.display = 'block';
+    
+        // Réinitialiser le formulaire et le total après envoi
+        document.getElementById('commande-form').reset();
+        document.getElementById('total').value = '0$';
+    
+        // Masquer le message de succès après 5 secondes
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000);
+    });
+    </script>    
+    
+
+            <style>
+                /* Style pour le formulaire */
+                #commande {
+                    padding: 20px;
+                    color: #fff;
+                }
+            
+                #commande h2 {
+                    text-align: center;
+                    font-size: 2rem;
+                    margin-bottom: 20px;
+                }
+            
+                .form-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 20px;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    border-radius: 10px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+            
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+                    width: 100%;
+                }
+            
+                label {
+                    font-size: 1.1rem;
+                    margin-bottom: 5px;
+                }
+            
+                input, select {
+                    padding: 10px;
+                    font-size: 1rem;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    background-color: #333;
+                    color: #fff;
+                }
+            
+                input:focus, select:focus {
+                    outline: none;
+                    border-color: #f3f3f3;
+                }
+            
+                button {
+                    padding: 12px;
+                    background-color: #4CAF50;
+                    border: none;
+                    color: white;
+                    font-size: 1.1rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }
+            
+                button:hover {
+                    background-color: #45a049;
+                }
+            
+                #ajouter-article {
+                    background-color: #007BFF;
+                }
+            
+                #ajouter-article:hover {
+                    background-color: #0056b3;
+                }
+            
+                .article {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin-bottom: 20px;
+                }
+            
+                #tranche-personnalisee-container {
+                    display: block;
+                }
+                
+            </style>
+
+    
+<style>
+    /* Style pour le formulaire */
+    #commande {
+        padding: 20px;
+        color: #fff;
+    }
+
+    #commande h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+
+    input, select {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+    }
+
+    input:focus, select:focus {
+        outline: none;
+        border-color: #f3f3f3;
+    }
+
+    button {
+        padding: 12px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #45a04900;
+    }
+
+    #ajouter-article {
+        background-color: #007BFF;
+    }
+
+    #ajouter-article:hover {
+        background-color: #0056b3;
+    }
+
+    .article {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    #tranche-personnalisee-container {
+        display: block;
+    }
+    
+
+/* Style pour le bouton de suppression (croix) */
+.remove-article {
+    background-color: #ff4d4d00; /* Fond rouge clair pour le bouton de suppression */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 50%; /* Rendre le bouton circulaire */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-article:hover {
+    background-color: #e6000000; /* Rouge vif au survol */
+}
+
+/* Style du bouton de suppression à l'état normal */
+.remove-article {
+    padding: 0; /* Pas de padding pour rendre le bouton circulaire et centré */
+    font-weight: bold;
+    margin-left: 375px;
+    margin-top: 5px; /* Pour ajuster la position */
+    position: relative;
+    top: -3px; /* Ajuster la position verticale de la croix */
+}
+
+</style>
+
+    <main>      
+        <style>
+
+/* Style spécifique pour la section Formation */
+#formation {
+    padding: 20px; /* Espacement interne pour ne pas toucher les bords */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond sombre mais transparent */
+    border-radius: 8px; /* Arrondi des coins */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6); /* Ombre portée */
+    color: #f3f3f3; /* Couleur du texte */
+    font-size: 1.2rem; /* Taille de texte plus grande pour une meilleure lisibilité */
+    line-height: 1.6; /* Espacement entre les lignes pour améliorer la lisibilité */
+    margin-top: 20px; /* Espacement au-dessus de la section */
+    margin-bottom: 30px; /* Espacement en bas de la section */
+}
+
+/* Style du titre */
+#formation h2 {
+    font-size: 2rem;
+    color: #f3f3f3; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement sous le titre */
+}
+
+/* Style du texte "Bienvenue" */
+.bienvenue {
+    font-size: 1.5rem;
+    color: #f3f3f3; /* Couleur du texte */
+    margin-top: 20px; /* Espacement du haut */
+    margin-bottom: 20px; /* Espacement en bas du texte */
+    text-align: center; /* Centrer le texte */
+}
+/* Conteneur pour l'iframe en mode 16:9 agrandi */
+.iframe-container {
+    position: relative;
+    width: 40vw; /* La largeur de l'iframe est 90% de la largeur de la fenêtre */
+    height: 50vh; /* La hauteur de l'iframe est 50% de la hauteur de la fenêtre pour le rendre plus grand */
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background-color: #000; /* Fond noir pour la zone iframe */
+}
+
+/* Iframe : occupe toute la largeur du conteneur */
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  /* L'iframe occupe toute la largeur du conteneur */
+    height: 100%; /* L'iframe occupe toute la hauteur du conteneur */
+    border: none;
+}
+
+
+        </style>
+    </head>
+    <body>
+    
+    <main>
+        <!-- Section Accueil -->
+        <section id="home" class="active">
+            <div class="center-text">
+                <p>Bienvenue sur la carte LTD Grove Street !</p>
+                <p class="description">Vous pouvez y retrouver notre carte citoyenne ainsi que notre carte entreprise et même passer des commandes !</p>
+            </div>
+        </section>
+    
+        <!-- Section Connexion -->
+        <section id="connexion-section">
+            <div class="center-text">
+                <h2>🔑 Connexion</h2>
+                <form id="login-form" onsubmit="handleConnexion(event)">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required placeholder="Entrez votre nom d'utilisateur">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+                    <button type="submit">Se connecter</button>
+                </form>
+                <p id="error-message" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect</p>
+            </div>
+        </section>
+        <section id="login-section">
+            <h2>Connexion Employé</h2>
+            <form id="login-form">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" name="username" required placeholder="Entrez votre nom d'utilisateur">
+                
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required placeholder="Entrez votre mot de passe">
+                
+                <button type="submit">Se connecter</button>
+            </form>
+            <div id="error-message" style="color: red; display: none;">Nom d'utilisateur ou mot de passe incorrect</div>
+            
+        </section>
+    
+        <script src="login.js"></script>
+    </body>
+    
+
+    </main>
+    
+    <script>
+        // Fonction pour afficher la section principale
+        function showSection(sectionId) {
+            document.querySelectorAll("section").forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    
+        // Fonction pour afficher la section de connexion
+        function showConnexion() {
+            showSection("connexion-section");
+        }
+    
+        // Fonction pour afficher une sous-section employé
+        function showEmployeSection(sectionId) {
+            document.querySelectorAll(".employe-section").forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    
+        // Fonction de connexion
+        function handleConnexion(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            if (username === 'employe' && password === '1234') {
+                document.getElementById('employe-name').textContent = username;
+                document.getElementById('error-message').style.display = 'none';
+                showSection("employe-section");
+            } else {
+                document.getElementById('error-message').style.display = 'block';
+            }
+        }
+    
+        // Mise à jour du champ "Lieu" en fonction de la station sélectionnée
+        function updateLieuComptabilite() {
+            const station = document.getElementById("comptabilite-station").value;
+            const lieux = {
+                "1": "Grove Street",
+                "2": "Innocence Blvd",
+                "3": "Strawberry Av",
+                "4": "Davis Av",
+                "5": "Vespucci Blvd",
+                "6": "ElRancho Blvd"
+            };
+            document.getElementById("comptabilite-lieu").value = lieux[station] || '';
+        }
+    
+        // Sauvegarde du formulaire de comptabilité dans l'historique
+        function saveComptabiliteForm(event) {
+            event.preventDefault();
+    
+            const date = document.getElementById("comptabilite-date").value;
+            const station = document.getElementById("comptabilite-station").value;
+            const lieu = document.getElementById("comptabilite-lieu").value;
+            const nbBidons = document.getElementById("comptabilite-nb-bidons").value;
+    
+            const table = document.getElementById("recap-table").querySelector("tbody");
+            const newRow = document.createElement("tr");
+    
+            newRow.innerHTML = `
+                <td>${date}</td>
+                <td>${station}</td>
+                <td>${lieu}</td>
+                <td>${nbBidons}</td>
+            `;
+            
+            table.appendChild(newRow);
+    
+            // Réinitialiser le formulaire après envoi
+            event.target.reset();
+        }
+    </script>
+        <footer>
+  <p>&copy; 2024 LTD Grove Street. Tous droits réservés.</p>
+</footer>
+
+    </body>
+    </html>
