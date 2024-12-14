@@ -183,7 +183,8 @@ section.active {
         <nav>
             <a href="javascript:void(0)" onclick="showSection('home')">🏠 Accueil</a>
             <a href="javascript:void(0)" onclick="showSection('citizens')">🧑‍🤝‍🧑 Citoyens</a>
-            <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a> 
+            <a href="javascript:void(0)" onclick="showSection('entreprises')">🏢 Entreprises</a>
+            <a href="javascript:void(0)" onclick="showSection('formulaire-candidature')">📝 Candidature</a> 
             <a href="javascript:void(0)" onclick="showSection('presentation-employes')">⏳ À propos</a> 
             <a href="javascript:void(0)" onclick="showSection('panier')">🛒 Panier</a>
         </nav>
@@ -579,251 +580,239 @@ section.active {
     }
 </style>
         <style>
-            #panier {
-                max-width: 500px;
-                margin: 50px auto;
-                padding: 20px;
-                background: rgba(0, 0, 0, 0.7);
-                border-radius: 15px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            }
-    
-            #panier h2 {
-                text-align: center;
-                font-size: 1.8rem;
-                color: #ffffff;
-                margin-bottom: 20px;
-            }
-    
-            .cart-summary {
-                text-align: right;
-                font-size: 1.2rem;
-                margin-bottom: 20px;
-                color: #fff;
-            }
-    
-            .cart-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 10px;
-                color: #fff;
-            }
-    
-            .cart-item p {
-                margin: 0;
-            }
-    
-            .quantity-controls button {
-                margin: 0 5px;
-                padding: 5px 10px;
-                font-size: 1rem;
-                background-color: #7a44e0;
-                color: #ffffff;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-    
-            .quantity-controls button:hover {
-                background-color: #5e33b1;
-            }
-    
-            .continue-section button {
-                width: 100%;
-                padding: 15px;
-                font-size: 1rem;
-                background-color: #7a44e0;
-                color: #ffffff;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: transform 0.2s, background-color 0.3s ease;
-            }
-    
-            .continue-section button:hover {
-                background-color: #5e33b1;
-                transform: scale(1.05);
-            }
-    
-            #checkout-form {
-                border: 1px solid #44444400;
-                padding: 20px;
-                border-radius: 10px;
-                background: rgba(255, 255, 255, 0);
-                display: none;
-            }
-    
-            #checkout-form h3 {
-                font-size: 1.5rem;
-                color: #f1c40f;
-                margin-bottom: 20px;
-                text-align: center;
-            }
-    
-            #checkout-form label {
-                font-size: 1rem;
-                margin-bottom: 5px;
-                display: block;
-                color: #fff;
-            }
-    
-            #checkout-form input, #checkout-form select {
-                width: 100%;
-                height: 40px;
-                padding: 8px;
-                font-size: 1rem;
-                border: 1px solid #44444400;
-                border-radius: 5px;
-                margin-bottom: 15px;
-                background: rgba(0, 0, 0, 0.5);
-                color: #fff;
-                transition: border-color 0.3s ease;
-            }
-    
-            #checkout-form input:focus, #checkout-form select:focus {
-                border-color: #7a44e0;
-                outline: none;
-            }
-    
-            #checkout-form button {
-                width: 100%;
-                padding: 15px;
-                font-size: 1rem;
-                background-color: #7a44e0;
-                color: #ffffff;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: transform 0.2s, background-color 0.3s ease;
-            }
-    
-            #checkout-form button:hover {
-                background-color: #5e33b1;
-                transform: scale(1.05);
-            }
+#panier {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond noir avec une légère transparence */
+    color: #fff; /* Texte en blanc */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#panier h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cart-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items {
+    flex: 2;
+    padding-right: 20px;
+}
+
+.cart-summary {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.6); /* Résumé avec fond noir semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cart-item p {
+    margin: 0;
+    color: #d2d2d2; /* Texte gris clair pour les prix */
+}
+
+.quantity-controls button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    background-color: #7a44e0; /* Violet principal */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quantity-controls button:hover {
+    background-color: #5e33b1; /* Violet foncé au survol */
+}
+
+.cart-summary button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #7a44e0; /* Violet principal */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-summary button:hover {
+    background-color: #5e33b1; /* Violet foncé au survol */
+}
+
+#checkout-form {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Formulaire de finalisation avec fond plus transparent */
+    border-radius: 10px;
+    display: none;
+}
+
+#checkout-form input,
+#checkout-form select {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5); /* Champ de saisie avec fond noir transparent */
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+#checkout-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: #7a44e0; /* Violet principal */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#checkout-form button:hover {
+    background-color: #5e33b1; /* Violet foncé au survol */
+}
+
         </style>
-    <body>
-        <section id="panier">
-            <h2>🛒 Votre Panier</h2>
-            <div class="cart-items">
-                <!-- Les articles ajoutés apparaîtront ici -->
-            </div>
-            <div class="cart-summary">
-                <p>Total : <span id="cart-total">0$</span></p>
-            </div>
+        <body>
+            <section id="panier">
+                <h2>🛒 Votre Panier</h2>
+                <div class="cart-content">
+                    <div class="cart-items">
+                        <!-- Les articles ajoutés apparaîtront ici -->
+                    </div>
+                    <div class="cart-summary">
+                        <p>Total : <span id="cart-total">0€</span></p>
+                        <button id="checkout-button">Aller au paiement</button>
+                    </div>
+                </div>
         
-            <div class="continue-section">
-                <button id="continue-button">Continuer</button>
-            </div>
+                <div id="checkout-form" style="display: none;">
+                    <form id="order-form">
+                        <label for="nom">Nom :</label>
+                        <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom et prénom">
         
-            <div id="checkout-form">
-                <form id="order-form">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom et prénom">
+                        <label for="contact">Contact :</label>
+                        <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro">
         
-                    <label for="contact">Contact :</label>
-                    <input type="text" id="contact" name="contact" required placeholder="Entrez votre numéro">
+                        <label for="mode_retrait">Mode de retrait :</label>
+                        <select id="mode_retrait" name="mode_retrait" required>
+                            <option value="En magasin">En magasin</option>
+                            <option value="Livraison">Livraison</option>
+                        </select>
         
-                    <label for="mode_retrait">Mode de retrait :</label>
-                    <select id="mode_retrait" name="mode_retrait" required>
-                        <option value="En magasin">En magasin</option>
-                        <option value="Livraison">Livraison</option>
-                    </select>
+                        <label for="retrieval-date">Date de retrait :</label>
+                        <input type="date" id="retrieval-date" name="retrieval-date" required>
         
-                    <label for="retrieval-date">Date de retrait :</label>
-                    <input type="date" id="retrieval-date" name="retrieval-date" required>
+                        <label for="tranche-livraison">Plage horaire de retrait :</label>
+                        <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
         
-                    <label for="tranche-livraison">Plage horaire de retrait :</label>
-                    <input type="text" id="tranche-personnalisee" name="tranche-personnalisee" placeholder="Ex: 10h30 - 12h30" required>
+                        <button type="submit">Valider</button>
+                    </form>
+                </div>
+            </section>
         
-                    <button type="submit">Valider</button>
-                </form>
-            </div>
-        </section>
-    
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const cartItemsContainer = document.querySelector('.cart-items');
-                const cartTotalElement = document.getElementById('cart-total');
-                const continueButton = document.getElementById('continue-button');
-                const checkoutForm = document.getElementById('checkout-form');
-                let cart = {};
-                let total = 0;
-    
-                document.querySelectorAll('.add-to-cart').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const itemName = button.getAttribute('data-name');
-                        const itemPrice = parseFloat(button.getAttribute('data-price'));
-    
-                        if (cart[itemName]) {
-                            cart[itemName].quantity += 1;
-                        } else {
-                            cart[itemName] = { price: itemPrice, quantity: 1 };
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const cartItemsContainer = document.querySelector('.cart-items');
+                    const cartTotalElement = document.getElementById('cart-total');
+                    const checkoutButton = document.getElementById('checkout-button');
+                    const checkoutForm = document.getElementById('checkout-form');
+                    let cart = {};
+                    let total = 0;
+        
+                    // Gère l'ajout au panier
+                    document.querySelectorAll('.add-to-cart').forEach(button => {
+                        button.addEventListener('click', () => {
+                            const itemName = button.getAttribute('data-name');
+                            const itemPrice = parseFloat(button.getAttribute('data-price'));
+        
+                            if (cart[itemName]) {
+                                cart[itemName].quantity += 1;
+                            } else {
+                                cart[itemName] = { price: itemPrice, quantity: 1 };
+                            }
+        
+                            updateCart();
+                        });
+                    });
+        
+                    function updateCart() {
+                        cartItemsContainer.innerHTML = '';
+                        total = 0;
+        
+                        for (const [name, item] of Object.entries(cart)) {
+                            const itemTotalPrice = item.price * item.quantity;
+                            total += itemTotalPrice;
+        
+                            const cartItem = document.createElement('div');
+                            cartItem.classList.add('cart-item');
+                            cartItem.innerHTML = `
+                                <p>${name} - ${item.price}€ x ${item.quantity} = ${itemTotalPrice}€</p>
+                                <div class="quantity-controls">
+                                    <button class="decrease-quantity" data-name="${name}">-</button>
+                                    <button class="increase-quantity" data-name="${name}">+</button>
+                                    <button class="remove-item" data-name="${name}">Supprimer</button>
+                                </div>
+                            `;
+                            cartItemsContainer.appendChild(cartItem);
+        
+                            cartItem.querySelector('.decrease-quantity').addEventListener('click', () => {
+                                if (cart[name].quantity > 1) {
+                                    cart[name].quantity -= 1;
+                                } else {
+                                    delete cart[name];
+                                }
+                                updateCart();
+                            });
+        
+                            cartItem.querySelector('.increase-quantity').addEventListener('click', () => {
+                                cart[name].quantity += 1;
+                                updateCart();
+                            });
+        
+                            cartItem.querySelector('.remove-item').addEventListener('click', () => {
+                                delete cart[name];
+                                updateCart();
+                            });
                         }
-    
+        
+                        cartTotalElement.textContent = `${total}€`;
+                    }
+        
+                    // Affiche le formulaire de paiement
+                    checkoutButton.addEventListener('click', () => {
+                        checkoutForm.style.display = 'block';
+                    });
+        
+                    document.getElementById('order-form').addEventListener('submit', event => {
+                        event.preventDefault();
+                        checkoutForm.style.display = 'none';
+                        cart = {};
                         updateCart();
                     });
                 });
-    
-                function updateCart() {
-                    cartItemsContainer.innerHTML = '';
-                    total = 0;
-    
-                    for (const [name, item] of Object.entries(cart)) {
-                        const itemTotalPrice = item.price * item.quantity;
-                        total += itemTotalPrice;
-    
-                        const cartItem = document.createElement('div');
-                        cartItem.classList.add('cart-item');
-                        cartItem.innerHTML = `
-                            <p>${name} - ${item.price}$ x ${item.quantity} = ${itemTotalPrice}$</p>
-                            <div class="quantity-controls">
-                                <button class="decrease-quantity" data-name="${name}">-</button>
-                                <button class="increase-quantity" data-name="${name}">+</button>
-                                <button class="remove-item" data-name="${name}">Supprimer</button>
-                            </div>
-                        `;
-                        cartItemsContainer.appendChild(cartItem);
-    
-                        cartItem.querySelector('.decrease-quantity').addEventListener('click', () => {
-                            if (cart[name].quantity > 1) {
-                                cart[name].quantity -= 1;
-                            } else {
-                                delete cart[name];
-                            }
-                            updateCart();
-                        });
-    
-                        cartItem.querySelector('.increase-quantity').addEventListener('click', () => {
-                            cart[name].quantity += 1;
-                            updateCart();
-                        });
-    
-                        cartItem.querySelector('.remove-item').addEventListener('click', () => {
-                            delete cart[name];
-                            updateCart();
-                        });
-                    }
-    
-                    cartTotalElement.textContent = `${total}$`;
-                }
-    
-                continueButton.addEventListener('click', () => {
-                    checkoutForm.style.display = 'block';
-                    continueButton.style.display = 'none';
-                });
-    
-                document.getElementById('order-form').addEventListener('submit', event => {
-                    event.preventDefault();
-                    checkoutForm.style.display = 'none';
-                    continueButton.style.display = 'block';
-                    cart = {};
-                    updateCart();
-                });
-            });
-        </script>
+            </script>
+        
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Panier vide
