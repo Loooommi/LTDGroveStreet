@@ -1210,44 +1210,72 @@ section.active {
     <h2 style="text-align: center; font-size: 2rem; color: #ffffff;">Formulaire de Candidature</h2>
     <div class="form-container" style="max-width: 600px; margin: 0 auto; background-color: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
         <form id="candidature-form" style="display: flex; flex-direction: column; gap: 15px; color: #ffffff;">
+            <style>
+                #candidature-form input, 
+                #candidature-form select, 
+                #candidature-form textarea {
+                    width: 100%; /* Assure que tous les champs prennent la même largeur */
+                    padding: 10px; 
+                    border-radius: 5px; 
+                    border: 1px solid #dddddd; 
+                    background-color: #333333; 
+                    color: #ffffff; 
+                    box-sizing: border-box; /* Garantit que padding et bordure ne dépassent pas la largeur */
+                }
+                #candidature-form textarea {
+                    resize: none; /* Empêche le redimensionnement des textareas */
+                    height: 80px; /* Ajuste la hauteur des textareas */
+                }
+                #candidature-form button {
+                    padding: 12px; 
+                    background-color: #4CAF50; 
+                    border: none; 
+                    color: #ffffff; 
+                    font-size: 1rem; 
+                    border-radius: 5px; 
+                    cursor: pointer; 
+                    transition: background-color 0.3s;
+                }
+                #candidature-form button:hover {
+                    background-color: #45a049; /* Couleur légèrement plus sombre au survol */
+                }
+            </style>
+            
             <label for="nom-prenom">Nom Prénom</label>
-            <input type="text" id="nom-prenom" name="nom-prenom" required placeholder="Entrez votre nom et prénom" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;">
+            <input type="text" id="nom-prenom" name="nom-prenom" required placeholder="Entrez votre nom et prénom">
 
             <label for="age">Âge</label>
-            <input type="number" id="age" name="age" min="18" required placeholder="Entrez votre âge" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;">
+            <input type="number" id="age" name="age" min="18" required placeholder="Entrez votre âge">
 
             <label for="numero">Numéro</label>
-            <input type="tel" id="numero" name="numero" required placeholder="Ex : 555-5555" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;">
+            <input type="tel" id="numero" name="numero" required placeholder="Ex : 555-5555">
 
             <label for="carte-identite">Carte d'identité (URL Goopics)</label>
-            <input type="url" id="carte-identite" name="carte-identite" required placeholder="https://goopics.net/..." style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;">
+            <input type="url" id="carte-identite" name="carte-identite" required placeholder="https://goopics.net/...">
 
             <label for="poste">Poste souhaité</label>
-            <select id="poste" name="poste" required style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;">
+            <select id="poste" name="poste" required>
                 <option value="" disabled selected>Sélectionnez un poste</option>
                 <option value="pompiste">Pompiste</option>
                 <option value="vendeur">Vendeur</option>
             </select>
 
             <label for="disponibilite">Disponibilité</label>
-            <textarea id="disponibilite" name="disponibilite" required placeholder="Ex : Disponible en semaine de 14h à 20h" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;"></textarea>
+            <textarea id="disponibilite" name="disponibilite" required placeholder="Ex : Disponible en semaine de 14h à 20h"></textarea>
 
             <label for="experience">Expérience professionnelle</label>
-            <textarea id="experience" name="experience" required placeholder="Ex : 2 ans en tant que vendeur chez XYZ" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;"></textarea>
+            <textarea id="experience" name="experience" required placeholder="Ex : 2 ans en tant que vendeur chez XYZ"></textarea>
 
             <label for="qualite-defaut">Qualité/Défaut</label>
-            <textarea id="qualite-defaut" name="qualite-defaut" required placeholder="Ex : Rigoureux mais parfois impatient" style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;"></textarea>
+            <textarea id="qualite-defaut" name="qualite-defaut" required placeholder="Ex : Rigoureux mais parfois impatient"></textarea>
 
             <label for="pourquoi">Pourquoi vous et pas un autre ?</label>
-            <textarea id="pourquoi" name="pourquoi" required placeholder="Ex : Parce que je suis motivé et passionné par ce métier..." style="padding: 10px; border-radius: 5px; border: 1px solid #dddddd; background-color: #333333; color: #ffffff;"></textarea>
+            <textarea id="pourquoi" name="pourquoi" required placeholder="Ex : Parce que je suis motivé et passionné par ce métier..."></textarea>
 
-            <button type="submit" style="padding: 12px; background-color: #4CAF50; border: none; color: #ffffff; font-size: 1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">
-                Soumettre la candidature
-            </button>
+            <button type="submit">Soumettre la candidature</button>
         </form>
     </div>
 </section>
-
 
 
 <script>
