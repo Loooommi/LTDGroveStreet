@@ -77,15 +77,6 @@
             height: auto;
             border-radius: 5px;
         }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #00000000; /* Fond noir */
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
 
         /* Nouveau style pour centrer le texte */
         .center-text {
@@ -153,8 +144,41 @@ section {
 section.active {
     display: block;
 }
+/* Style de base pour les liens de navigation */
+nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: transparent; /* Enlever le fond bleu par défaut */
+    color: #ffffff; /* Texte en blanc */
+    font-size: 16px;
+    font-weight: normal; /* Enlever le texte en gras */
+    border-radius: 50px; /* Coins arrondis */
+    text-decoration: none; /* Supprime le souligné par défaut */
+    transition: all 0.3s ease; /* Transition fluide pour tous les effets */
+    margin: 5px;
+}
 
+/* Effet au survol */
+nav a:hover {
+    border: 2px solid #000000; /* Contour doré rond au survol */
+}
 
+/* Bouton actif (lorsqu'un lien est sélectionné) */
+nav a.active {
+    background-color: #000000; /* Fond doré pour le lien actif */
+    color: #000000; /* Texte sombre pour le lien actif */
+}
+nav a {
+    display: inline-block; /* Assurez-vous que les liens se comportent comme des blocs */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-origin: center; /* Centre le point d'agrandissement */
+}
+
+nav a:hover {
+    transform: scale(1.05); /* Légèrement agrandi, mais n'affecte pas le reste */
+    border: 2px solid #00000000; /* Contour doré rond au survol */
+}
 
 </style>
 
@@ -226,7 +250,7 @@ section.active {
 
 </section>
     
-    <!-- Présentation des employés -->
+   <!-- Présentation des employés -->
     <section id="presentation-employes" style="background-color: #2e2e2e00; padding: 05px 0; color: #fff; margin-top: 0; border-radius: 10px;">
         <div class="center-text">
             <p>⏳ Introduction</p>  
@@ -292,8 +316,8 @@ section.active {
                 <div class="gallery-item">
                     <img src="https://i.goopics.net/d9nhae.png" alt="Image citoyen 3">
                     <p>Foret de perceuse</p>
-                    <p>750$</p>
-                    <button class="add-to-cart" data-name="Foret de perceuse" data-price="750">Ajouter au panier</button>
+                    <p>900$</p>
+                    <button class="add-to-cart" data-name="Foret de perceuse" data-price="900">Ajouter au panier</button>
                 </div>
                 <div class="gallery-item">
                     <img src="https://i.goopics.net/5bdawf.png" alt="Image citoyen 3">
@@ -1278,6 +1302,7 @@ section.active {
 </section>
 
 
+
 <script>
     document.getElementById("candidature-form").addEventListener("submit", function(event) {
         event.preventDefault(); // Empêche la soumission classique du formulaire
@@ -1336,7 +1361,6 @@ section.active {
         })
             .then((response) => {
                 if (response.ok) {
-                    alert("Candidature envoyée avec succès !");
                     document.getElementById("candidature-form").reset(); // Réinitialise le formulaire
                 } else {
                     alert("Erreur lors de l'envoi de la candidature.");
@@ -1346,10 +1370,38 @@ section.active {
                 console.error("Erreur lors de l'envoi:", error);
             });
     });
-</script>  
+</script>
+
     <main>  
         <footer>
             <p>&copy; 2024 LTD Grove Street. Tous droits réservés.</p>
           </footer>   
+          <style>
+/* Corps du document pour une mise en page flexible */
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 0%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* La section principale remplit l'espace disponible */
+main {
+    flex: 1;
+    padding: 0px; /* Optionnel, pour ajouter de l'espace autour du contenu */
+}
+
+/* Le footer reste toujours en bas */
+footer {
+    background-color: #0000008a;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: #ffffff;
+    border-top: 2px solid #dddddd00;
+}
+
+          </style>
     </body>
     </html>
